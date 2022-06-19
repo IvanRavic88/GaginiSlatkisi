@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gagini Slatkiši se bavi pravljenjem domaćih i kvalitetnih slatkiša, koji ce ulepšati sve vaše najlepše događaje.">
+
+    <link rel="icon" href="../static//img/Favicon-GaginiSlatkiši.png">
+
+<!-- FAVICONS FOR IPHONES AND ANDROID USERS -->
+<link rel="apple-touch-icon" href="../static/img/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<!-- -------------------------------------------------------------- -->
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Secular+One&display=swap" rel="stylesheet"> 
+
+
+    <link rel="stylesheet" href="../static/css/general.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="stylesheet" href="../static/css/queries.css">
+    <title>GaginiSlatkiši &mdash; Kolači, Torte - Poručite!</title>
+  <body>
+    <section class="header-container">
+    <header class="header">
+      <a href="#" class=" prevent-default-link">
+      <img src="../static/img/GaginiSlatkiši.png" alt="GaginiSlatkiši-logo" class="logo" />
+    </a>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link prevent-default-link" href="#kolaci">Torte i kolači</a></li>
+          <li><a class="main-nav-link prevent-default-link" href="#galerija">Galerija</a></li>
+          <li><a class="main-nav-link prevent-default-link" href="#pricing">Cene</a></li>
+          <li><a class="main-nav-link nav-cta prevent-default-link" href="#footer">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+  </section>
+    <main>
+      <section class="floating-networks">
+<div class="container-floating-network">
+    <a href="https://instagram.com/gaginislatkisi" class="footer-link instagram" target="_blank"><ion-icon name="logo-instagram" class="floating social-icon"></ion-icon></a>
+    <a href="https://m.facebook.com/Gagini-slatkisi-101539355408806/" class=" footer-link facebook" target="_blank""><ion-icon name="logo-facebook" class="floating social-icon"></ion-icon></a>
+</div>
+      </section>
+      <section class="section-hero">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h1 class="heading-primary">
+              Sočne poslastice koje bude sva čula
+            </h1>
+            <p class="hero-description">
+              Svi naši slatkiši su napravljeni od pažljivo odabranih i kvalitetnih sastojaka, po proverenim receptima.
+            </p>
+            <a href="#cta" class="btn btn--full margin-right-sm media-sm prevent-default-link">Poručite odmah</a>
+
+          </div>
+          <div class="hero-img-box">
+
+
+<picture>
+<source srcset="../static/img/Desktop-3.webp" type="image/webp"/>
+<source srcset="../static/img/Desktop-3.png" type="image/png"/>
+
+
+  <img
+  src="../static/img/Desktop-3.png"
+  class="hero-img"
+  alt="Slika prelepo aranžiranih kolača, koje drži nasmejana devojka"/>
+
+</picture>
+
+          </div>
+        </div>
+      </section>
+      <section class="section-kolaci" id="kolaci">
+        <div class="container center-text">
+          <span class="subheading">Slatkiši</span>
+          <h2 class="heading-secondary">
+            Izaberite slatkiš koji odgovara Vašem ukusu
+          </h2>
+        </div>
+        
+        <div class="container grid grid--3-cols margin-bottom-md">
+         
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie = 'Torte')}}" class="slatkis-link">
+              <picture>
+                <source srcset="../static/img/Groups-img/Gallery-92.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-92.png" type="image/png"/>
+
+
+            <img
+              src="../static/img/Groups-img/Gallery-92.png"
+              alt="Slika čokoladne torte, ukrašena sa jagodama."
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Torte</span>
+              </div>
+              <p class="slatkis-title">Torte</p>
+              <a href="{{url_for('section', sweetie='Torte')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Po proverenim receptima</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealne za sve Vaše prilike</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Mogu se naručiti pojedinačno</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Torte')}}">Detaljnije</a></li>
+              </ul>
+            </div>
+          </a>
+          </div>
+        
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie='Mus')}}" class="slatkis-link">
+              <picture>
+                <source srcset="../static/img/Groups-img/Gallery-81.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-81.png" type="image/png"/>
+            <img
+              src="../static/img/Groups-img/Gallery-81.png"
+              alt="Slika prelepo serviranih mus kolača."
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Kolači</span>
+              </div>
+              <p class="slatkis-title">Mus kolači</p>
+              <a href="{{url_for('section', sweetie='Mus')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Mogućnost izbora ukusa</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealni za svečane prilike</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Mogu se naručiti pojedinačno</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Mus')}}">Detaljnije</a></li>
+              </ul>
+            </a>
+            </div>
+          </div>
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie='Casice')}}" class="slatkis-link">
+              <picture>
+                <source srcset="../static/img/Groups-img/Gallery-44.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-44.png" type="image/png"/>
+              <img
+              src="../static/img/Groups-img/Gallery-44.png"
+              alt="Slika čokoladnih čašica"
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Lux kolači</span>
+              </div>
+              <p class="slatkis-title">Čokoladne čašice</p>
+               <a href="{{url_for('section', sweetie='Casice')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Omiljeni slatkiš u čokoladnoj čaši</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealne za sve Vaše proslave</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Ne mogu se naručiti zasebno</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Casice')}}">Detaljnije</a></li>
+              </ul>
+              </a>
+            </div>
+          </div>
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie='Sitni')}}" class="slatkis-link">
+            <picture>
+                <source srcset="../static/img/Groups-img/Gallery-11.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-11.png" type="image/png"/>
+              <img
+              src="../static/img/Groups-img/Gallery-11.png"
+              alt="Slika sitnih kolača, različitih vrsta."
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Kolači</span>
+              </div>
+              <p class="slatkis-title">Sitni kolači</p>
+               <a href="{{url_for('section', sweetie='Sitni')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Prelepog ukusa i izgleda</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealni za sve prilike</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Naručuju se u paketu</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Sitni')}}">Detaljnije</a></li>
+              </ul>
+              </a>
+            </div>
+          </div>
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie='Mini')}}" class="slatkis-link">
+            <picture>
+                <source srcset="../static/img/Groups-img/Gallery-26.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-26.png" type="image/png"/>
+              <img
+              src="../static/img/Groups-img/Gallery-26.png"
+              alt="Slika mini cheese-a."
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Kolači</span>
+              </div>
+              <p class="slatkis-title">Mini cheese</p>
+               <a href="{{url_for('section', sweetie='Mini')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Različitih ukusa</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealni za sve prilike</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Naručuju se na kilogram</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Mini')}}">Detaljnije</a></li>
+              </ul>
+              </a>
+            </div>
+          </div>
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie='Lux')}}" class="slatkis-link">
+            <picture>
+                <source srcset="../static/img/Groups-img/Gallery-103.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-103.png" type="image/png"/>
+              <img
+              src="../static/img/Groups-img/Gallery-103.png"
+              alt="Slika Lux kolača."
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Lux kolači</span>
+              </div>
+              <p class="slatkis-title">Lux kolači</p>
+               <a href="{{url_for('section', sweetie='Lux')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Prelepog ukusa i izgleda</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealni za sve prilike</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Naručuju se u paketu</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Lux')}}">Detaljnije</a></li>
+              </ul>
+              </a>
+            </div>
+          </div>
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie='Tart')}}" class="slatkis-link">
+            <picture>
+                <source srcset="../static/img/Groups-img/Gallery-82.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-82.png" type="image/png"/>
+              <img
+              src="../static/img/Groups-img/Gallery-82.png"
+              alt="Slika Tart Torte od čokolade i plazme."
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Torte</span>
+              </div>
+              <p class="slatkis-title">Tart Torte</p>
+               <a href="{{url_for('section', sweetie='Tart')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Sa kremastim filom</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealni za sve Vaše prilike</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Naručuju se pojedinačno</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Tart')}}">Detaljnije</a></li>
+              </ul>
+              </a>
+            </div>
+          </div>
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie='Medenjaci')}}" class="slatkis-link">
+           <picture>
+                <source srcset="../static/img/Groups-img/Gallery-60.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-60.png" type="image/png"/>
+              <img
+              src="../static/img/Groups-img/Gallery-60.png"
+              alt="Medenjak sa likom Deda Mraza."
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Medenjaci</span>
+              </div>
+              <p class="slatkis-title">Medenjaci</p>
+               <a href="{{url_for('section', sweetie='Medenjaci')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Prelepog ukusa i izgleda</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealni za sve prilike</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Naručuju se pojedinačno</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Medenjaci')}}">Detaljnije</a></li>
+              </ul>
+              </a>
+            </div>
+          </div>
+
+          <div class="slatkis">
+            <a href="{{url_for('section', sweetie='Bombone')}}" class="slatkis-link">
+            <picture>
+                <source srcset="../static/img/Groups-img/Gallery-83.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-83.png" type="image/png"/>
+              <img
+              src="../static/img/Groups-img/Gallery-83.png"
+              alt="Slika bombone u oblika mede sa srcem, potopljena u kakao."
+              class="slatkis-img"
+            /></picture></a>
+            <div class="slatkis-content">
+              <div class="slatkis-tag">
+                <span class="tag">Bombone</span>
+              </div>
+              <p class="slatkis-title">Penaste Bombone</p>
+               <a href="{{url_for('section', sweetie='Bombone')}}" class="slatkis-link">
+              <ul class="slatkis-attributes">
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
+                  <span>Omiljena dečija poslastica</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon
+                    class="slatkis-icon"
+                    name="restaurant-outline"
+                  ></ion-icon
+                  ><span>Idealni za dečije rođendane</span>
+                </li>
+                <li class="slatkis-attribute">
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
+                  ><span>Naručuju se u paketu</span>
+                </li>
+                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Bombone')}}">Detaljnije</a></li>
+              </ul>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+     
+      <section class="section-galerija" id="galerija">
+        
+        <div class="gallery">
+      <figure class="gallery-item big-img-first">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-1.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-1.png" type="image/png"/>
+            <img src="../static/img/Gallery/27/Gallery-1.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+        </picture>
+            <figure class="gallery-item">
+              <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-2.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-2.png" type="image/png"/>
+            <img src="../static/img/Gallery/27/Gallery-2.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          </picture>
+            <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-5.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-5.png" type="image/png"/>
+         <img src="../static/img/Gallery/27/Gallery-5.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+        </picture>
+         <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-6.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-6.png" type="image/png"/>
+         <img src="../static/img/Gallery/27/Gallery-6.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+       </picture>
+         <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-7.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-7.png" type="image/png"/>
+         <img src="../static/img/Gallery/27/Gallery-7.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+       </picture>
+         <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-8.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-8.png" type="image/png"/>
+        <img src="../static/img/Gallery/27/Gallery-8.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+       </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-11.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-11.png" type="image/png"/>
+         <img src="../static/img//Gallery/27/Gallery-11.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+       </picture>
+         <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-4.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-4.png" type="image/png"/>
+          <img src="../static/img/Gallery/27/Gallery-4.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+          <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-9.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-9.png" type="image/png"/>
+          <img src="../static/img//Gallery/27/Gallery-9.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+       </picture>
+          <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-10.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-10.png" type="image/png"/>
+          <img src="../static/img//Gallery/27/Gallery-10.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+          <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-12.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-12.png" type="image/png"/>
+          <img src="../static/img//Gallery/27/Gallery-12.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure></figure>
+      </picture>
+          <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-13.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-13.png" type="image/png"/>
+          <img src="../static/img/Gallery/27/Gallery-13.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+          <figure class="gallery-item big-img-second">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-3.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-3.png" type="image/png"/>
+          <img src="../static/img/Gallery/27/Gallery-3.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+          <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-14.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-14.png" type="image/png"/>
+        <img src="../static/img/Gallery/27/Gallery-14.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-15.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-15.png" type="image/png"/>
+        <img src="../static/img/Gallery/27/Gallery-15.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-16.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-16.png" type="image/png"/>
+        <img src="../static/img/Gallery/27/Gallery-16.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+       </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-17.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-17.png" type="image/png"/>
+        <img src="../static/img/Gallery/27/Gallery-17.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-18.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-18.png" type="image/png"/>
+        <img src="../static/img/Gallery/27/Gallery-18.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-19.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-19.png" type="image/png"/>
+        <img src="../static/img/Gallery/27/Gallery-19.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-20.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-20.png" type="image/png"/>
+        <img src="../static/img/Gallery/27/Gallery-20.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-21.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-21.png" type="image/png"/>
+        <img src="../static/img//Gallery/27/Gallery-21.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-22.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-22.png" type="image/png"/>
+        <img src="../static/img//Gallery/27/Gallery-22.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-23.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-23.png" type="image/png"/>
+        <img src="../static/img//Gallery/27/Gallery-23.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-24.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-24.png" type="image/png"/>
+        <img src="../static/img//Gallery/27/Gallery-24.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-25.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-25.png" type="image/png"/>
+        <img src="../static/img//Gallery/27/Gallery-25.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+      </picture>
+        <figure class="gallery-item">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-26.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-26.png" type="image/png"/>
+        <img src="../static/img//Gallery/27/Gallery-26.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+      </picture>
+        <figure class="gallery-item big-img-third">
+        <picture>
+          <source srcset="../static/img/Gallery/27/Gallery-27.webp" type="image/webp"/>
+          <source srcset="../static/img/Gallery/27/Gallery-27.png" type="image/png"/>
+        <img src="../static/img//Gallery/27/Gallery-27.png" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+      </picture>  
+      </div>
+      
+      </section>
+
+
+      <section class="section-pricing" id="pricing">
+        <div class="container center-text">
+          <span class="subheading">Cene</span>
+          <h2 class="heading-secondary">
+           Primeri cena naših najprodavanijih slatkiša
+          </h2>
+        </div>
+
+        <div class="container grid grid--2-cols margin-bottom-md">
+          <div class="pricing-plan pricing-plan--starter">
+            <div class="img-container">
+              <picture>
+                <source srcset="../static/img/Groups-img/Gallery-11.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-11.png" type="image/png"/>
+              <img src="../static/img/Groups-img/Gallery-11.png" alt="Slika prelepo spakovanih sitnig kolača." class="img-pricing">
+              </picture>
+            </div>
+            <div class="pricing-container">
+            <header class="plan-header">
+              <p class="plan-name">Sitni kolači</p>
+              <p class="plan-price">1300<span>RSD</span></p>
+              <p class="plan-text">po kilogramu.</p>
+            </header>
+            <ul class="list">
+              <li class="list-item">
+                <ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span>Pažljivo odabrani sastojci</span></li>
+                  <li class="list-item">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span>Različitih ukusa</span></li>
+                      <li class="list-item">
+                        <ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span>Mogućnost izbora vrste</span></li>
+                          <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span>Za sve prilike</span></li>
+                            </ul>
+                            
+
+                            </div>
+                          </div>
+          <div class="pricing-plan pricing-plan--complete">
+            <div class="img-container">
+              <picture>
+                <source srcset="../static/img/Groups-img/Gallery-103.webp" type="image/webp"/>
+                <source srcset="../static/img/Groups-img/Gallery-103.png" type="image/png"/>
+              <img src="../static/img/Groups-img/Gallery-103.png" alt="Slika prelepo spakovanih sitnig kolača." class="img-pricing">
+              </picture>
+            </div>
+            <div class="pricing-container">
+            <header class="plan-header">
+            <p class="plan-name">Lux kolači</p>
+            <p class="plan-price">1700<span>RSD</span></p>
+            <p class="plan-text">po kilogramu.</p>
+          </header>
+            <ul class="list">
+              <li class="list-item">
+              <ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span><strong>Sastojci vrhunskog kvaliteta</strong></span></li>
+              <li class="list-item">
+              <ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span><strong>Različitih ukusa</strong></span></li>
+              <li class="list-item">
+              <ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span><strong>Mogućnost izbora vrsta</strong></span></li>
+              <li class="list-item">
+              <ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span> <strong> Za specijalne prilike</strong></span></li>
+          </ul>
+        </div>
+          </div>
+        </div>
+        <div class="container grid">
+          <aside class="plan-details">
+            Cene su izražene za predviđene pakete. Ukoliko želite nešto posebno, van naše ponude, cenu ćemo odrediti na osnovu uloženeg truda i materijala.
+          </aside>
+        </div>
+        <div class="container grid grid--4-cols">
+          <div class="feature">
+            <ion-icon class="feature-icon" name="infinite-outline"></ion-icon>
+            <p class="feature-title">Prepustite nama</p>
+            <p class="feature-text">Da budemo najslađi deo Vaše proslave sa slatkišima kojima ćete se uvek vraćati. </p>
+          </div>
+          <div class="feature">
+            <ion-icon class="feature-icon" name="nutrition-outline"></ion-icon>
+            <p class="feature-title">Vrhunskog kvaliteta</p>
+            <p class="feature-text">Naši poslastičari koriste samo najbolje sastojke za Gagine Slatkiše.</p>
+          </div>
+
+          <div class="feature">
+            <ion-icon class="feature-icon" name="leaf-outline"></ion-icon>
+            <p class="feature-title">Bez brige</p>
+            <p class="feature-text">Nakon što izaberete naš proizvod, možete da se opustite, jer mi uvek ispoštujemo naše rokove.</p>
+          </div>
+
+          <div class="feature">
+            <ion-icon class="feature-icon" name="pause-outline"></ion-icon>
+            <p class="feature-title">Šta izabrati?</p>
+            <p class="feature-text">Ukoliko imate nedoumicu ili posebnu želju, mi ćemo Vam rado pomoći da zajedno kreiramo savršen slatkiš.</p>
+          </div>
+        </div>
+
+      </section>
+<section class="section-cta" id="cta">
+        <div class="container">
+          <div class="cta">
+<div class="cta-text-box">
+  <h2 class="heading-secondary">Odgovaramo na sva vaša pitanja!</h2>
+  <p class="cta-text">Pošaljite nam pitanje, predlog, želju... Mi ćemo pokušati da Vam odgovorimo u što kraćem vremenskom periodu. </p>
+     
+     <form class="cta-form" method="POST" name="sign-up" action="{{ url_for('home') }}">
+      {{ message_client_form.csrf_token }}  
+      <div>
+       {{ message_client_form.client_name.label }}
+        {{ message_client_form.client_name (placeholder="Ime") }}
+      </div>
+
+      <div>
+        {{ message_client_form.client_email.label }}
+       {{ message_client_form.client_email (placeholder="ime@primer.com") }}
+      </div>
+
+<div class="cta-message">
+  {{ message_client_form.client_message.label }}
+  <label>
+    {{ message_client_form.client_message(placeholder="Vaša poruka", rows="3") }}
+</label>
+</div>
+      {{ message_client_form.send(class_="btn btn--form message_button") }}      
+     </form>
+</div>
+<div class="cta-img-box" role="img" aria-label="Women hold beautiful sweeties."></div>
+</div>
+        </div>
+      </section>
+
+
+    </main>
+
+<footer class="footer" id="footer">
+  <div class="grid grid--footer">
+<div class="logo-col"> 
+  <a href="#" class="footer-logo  prevent-default-link">
+  <img src="../static/img/GaginiSlatkiši.png" alt="GaginiSlatkiši-logo" class="logo" /></a>
+
+<ul class="social-links">
+  <li><a target="_blank" href="https://instagram.com/gaginislatkisi" class="footer-link instagram"><ion-icon name="logo-instagram" class="social-icon"></ion-icon></a></li>
+  <li><a target="_blank" href="https://m.facebook.com/Gagini-slatkisi-101539355408806/" class="footer-link facebook"><ion-icon name="logo-facebook" class="social-icon"></ion-icon></a></li>
+</ul>
+
+  <p class="copyright">Copyright &copy; <span class="year">2022</span> by GaginiSlatkiši, Inc. All rights reserved.</p>
+  <div class="login-section">
+    {% if admin.id == 1 %}
+    <a href="{{ url_for('logout') }}" class="footer-login">Logout</a>
+    {% else %}
+    <a href="{{ url_for('login') }}" class="footer-login">Login</a>
+    {% endif %}
+  </div>
+
+</div>
+<div class="address-coll">
+  <p class="footer-heading">Kontaktirajte nas:</p>
+  <address class="contacts">
+    <p class="address">
+Gagini Slatkiši, Lazarevac
+</p>
+<p>
+  <a class="footer-link" href="tel:415-201-6370"> <span class="phone">065/5254-013</span></a><br>
+  <a class="footer-link" href="mailto:gaginislatkisi@gmail.com"><span class="email">gaginislatkisi@gmail.com</span></a>
+</p>
+
+
+</address>
+</div>
+<nav class="nav-col">
+  <ul class="footer-nav">
+    <li><a href="{{url_for('section', sweetie = 'Torte')}}" class="footer-link">Torte</a></li>
+    <li><a href="{{url_for('section', sweetie = 'Mus')}}" class="footer-link">Mus kolači</a></li>
+    <li><a href="{{url_for('section', sweetie = 'Casice')}}" class="footer-link">Čokoladne čašice</a></li>
+    <li><a href="{{url_for('section', sweetie = 'Sitni')}}" class="footer-link">Sitni kolači</a></li>
+    <li><a href="{{url_for('section', sweetie = 'Mini')}}" class="footer-link">Mini cheese</a></li>
+    <li><a href="{{url_for('section', sweetie = 'Lux')}}" class="footer-link">Lux kolači</a></li>
+    <li><a href="{{url_for('section', sweetie = 'Tart')}}" class="footer-link">Tart torte</a></li>
+    <li><a href="{{url_for('section', sweetie = 'Medenjaci')}}" class="footer-link">Medenjaci</a></li>
+    <li><a href="{{url_for('section', sweetie = 'Bombone')}}" class="footer-link">Penaste bombone</a></li>
+  </ul>
+</nav>
+<nav class="nav-col hide-nav-col">
+  <ul class="footer-nav">
+    <li><a href="#kolaci" class="footer-link prevent-default-link">Kolači i torte</a></li>
+    <li><a href="#galerija" class="footer-link prevent-default-link">Galerija</a></li>
+    <li><a href="#pricing" class="footer-link prevent-default-link">Cene</a></li>
+    <li><a href="#cta" class="footer-link prevent-default-link">Poruka</a></li>
+  </ul>
+</nav>
+
+<div class="img-footer">
+  <img class="cake-img" src="../static//img/GaginiSlatkisi-footer-img.png" alt="Nice ilustration of cake.">
+</div>
+  </div>
+</footer>
+<script defer src="../static/assets/js/script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+  </body>
+</html>

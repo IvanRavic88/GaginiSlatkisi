@@ -1,0 +1,34 @@
+{% block content %} {% include "nav.html" %}
+<body class="margin-sticky">
+  <section class="section-cta" id="cta">
+    <div class="container">
+      <div class="sweetie-version">
+        <form
+          class="sweetie-form"
+          action="{{ url_for('login') }}"
+          method="POST"
+          enctype="multipart/form-data"
+          novalidate
+        >
+          {{ login_form.csrf_token }} {% with messages = get_flashed_messages()
+          %} {% if messages %} {% for message in messages %}
+          <p>{{ message }}</p>
+          {% endfor %} {% endif %} {% endwith %}
+          <div class="sweetie-text-box">
+            {{ login_form.email.label }}
+            {{login_form.email(placeholder="name@gmail.com") }}
+          </div>
+          <div class="sweetie-text-box">
+            {{ login_form.password.label }} {{
+            login_form.password(placeholder="Password_123") }}
+          </div>
+
+          <div class="sweetie-button">
+            {{ login_form.login(class_="sweetie-button-form") }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+{% include "footer.html"%} {% endblock %}

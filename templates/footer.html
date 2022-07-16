@@ -1,0 +1,155 @@
+{% block footer %}
+<footer class="footer">
+  <div class="grid grid--footer">
+    <div class="logo-col">
+      <a href="{{url_for('home')}}" class="footer-logo">
+        <img
+          src="../static/img/GaginiSlatkiši.png"
+          alt="GaginiSlatkiši-logo"
+          class="logo"
+      /></a>
+
+      <ul class="social-links">
+        <li>
+          <a
+            href="https://instagram.com/gaginislatkisi"
+            class="footer-link instagram"
+            target="_blank"
+            ><ion-icon name="logo-instagram" class="social-icon"></ion-icon
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://m.facebook.com/Gagini-slatkisi-101539355408806/"
+            class="footer-link facebook"
+            target="_blank"
+            ><ion-icon name="logo-facebook" class="social-icon"></ion-icon
+          ></a>
+        </li>
+      </ul>
+
+      <p class="copyright">
+        Copyright &copy; <span class="year">2022</span> by GaginiSlatkiši, Inc.
+        All rights reserved.
+      </p>
+      <div class="login-section">
+        {% if admin.id == 1 %}
+        <a href="{{ url_for('logout') }}" class="footer-login">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="footer-login">Login</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="address-coll">
+      <p class="footer-heading">Kontaktirajte nas:</p>
+      <address class="contacts">
+        <p class="address">Gagini Slatkiši, Lazarevac</p>
+        <p>
+          <a class="footer-link" href="tel:0643310371">
+            <span class="phone">064/3310-371</span></a
+          ><br />
+          <a class="footer-link" href="mailto:gaginislatkisi@gmail.com"
+            ><span class="email">gaginislatkisi@gmail.com</span></a
+          >
+        </p>
+      </address>
+    </div>
+    <nav class="nav-col">
+      <ul class="footer-nav">
+        <li>
+          <a
+            href="{{url_for('section', sweetie = 'Torte')}}"
+            class="footer-link"
+            >Torte</a
+          >
+        </li>
+        <li>
+          <a href="{{url_for('section', sweetie = 'Mus')}}" class="footer-link"
+            >Mus kolači</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{url_for('section', sweetie = 'Casice')}}"
+            class="footer-link"
+            >Čokoladne čašice</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{url_for('section', sweetie = 'Sitni')}}"
+            class="footer-link"
+            >Sitni kolači</a
+          >
+        </li>
+        <li>
+          <a href="{{url_for('section', sweetie = 'Mini')}}" class="footer-link"
+            >Mini cheese</a
+          >
+        </li>
+        <li>
+          <a href="{{url_for('section', sweetie = 'Lux')}}" class="footer-link"
+            >Lux kolači</a
+          >
+        </li>
+        <li>
+          <a href="{{url_for('section', sweetie = 'Tart')}}" class="footer-link"
+            >Tart torte</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{url_for('section', sweetie = 'Medenjaci')}}"
+            class="footer-link"
+            >Medenjaci</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{url_for('section', sweetie = 'Bombone')}}"
+            class="footer-link"
+            >Penaste bombone</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <nav class="nav-col hide-nav-col">
+      <ul class="footer-nav">
+        <li>
+          <a href="{{url_for('home')}}#kolaci" class="footer-link"
+            >Kolači i torte</a
+          >
+        </li>
+        <li>
+          <a href="{{url_for('home')}}#galerija" class="footer-link"
+            >Galerija</a
+          >
+        </li>
+        <li>
+          <a href="{{url_for('home')}}#pricing" class="footer-link">Cene</a>
+        </li>
+        <li>
+          <a href="{{url_for('home')}}#cta" class="footer-link">Poruka</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="img-footer">
+      <img
+        class="cake-img"
+        src="../static/img/GaginiSlatkisi-footer-img.png"
+        alt="Nice ilustration of cake."
+      />
+    </div>
+  </div>
+</footer>
+<script defer src="../static/assets/js/script.js"></script>
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+{% endblock %}

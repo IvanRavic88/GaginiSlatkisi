@@ -11,6 +11,8 @@ import smtplib
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from PIL import Image
+import sys
+
 
 
 app = Flask(__name__)
@@ -263,7 +265,8 @@ def logout():
 
 @app.route("/delete/<sweetie>/<int:sweetie_id>", methods=["GET", "POST", "DELETE"])
 def delete_sweetie(sweetie, sweetie_id):
-    sweetie_to_delete = eval(sweetie)
+    sweetie_to_delete = getattr(sys.modules[__name__], sweetie)
+    print(sweetie_to_delete)
     sweetie_to_delete_final = sweetie_to_delete.query.filter_by(id=sweetie_id).first()
     os.remove(f"{IMAGE_UPLOADS_FOLDER}/{sweetie_to_delete_final.sweetie_img}")
     db.session.delete(sweetie_to_delete_final)

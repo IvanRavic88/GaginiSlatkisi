@@ -12,6 +12,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+
 load_dotenv(find_dotenv())
 
 
@@ -170,54 +171,57 @@ def home():
 @app.route('/section/<sweetie>', methods=["POST", "GET"])
 def section(sweetie):
   form = SweetieAddForm()
-  
-  if sweetie == "Torte":
-    subheading = "Torte"
-    secondary_heading = "Torte za sve prilike i događaje"
-    all_sweeties = db.session.query(Torte).all()
-    SweetieHandle.sweetie_handle(Torte, form)
-  elif sweetie == "Mus":
-    subheading = "Mus Kolači"
-    secondary_heading = "Kolači sa filom za svačiji ukus"
-    all_sweeties = db.session.query(Mus).all()
-    SweetieHandle.sweetie_handle(Mus, form)
-  elif sweetie == "Casice":
-    subheading = "Čokoladne Čašice"
-    secondary_heading = "Čokoladna radost za jako probirljive"
-    all_sweeties = db.session.query(Casice).all()
-    SweetieHandle.sweetie_handle(Casice, form)
-  elif sweetie == "Sitni":
-    subheading = "Sitni Kolači"
-    secondary_heading = "Kolači idealni za sve"
-    all_sweeties = db.session.query(Sitni).all()
-    SweetieHandle.sweetie_handle(Sitni, form)
-  elif sweetie == "Mini":
-    subheading = "Mini Cheese"
-    secondary_heading = "Osvežavajući mini zalogaji"
-    all_sweeties = db.session.query(Mini).all()
-    SweetieHandle.sweetie_handle(Mini, form)
-  elif sweetie == "Lux":
-    subheading = "Lux kolači"
-    secondary_heading = "Želite najbolje za sebe?! Na pravom ste mestu!"
-    all_sweeties = db.session.query(Lux).all()
-    SweetieHandle.sweetie_handle(Lux, form)
-  elif sweetie == "Tart":
-    subheading = "Tart Torte"
-    secondary_heading = "Torte za sladokusce kojima nikad nije dovoljno fila"
-    all_sweeties = db.session.query(Tart).all()
-    SweetieHandle.sweetie_handle(Tart, form)
-  elif sweetie == "Medenjaci":
-    subheading = "Medenjaci"
-    secondary_heading = "Ukrasite Vašu svakodnevnicu sa neobičnim medenjacima"
-    all_sweeties = db.session.query(Medenjaci).all()
-    SweetieHandle.sweetie_handle(Medenjaci, form)
-  elif sweetie == "Bombone":
-    subheading = "Bombone"
-    secondary_heading = "Penaste bombone za radost najmlađih"
-    all_sweeties = db.session.query(Bombone).all()
-    SweetieHandle.sweetie_handle(Bombone, form)
-  return render_template("section.html", form=form, all_sweeties=all_sweeties, sweetie = sweetie, subheading = subheading, secondary_heading = secondary_heading, admin=current_user)
+  sweetie_data = {}
 
+  sweetie_info = {
+    "Torte": {
+      "subheading": "Torte",
+      "secondary_heading": "Torte za sve prilike i događaje",
+        "type_of_sweetie": Torte,
+        
+  },
+  "Mus": {
+        "subheading": "Mus Kolači",
+        "secondary_heading": "Kolači sa filom za svačiji ukus",
+          "type_of_sweetie": Mus,
+          
+    },
+    "Casice": {
+      "subheading": "Čokoladne Čašice",
+        "secondary_heading": "Čokoladna radost za jako probirljive",
+          "type_of_sweetie": Casice,
+          
+    },
+    "Tart": {
+        "subheading": "Tart",
+          "secondary_heading": "Tart za sve prilike i događaje",
+            "type_of_sweetie": Tart,
+            
+      },
+      "Medenjaci": {
+        "subheading": "Medenjaci",
+          "secondary_heading": "Medenjaci za sve prilike i događaje",
+            "type_of_sweetie": Medenjaci,
+    
+      },
+      "Bombone": {
+        "subheading": "Bombone",
+          "secondary_heading": "Bombone za sve prilike i događaje",
+            "type_of_sweetie": Bombone,   
+      }
+  }
+
+  sweetie_data = sweetie_info[sweetie]
+  
+  if sweetie_data:
+    subheading = sweetie_data["subheading"]
+    secondary_heading = sweetie_data["secondary_heading"]
+    type_of_sweetie = sweetie_data["type_of_sweetie"]
+
+    all_sweeties = db.session.query(type_of_sweetie).all()
+    SweetieHandle.sweetie_handle(type_of_sweetie, form)
+
+    return render_template("section.html", subheading=subheading, secondary_heading=secondary_heading, all_sweeties=all_sweeties, form=form, admin=current_user, sweetie=sweetie)
 
 
 

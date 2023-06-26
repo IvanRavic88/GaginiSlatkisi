@@ -1,15 +1,13 @@
+import importlib
 
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf import FlaskForm
-from flask_wtf.file import FileField
-from wtforms import StringField, SubmitField, TextAreaField, EmailField, PasswordField
-from wtforms.validators import DataRequired, InputRequired
 import os
 from dotenv import load_dotenv, find_dotenv
 import smtplib
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from forms import LoginForm, SweetieAddForm, Client_Message
 
 app = Flask(__name__)
 
@@ -19,7 +17,7 @@ load_dotenv(find_dotenv())
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS_FOLDER')
 
 
-MAIL_GAGINI_SLATKISI = "gaginislatkisi@gmail.com"
+MAIL_GAGINI_SLATKISI = "ivan.ravic88@gmail.com"
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sweetie_table.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -42,16 +40,12 @@ app.config['MAIL_ASCII_ATTACHMENT'] = False
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-
-
-
 # DATABASE
 class User(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
-
 
 # INSERT FIRST USER IN DATABASE
 
@@ -67,72 +61,7 @@ class User(UserMixin, db.Model):
 # db.session.commit()
 
 
-class Torte(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
-  sweetie_name = db.Column(db.String(250), nullable=False)
-  description_text = db.Column(db.Text, nullable=False)
-  sweetie_img = db.Column(db.String(250), nullable=False)
-class Mus(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sweetie_name = db.Column(db.String(250), nullable=False)
-    description_text = db.Column(db.Text, nullable=False)
-    sweetie_img = db.Column(db.String(250), nullable=False)
-class Casice(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sweetie_name = db.Column(db.String(250), nullable=False)
-    description_text = db.Column(db.Text, nullable=False)
-    sweetie_img = db.Column(db.String(250), nullable=False)
-class Sitni(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sweetie_name = db.Column(db.String(250), nullable=False)
-    description_text = db.Column(db.Text, nullable=False)
-    sweetie_img = db.Column(db.String(250), nullable=False)
-class Mini(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sweetie_name = db.Column(db.String(250), nullable=False)
-    description_text = db.Column(db.Text, nullable=False)
-    sweetie_img = db.Column(db.String(250), nullable=False)
-class Lux(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sweetie_name = db.Column(db.String(250), nullable=False)
-    description_text = db.Column(db.Text, nullable=False)
-    sweetie_img = db.Column(db.String(250), nullable=False)
-class Tart(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sweetie_name = db.Column(db.String(250), nullable=False)
-    description_text = db.Column(db.Text, nullable=False)
-    sweetie_img = db.Column(db.String(250), nullable=False)
-class Medenjaci(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sweetie_name = db.Column(db.String(250), nullable=False)
-    description_text = db.Column(db.Text, nullable=False)
-    sweetie_img = db.Column(db.String(250), nullable=False)
-class Bombone(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    sweetie_name = db.Column(db.String(250), nullable=False)
-    description_text = db.Column(db.Text, nullable=False)
-    sweetie_img = db.Column(db.String(250), nullable=False)
-# db.create_all()
 
-# FORM FOR LOGIN
-class LoginForm(FlaskForm):
-  email = EmailField("Email Adress", validators = [InputRequired()])
-  password = PasswordField("Password", validators = [InputRequired()])
-  login = SubmitField("Login")
-
-# FORM FOR INSERT SWEETIES
-class SweetieAddForm(FlaskForm):
-  sweetie_name_form = StringField("Naziv slatkiša", validators=[InputRequired(message="Potrebno je uneti naziv")])
-  description_text_form = TextAreaField("Opis slatkiša", validators=[DataRequired()])
-  sweetie_img = FileField("Slika", name="sweetie-img", validators=[DataRequired()])
-  save = SubmitField("Sačuvaj slatkiš")
-
-# FORM FOR MESSAGE
-class Client_Message(FlaskForm):
-  client_name = StringField("Vaše Ime", validators = [InputRequired()])
-  client_email = EmailField("Email Adresa", validators = [InputRequired()])
-  client_message = TextAreaField("Poruka", validators = [InputRequired()])
-  send = SubmitField("Pošalji")
 
 
 
@@ -170,54 +99,18 @@ def home():
 # route for displaying sweeties from database
 @app.route('/section/<sweetie>', methods=["POST", "GET"])
 def section(sweetie):
+
   form = SweetieAddForm()
   sweetie_data = {}
-
-  sweetie_info = {
-    "Torte": {
-      "subheading": "Torte",
-      "secondary_heading": "Torte za sve prilike i događaje",
-        "type_of_sweetie": Torte,
-        
-  },
-  "Mus": {
-        "subheading": "Mus Kolači",
-        "secondary_heading": "Kolači sa filom za svačiji ukus",
-          "type_of_sweetie": Mus,
-          
-    },
-    "Casice": {
-      "subheading": "Čokoladne Čašice",
-        "secondary_heading": "Čokoladna radost za jako probirljive",
-          "type_of_sweetie": Casice,
-          
-    },
-    "Tart": {
-        "subheading": "Tart",
-          "secondary_heading": "Tart za sve prilike i događaje",
-            "type_of_sweetie": Tart,
-            
-      },
-      "Medenjaci": {
-        "subheading": "Medenjaci",
-          "secondary_heading": "Medenjaci za sve prilike i događaje",
-            "type_of_sweetie": Medenjaci,
-    
-      },
-      "Bombone": {
-        "subheading": "Bombone",
-          "secondary_heading": "Bombone za sve prilike i događaje",
-            "type_of_sweetie": Bombone,   
-      }
-  }
-
+  from sweetie_info import sweetie_info
   sweetie_data = sweetie_info[sweetie]
   
   if sweetie_data:
+    # get data from dictionary
     subheading = sweetie_data["subheading"]
     secondary_heading = sweetie_data["secondary_heading"]
     type_of_sweetie = sweetie_data["type_of_sweetie"]
-
+    # get all sweeties from database
     all_sweeties = db.session.query(type_of_sweetie).all()
     SweetieHandle.sweetie_handle(type_of_sweetie, form)
 
@@ -251,15 +144,14 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route("/delete/<sweetie>/<int:sweetie_id>", methods=["GET", "POST", "DELETE"])
-def delete_sweetie(sweetie, sweetie_id):
-    print(sweetie, sweetie_id)
-    sweetie_to_delete = eval(sweetie)
-    sweetie_to_delete_final = sweetie_to_delete.query.filter_by(id=sweetie_id).first()
-    db.session.delete(sweetie_to_delete_final)
-    db.session.commit()
-    return redirect(url_for('home'))
 
+@app.route("/delete/<sweetie>/<int:sweetie_id>")
+def delete_sweetie(sweetie,sweetie_id):
+  sweetie_to_delete = db.session.query(sweetie).get(sweetie_id)
+  print(sweetie_to_delete)
+  db.session.delete(sweetie_to_delete)
+  db.session.commit()
+  return redirect(url_for('home'))
 
 if __name__ == "__main__":
   app.run(debug=True)

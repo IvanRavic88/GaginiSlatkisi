@@ -62,7 +62,6 @@ class User(UserMixin, db.Model):
 
 
 
-
 # HANDLE PAGE FOR SWEETIES
 class SweetieHandle():
   def sweetie_handle(type_of_sweetie, form):
@@ -75,7 +74,6 @@ class SweetieHandle():
       new_sweetie = type_of_sweetie(sweetie_name = form.sweetie_name_form.data, description_text = form.description_text_form.data, sweetie_img = image.filename)
       db.session.add(new_sweetie)
       db.session.commit()
-
 # Load admin user
 @login_manager.user_loader
 def load_user(user_id):

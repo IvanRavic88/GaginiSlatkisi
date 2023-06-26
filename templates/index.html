@@ -705,7 +705,7 @@
   <h2 class="heading-secondary">Odgovaramo na sva vaša pitanja!</h2>
   <p class="cta-text">Pošaljite nam pitanje, predlog, želju... Mi ćemo pokušati da Vam odgovorimo u što kraćem vremenskom periodu. </p>
      
-     <form class="cta-form" method="POST" name="sign-up" action="{{ url_for('home') }}">
+    <form class="cta-form" method="POST" name="sign-up" action="{{ url_for('home') }}">
       {{ message_client_form.csrf_token }}  
       <div>
        {{ message_client_form.client_name.label }}
@@ -714,17 +714,17 @@
 
       <div>
         {{ message_client_form.client_email.label }}
-       {{ message_client_form.client_email (placeholder="ime@primer.com") }}
+        {{ message_client_form.client_email (placeholder="ime@primer.com") }}
       </div>
 
-<div class="cta-message">
-  {{ message_client_form.client_message.label }}
-  <label>
-    {{ message_client_form.client_message(placeholder="Vaša poruka", rows="3") }}
-</label>
-</div>
+      <div class="cta-message">
+      {{ message_client_form.client_message.label }}
+     <label>
+      {{ message_client_form.client_message(placeholder="Vaša poruka", rows="3") }}
+     </label>
+      </div>
       {{ message_client_form.send(class_="btn btn--form message_button") }}      
-     </form>
+    </form>
 </div>
 <div class="cta-img-box" role="img" aria-label="Women hold beautiful sweeties."></div>
 </div>
@@ -762,7 +762,7 @@
 Gagini Slatkiši, Lazarevac
 </p>
 <p>
-  <a class="footer-link" href="tel:415-201-6370"> <span class="phone">065/5254-013</span></a><br>
+  <a class="footer-link" href="tel:0643310371"> <span class="phone">064/3310-371</span></a><br>
   <a class="footer-link" href="mailto:gaginislatkisi@gmail.com"><span class="email">gaginislatkisi@gmail.com</span></a>
 </p>
 

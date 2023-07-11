@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import table, column
+from sqlalchemy import table, column, select, join
 import os
 from dotenv import load_dotenv, find_dotenv
 import smtplib
@@ -67,17 +67,25 @@ class User(UserMixin, db.Model):
 # HANDLE PAGE FOR SWEETIES
 class SweetieHandle():
   def sweetie_handle(type_of_sweetie, form):
+    sweetie_value = session.get("sweetie")
+
     # upload image
     if form.validate_on_submit():
       if request.files:
         image = request.files["sweetie-img"]
-        image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
+        
+        filepath  = os.path.join(app.config["IMAGE_UPLOADS"], image.filename)
+        if not os.path.exists(filepath):
+          image.save(filepath)
+        else:
+          flash("Image already exists. Please change the name of the image and try again.")
+          return redirect(url_for("section", sweetie=sweetie_value))
     # insert in database new sweetie
       new_sweetie = type_of_sweetie(sweetie_name = form.sweetie_name_form.data, description_text = form.description_text_form.data, sweetie_img = image.filename)
       db.session.add(new_sweetie)
       db.session.commit()
 
-      sweetie_value = session.get("sweetie")
+      
       return redirect(url_for("section", sweetie=sweetie_value))
 
 # Load admin user
@@ -112,8 +120,8 @@ def section(sweetie):
   subheading = sweetie_data["subheading"]
   secondary_heading = sweetie_data["secondary_heading"]
   type_of_sweetie = sweetie_data["type_of_sweetie"]
-  # get all sweeties from database
   SweetieHandle.sweetie_handle(type_of_sweetie, form)
+  # get all sweeties from database
   all_sweeties = db.session.query(type_of_sweetie).all()
   
 
@@ -155,11 +163,20 @@ def logout():
 
 @app.route("/delete/<sweetie>/<int:sweetie_id>")
 def delete_sweetie(sweetie,sweetie_id):
-   sweetie_table = table(sweetie, column("id"))
-   delete_query = sweetie_table.delete().where(sweetie_table.c.id == sweetie_id)
-   db.session.execute(delete_query)
-   db.session.commit()
-   return redirect(url_for("section", sweetie=sweetie))
+  # get table from database
+  sweetie_table = table(sweetie, column("id"),column("sweetie_img"))
+  # get image name from database
+  select_query =  sweetie_table.select().where(sweetie_table.c.id == sweetie_id)
+  result = db.session.execute(select_query)
+  sweetie_img_name = result.fetchone()[1]
+  # delete image from folder
+  os.remove(os.path.join(app.config["IMAGE_UPLOADS"], sweetie_img_name))
+
+  # delete sweetie information from database
+  delete_query = sweetie_table.delete().where(sweetie_table.c.id == sweetie_id)
+  db.session.execute(delete_query)
+  db.session.commit()
+  return redirect(url_for("section", sweetie=sweetie))
 
 if __name__ == "__main__":
   app.run(debug=True)

@@ -546,7 +546,7 @@
 .footer {
   padding: 10.8rem 0;
   border-top: 1px solid #f9afc1;
-  background-color: rgb(255, 235, 242);
+  background-color: #ffebf2;
 }
 
 .grid--footer {
@@ -645,4 +645,18 @@
   display: inline-block;
   height: 32rem;
   transform: rotate(-10deg);
+}
+/* Alerts for section page */
+.alert {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.alert-info {
+  color: #622040;
+  border-color: #f9afc1;
+  background-color: #ffebf2;
 }

@@ -2,6 +2,18 @@
 {% include "nav.html" %}
 <body class = "margin-sticky">
     <main>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="container center-text">
+    <div class="alert alert-info">
+      <span>{{ messages[0] }}</span>
+      
+    </div>
+      
+    
+  </div>
+  {% endif %}
+  {% endwith %}
       <div class="container center-text sweetie-subheading">
         <span class="subheading">{{ subheading }}</span>
         <h3 class="heading-sweete">

@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import table, column
 import os
 from dotenv import load_dotenv, find_dotenv
 import smtplib
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import LoginForm, SweetieAddForm, Client_Message
+from flask import session
 
 app = Flask(__name__)
 
@@ -74,6 +76,10 @@ class SweetieHandle():
       new_sweetie = type_of_sweetie(sweetie_name = form.sweetie_name_form.data, description_text = form.description_text_form.data, sweetie_img = image.filename)
       db.session.add(new_sweetie)
       db.session.commit()
+
+      sweetie_value = session.get("sweetie")
+      return redirect(url_for("section", sweetie=sweetie_value))
+
 # Load admin user
 @login_manager.user_loader
 def load_user(user_id):
@@ -95,28 +101,31 @@ def home():
 # route for displaying sweeties from database
 @app.route('/section/<sweetie>', methods=["POST", "GET"])
 def section(sweetie):
-
+  session["sweetie"] = sweetie
   form = SweetieAddForm()
   sweetie_data = {}
   from sweetie_info import sweetie_info
   sweetie_data = sweetie_info[sweetie]
   
-  if sweetie_data:
-    # get data from dictionary
-    subheading = sweetie_data["subheading"]
-    secondary_heading = sweetie_data["secondary_heading"]
-    type_of_sweetie = sweetie_data["type_of_sweetie"]
-    # get all sweeties from database
-    all_sweeties = db.session.query(type_of_sweetie).all()
-    SweetieHandle.sweetie_handle(type_of_sweetie, form)
+ 
+  # get data from dictionary
+  subheading = sweetie_data["subheading"]
+  secondary_heading = sweetie_data["secondary_heading"]
+  type_of_sweetie = sweetie_data["type_of_sweetie"]
+  # get all sweeties from database
+  SweetieHandle.sweetie_handle(type_of_sweetie, form)
+  all_sweeties = db.session.query(type_of_sweetie).all()
+  
 
-    return render_template("section.html", subheading=subheading, secondary_heading=secondary_heading, all_sweeties=all_sweeties, form=form, admin=current_user, sweetie=sweetie)
+  return render_template("section.html", subheading=subheading, secondary_heading=secondary_heading, all_sweeties=all_sweeties, form=form, admin=current_user, sweetie=sweetie)
 
 
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
   login_form = LoginForm()
+  last_sweetie = session.get("sweetie")
+
   if login_form.validate_on_submit():
     email = login_form.email.data
     password = login_form.password.data
@@ -132,7 +141,10 @@ def login():
     else:
       login_user(user)
 
-    return redirect(url_for("home"))
+    if last_sweetie:
+       return redirect(url_for("section", sweetie=last_sweetie))
+    else:
+      return redirect(url_for("home"))
   return render_template("login.html", login_form = login_form, admin=current_user)
 
 @app.route('/logout')
@@ -143,11 +155,11 @@ def logout():
 
 @app.route("/delete/<sweetie>/<int:sweetie_id>")
 def delete_sweetie(sweetie,sweetie_id):
-  sweetie_to_delete = db.session.query(sweetie).get(sweetie_id)
-  print(sweetie_to_delete)
-  db.session.delete(sweetie_to_delete)
-  db.session.commit()
-  return redirect(url_for('home'))
+   sweetie_table = table(sweetie, column("id"))
+   delete_query = sweetie_table.delete().where(sweetie_table.c.id == sweetie_id)
+   db.session.execute(delete_query)
+   db.session.commit()
+   return redirect(url_for("section", sweetie=sweetie))
 
 if __name__ == "__main__":
   app.run(debug=True)

@@ -9,7 +9,10 @@
       content="Gagini Slatkiši se bavi pravljenjem domaćih i kvalitetnih slatkiša, koji ce ulepšati sve vaše najlepše događaje."
     />
 
-    <link rel="icon" href="../static//img/Favicon-GaginiSlatkiši.png" />
+    <link
+      rel="icon"
+      href="{{url_for('static', filename='/img/Favicon-GaginiSlatkiši.png')}}"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,9 +20,18 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../static/css/general.css" />
-    <link rel="stylesheet" href="../static/css/styles.css" />
-    <link rel="stylesheet" href="../static/css/queries.css" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='/css/general.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='/css/styles.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='/css/queries.css')}}"
+    />
 
     <title>Gagini Slatkiši</title>
   </head>
@@ -27,7 +39,7 @@
     <header class="header">
       <a href="{{url_for('home')}}" class="">
         <img
-          src="../static/img/GaginiSlatkiši.png"
+          src="{{url_for('static', filename='img/GaginiSlatkiši.png')}}"
           alt="GaginiSlatkiši-logo"
           class="logo"
         />

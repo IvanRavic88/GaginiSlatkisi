@@ -61,9 +61,6 @@ class User(UserMixin, db.Model):
 # db.session.commit()
 
 
-
-
-
 # HANDLE PAGE FOR SWEETIES
 class SweetieHandle():
   def sweetie_handle(type_of_sweetie, form):

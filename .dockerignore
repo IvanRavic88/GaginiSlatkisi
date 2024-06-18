@@ -1,0 +1,62 @@
+# Ignore node modules
+node_modules
+
+# Ignore development environment files
+.npm
+.npmrc
+.yarnrc
+.yarn-error.log
+.yarn-debug.log
+.yarn-integrity
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+crash.log
+
+# Ignore the build output
+.next
+out
+
+# Ignore environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignore editor directories and files
+.idea
+.vscode
+*.swp
+*.swo
+*.swn
+*.bak
+
+# TERRAFORM
+
+# Compiled files and cache
+.terraform/
+**/.terragrunt-cache/
+*.tfstate
+*.tfstate.*
+
+# Ignore Terraform files
+*.tf
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*.tfplan
+*.terraform.lock.hcl
+
+# Ignore CLI configuration files
+my_ip.txt
+
+# Ignore git configuration files
+.gitconfig 
+.gitignore_global
+.github
+.gitignore
+

@@ -94,7 +94,7 @@ def load_user(user_id):
 @app.route('/', methods=["POST", "GET"])
 def home():
   message_client_form = Client_Message()
-  if message_client_form.validate_on_submit():
+  if message_client_form.validate_on_submit() and message_client_form.last_name.data == "":
         with smtplib.SMTP(app.config['MAIL_SERVER'], port=app.config['MAIL_PORT']) as connection:
           connection.starttls()
           connection.login(user=app.config['MAIL_USERNAME'], password=app.config['MAIL_PASSWORD'])
@@ -176,5 +176,5 @@ def delete_sweetie(sweetie,sweetie_id):
   return redirect(url_for("section", sweetie=sweetie))
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run(host= "0.0.0.0",debug=True)
   

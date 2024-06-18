@@ -23,4 +23,5 @@ class Client_Message(FlaskForm):
   client_name = StringField("Vaše Ime", validators = [InputRequired()])
   client_email = EmailField("Email Adresa", validators = [InputRequired()])
   client_message = TextAreaField("Poruka", validators = [InputRequired()])
+  last_name = StringField("", validators=[DataRequired()], render_kw={"style":"display:none"})
   send = SubmitField("Pošalji")

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=script-width, initial-scale=1.0" />
-    <meta name="description" content="Gagini Slatkiši se bavi pravljenjem domaćih i kvalitetnih slatkiša, koji ce ulepšati sve vaše najlepše događaje.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GaginiSlatkiši iz Lazarevca priprema domaće kolače i torte, savršene za ulepšavanje svih vaših posebnih trenutaka.">
 
     <link rel="icon" href="{{url_for('static', filename='/img/Favicon-GaginiSlatkiši.png')}}">
 
 <!-- FAVICONS FOR IPHONES AND ANDROID USERS -->
 <link rel="apple-touch-icon" href="{{url_for('static', filename='/img/apple-touch-icon.png')}}">
-<link rel="manifest" href="../manifest.webmanifest">
+<link rel="manifest" href="{{url_for('static', filename='manifest.webmanifest')}}">
 <!-- -------------------------------------------------------------- -->
 
 
@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='/css/general.css')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='/css/styles.css')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='/css/queries.css')}}">
-    <title>GaginiSlatkiši &mdash; Kolači, Torte - Poručite!</title>
+    <title>GaginiSlatkiši &mdash; Domaći kolači i Torte Lazarevac</title>
+  </head>
   <body>
     <section class="header-container">
     <header class="header">
@@ -43,7 +44,7 @@
       </button>
     </header>
   </section>
-    <main>
+    <main >
       <section class="floating-networks">
 <div class="container-floating-network">
     <a href="https://instagram.com/gaginislatkisi" class="footer-link instagram" target="_blank"><ion-icon name="logo-instagram" class="floating social-icon"></ion-icon></a>
@@ -57,7 +58,7 @@
               Sočne poslastice koje bude sva čula
             </h1>
             <p class="hero-description">
-              Svi naši slatkiši su napravljeni od pažljivo odabranih i kvalitetnih sastojaka, po proverenim receptima.
+              Svi naši kolači i torte su napravljeni od pažljivo odabranih i kvalitetnih sastojaka, po proverenim receptima.
             </p>
             <a href="#cta" class="btn btn--full margin-right-sm media-sm prevent-default-link">Poručite odmah</a>
 
@@ -71,6 +72,7 @@
 
 
   <img
+  loading="eager"
   src="{{url_for('static', filename='/img/Desktop-3.png')}}"
   class="hero-img"
   alt="Slika prelepo aranžiranih kolača, koje drži nasmejana devojka"/>
@@ -98,6 +100,7 @@
 
 
             <img
+            loading="lazy"
               src="{{url_for('static', filename='/img/Groups-img/Gallery-92.png')}}_"
               alt="Slika čokoladne torte, ukrašena sa jagodama."
               class="slatkis-img"
@@ -124,7 +127,7 @@
                   <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
                   ><span>Mogu se naručiti pojedinačno</span>
                 </li>
-                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Torte')}}">Detaljnije</a></li>
+                <li><a class="link slatkisi-link" href="{{url_for('section', sweetie='Torte')}}">Detaljnije</a></li>
               </ul>
             </div>
           </a>
@@ -136,6 +139,7 @@
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-81.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-81.png')}}" type="image/png"/>
             <img
+            loading="lazy"
               src="{{url_for('static', filename='/img/Groups-img/Gallery-81.png')}}"
               alt="Slika prelepo serviranih mus kolača."
               class="slatkis-img"
@@ -173,6 +177,7 @@
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-44.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-44.png')}}" type="image/png"/>
               <img
+              loading="lazy"
               src=".{{url_for('static', filename='/img/Groups-img/Gallery-44.png')}}"
               alt="Slika čokoladnih čašica"
               class="slatkis-img"
@@ -210,6 +215,7 @@
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-11.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-11.png')}}" type="image/png"/>
               <img
+              loading="lazy"
               src="{{url_for('static', filename='/img/Groups-img/Gallery-11.png')}}"
               alt="Slika sitnih kolača, različitih vrsta."
               class="slatkis-img"
@@ -247,6 +253,7 @@
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-26.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-26.png')}}" type="image/png"/>
               <img
+              loading="lazy"
               src="{{url_for('static', filename='/img/Groups-img/Gallery-26.png')}}"
               alt="Slika mini cheese-a."
               class="slatkis-img"
@@ -284,6 +291,7 @@
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-103.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-103.png')}}" type="image/png"/>
               <img
+              loading="lazy"
               src="{{url_for('static', filename='/img/Groups-img/Gallery-103.png')}}"
               alt="Slika Lux kolača."
               class="slatkis-img"
@@ -321,6 +329,7 @@
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-82.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-82.png')}}" type="image/png"/>
               <img
+              loading="lazy"
               src="{{url_for('static', filename='/img/Groups-img/Gallery-82.png')}}"
               alt="Slika Tart Torte od čokolade i plazme."
               class="slatkis-img"
@@ -358,6 +367,7 @@
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-60.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-60.png')}}" type="image/png"/>
               <img
+              loading="lazy"
               src="{{url_for('static', filename='/img/Groups-img/Gallery-60.png')}}"
               alt="Medenjak sa likom Deda Mraza."
               class="slatkis-img"
@@ -396,6 +406,7 @@
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-83.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-83.png')}}" type="image/png"/>
               <img
+              loading="lazy"
               src="{{url_for('static', filename='/img/Groups-img/Gallery-83.png')}}"
               alt="Slika bombone u oblika mede sa srcem, potopljena u kakao."
               class="slatkis-img"
@@ -439,163 +450,163 @@
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-1.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-1.png')}}" type="image/png"/>
-        <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-1.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+        <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-1.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
         </picture>
         <figure class="gallery-item">
           <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-2.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-2.png')}}" type="image/png"/>
-        <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-2.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+        <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-2.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
           </picture>
         <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-5.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-5.png')}}" type="image/png"/>
-         <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-5.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+         <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-5.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
         </picture>
          <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-6.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-6.png')}}" type="image/png"/>
-         <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-6.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+         <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-6.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
        </picture>
          <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-7.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-7.png')}}" type="image/png"/>
-         <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-7.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+         <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-7.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
        </picture>
          <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-8.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-8.png')}}" type="image/png"/>
-        <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-8.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+        <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-8.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
        </picture>
         <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-11.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-11.png')}}" type="image/png"/>
-         <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-11.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+         <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-11.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
              </picture>
          <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-4.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-4.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-4.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-4.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
             </picture>
           <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-9.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-9.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-9.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-9.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
              </picture>
           <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-10.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-10.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-10.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-10.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
             </picture>
           <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-12.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-12.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-12.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-12.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure></figure>
             </picture>
           <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-13.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-13.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-13.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-13.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
             </picture>
           <figure class="gallery-item big-img-second">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-3.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-3.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-3.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-3.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
             </picture>
             <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-14.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-14.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-14.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-14.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-15.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-15.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-15.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-15.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-16.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-16.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-16.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-16.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
            </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-17.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-17.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-17.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-17.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-18.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-18.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-18.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-18.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-19.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-19.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-19.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-19.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-20.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-20.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-20.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-20.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-21.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-21.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-21.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-21.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-22.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-22.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-22.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-22.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-23.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-23.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-23.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-23.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
           </picture>
           <figure class="gallery-item">
           <picture>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-24.webp')}}" type="image/webp"/>
             <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-24.png')}}" type="image/png"/>
-          <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-24.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+          <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-24.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
           </picture>
         <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-25.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-25.png')}}" type="image/png"/>
-        <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-25.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+        <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-25.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
             </picture>
         <figure class="gallery-item">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-26.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-26.png')}}" type="image/png"/>
-        <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-26.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+        <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-26.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
             </picture>
         <figure class="gallery-item big-img-third">
         <picture>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-27.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Gallery/27/Gallery-27.png')}}" type="image/png"/>
-        <img src="{{url_for('static', filename='/img/Gallery/27/Gallery-27.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
+        <img loading="lazy" src="{{url_for('static', filename='/img/Gallery/27/Gallery-27.png')}}" alt="Slika prelepo aranžiranih Gaginih slatkiša"/></figure>        
             </picture>  
             </div>
             
@@ -616,13 +627,13 @@
               <picture>
           <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-11.webp')}}" type="image/webp"/>
           <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-11.png')}}" type="image/png"/>
-              <img src="{{url_for('static', filename='/img/Groups-img/Gallery-11.png')}}" alt="Slika prelepo spakovanih sitnig kolača." class="img-pricing">
+              <img loading="lazy" src="{{url_for('static', filename='/img/Groups-img/Gallery-11.png')}}" alt="Slika prelepo spakovanih sitnig kolača." class="img-pricing">
               </picture>
             </div>
             <div class="pricing-container">
             <header class="plan-header">
               <p class="plan-name">Sitni kolači</p>
-              <p class="plan-price">1300<span>RSD</span></p>
+              <p class="plan-price">1700<span>RSD</span></p>
               <p class="plan-text">po kilogramu.</p>
             </header>
             <ul class="list">
@@ -644,13 +655,13 @@
               <picture>
               <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-103.webp')}}" type="image/webp"/>
               <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-103.png')}}" type="image/png"/>
-              <img src="{{url_for('static', filename='/img/Groups-img/Gallery-103.png')}}" alt="Slika prelepo spakovanih sitnig kolača." class="img-pricing">
+              <img loading="lazy" src="{{url_for('static', filename='/img/Groups-img/Gallery-103.png')}}" alt="Slika prelepo spakovanih sitnig kolača." class="img-pricing">
               </picture>
             </div>
             <div class="pricing-container">
             <header class="plan-header">
             <p class="plan-name">Lux kolači</p>
-            <p class="plan-price">1700<span>RSD</span></p>
+            <p class="plan-price">2300<span>RSD</span></p>
             <p class="plan-text">po kilogramu.</p>
           </header>
             <ul class="list">
@@ -668,9 +679,7 @@
         </div>
         <div class="container grid">
           <aside class="plan-details">
-            Cene su izražene za predviđene pakete. Ukoliko želite nešto posebno, van naše ponude, cenu ćemo odrediti na osnovu uloženeg truda i materijala.
-          </aside>
-        </div>
+            Navedene cene su informativnog karaktera i mogu se promeniti na osnovu specifičnosti zahteva. Konačna cena biće utvrđena nakon dogovora.</div>
         <div class="container grid grid--4-cols">
           <div class="feature">
             <ion-icon class="feature-icon" name="infinite-outline"></ion-icon>
@@ -738,7 +747,7 @@
   <div class="grid grid--footer">
 <div class="logo-col"> 
   <a href="#" class="footer-logo  prevent-default-link">
-  <img src="{{url_for('static', filename='/img/GaginiSlatkiši.png')}}" alt="GaginiSlatkiši-logo" class="logo" /></a>
+  <img loading="lazy" src="{{url_for('static', filename='/img/GaginiSlatkiši.png')}}" alt="GaginiSlatkiši-logo" class="logo" /></a>
 
 
 <ul class="social-links">
@@ -763,7 +772,7 @@
 Gagini Slatkiši, Lazarevac
 </p>
 <p>
-  <a class="footer-link" href="tel:0643310371"> <span class="phone">064/3310-371</span></a><br>
+  <a class="footer-link" href="tel:0655593678"> <span class="phone">065/5593-678</span></a><br>
   <a class="footer-link" href="mailto:gaginislatkisi@gmail.com"><span class="email">gaginislatkisi@gmail.com</span></a>
 </p>
 
@@ -793,10 +802,11 @@ Gagini Slatkiši, Lazarevac
 </nav>
 
 <div class="img-footer">
-  <img class="cake-img" src="{{url_for('static', filename='/img/GaginiSlatkisi-footer-img.png')}}" alt="Nice ilustration of cake.">
+  <img loading="lazy" class="cake-img" src="{{url_for('static', filename='/img/GaginiSlatkisi-footer-img.png')}}" alt="Nice ilustration of cake.">
 </div>
   </div>
 </footer>
+
 <script defer src="{{url_for('static', filename='/assets/js/script.js')}}"></script>
     <script
       type="module"

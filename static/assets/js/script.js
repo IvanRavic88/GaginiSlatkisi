@@ -1,74 +1,62 @@
-// auto year
-const yearEl = document.querySelector(".year");
-const currentYear = new Date().getFullYear();
+"use strict";
+// set the current year in the footer
+function setCurrentYear() {
+  const yearEl = document.querySelector(".year");
+  const currentYear = new Date().getFullYear();
 
-yearEl.textContent = currentYear;
+  yearEl.textContent = currentYear;
+}
 
-// Make mobil navigation work
-const btnNavEl = document.querySelector(".btn-mobile-nav");
-const headerEl = document.querySelector(".header");
+// Toggle the mobile navigation
+function toggleMobileNav() {
+  const btnNavEl = document.querySelector(".btn-mobile-nav");
+  const headerEl = document.querySelector(".header");
 
-btnNavEl.addEventListener("click", function () {
-  headerEl.classList.toggle("nav-open");
-});
-///////////////////////////////////////////////////////////
-// Smooth scrolling animation
-
-const allLinks = document.querySelectorAll(".prevent-default-link");
-
-allLinks.forEach(function (link) {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-    const href = link.getAttribute("href");
-
-    // Scroll back to top
-    if (href === "#")
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    // Scroll to other links
-
-    if (href !== "#" && href.startsWith("#")) {
-      const sectionEl = document.querySelector(href);
-      sectionEl.scrollIntoView({ behavior: "smooth" });
-    }
-    // Close mobile navigation
-    if (link.classList.contains("main-nav-link"))
-      headerEl.classList.toggle("nav-open");
+  btnNavEl.addEventListener("click", function () {
+    headerEl.classList.toggle("nav-open");
   });
-});
+}
 
-// STICKY NAVIGATION for main page (index.html)
-// const sectionHeroEl = document.querySelector(".section-hero");
+// Smooth scrolling for anchor links
 
-// const observer = new IntersectionObserver(
-//   function (entries) {
-//     const ent = entries[0];
-//     if (ent.isIntersecting === false) {
-//       document.body.classList.add("sticky");
-//     }
-//     if (ent.isIntersecting) {
-//       document.body.classList.remove("sticky");
-//     }
-//   },
-//   {
-//     //In the viewport
-//     root: null,
-//     threshold: 0,
-//     rootMargin: "-80px",
-//   }
-// );
-// observer.observe(sectionHeroEl);
+function enableSmoothScrolling() {
+  const allLinks = document.querySelectorAll(".prevent-default-link");
 
-// STICKY NAVIGATION for section.html, login.html and index.html
+  allLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const href = link.getAttribute("href");
 
-var stickyEl = document.querySelector(".sticky-section");
-window.onscroll = () => {
-  this.scrollY > 80
-    ? document.body.classList.add("sticky")
-    : document.body.classList.remove("sticky");
-};
+      // Scroll back to top
+      if (href === "#") {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Scroll to other sections
+      if (href !== "#" && href.startsWith("#")) {
+        const sectionEl = document.querySelector(href);
+        sectionEl.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+}
+
+// Sticky navigation
+function enableStickyNavigation() {
+  const stickyEl = document.querySelector(".sticky-section");
+  if (stickyEl) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 80) {
+        document.body.classList.add("sticky");
+      } else {
+        document.body.classList.remove("sticky");
+      }
+    });
+  }
+}
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
@@ -84,61 +72,19 @@ function checkFlexGap() {
   document.body.appendChild(flex);
   var isSupported = flex.scrollHeight === 1;
   flex.parentNode.removeChild(flex);
-  console.log(isSupported);
 
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
-checkFlexGap();
+
+// Initialize functions
+function init() {
+  setCurrentYear();
+  toggleMobileNav();
+  enableSmoothScrolling();
+  enableStickyNavigation();
+  checkFlexGap();
+}
+// Run the initialize functions when the DOM is loaded
+document.addEventListener("DOMContentLoaded", init);
 
 // https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js
-
-/*
-.no-flexbox-gap .main-nav-list li:not(:last-child) {
-  margin-right: 4.8rem;
-}
-
-.no-flexbox-gap .list-item:not(:last-child) {
-  margin-bottom: 1.6rem;
-}
-
-.no-flexbox-gap .list-icon:not(:last-child) {
-  margin-right: 1.6rem;
-}
-
-.no-flexbox-gap .delivered-faces {
-  margin-right: 1.6rem;
-}
-
-.no-flexbox-gap .meal-attribute:not(:last-child) {
-  margin-bottom: 2rem;
-}
-
-.no-flexbox-gap .meal-icon {
-  margin-right: 1.6rem;
-}
-
-.no-flexbox-gap .footer-row div:not(:last-child) {
-  margin-right: 6.4rem;
-}
-
-.no-flexbox-gap .social-links li:not(:last-child) {
-  margin-right: 2.4rem;
-}
-
-.no-flexbox-gap .footer-nav li:not(:last-child) {
-  margin-bottom: 2.4rem;
-}
-
-@media (max-width: 75em) {
-  .no-flexbox-gap .main-nav-list li:not(:last-child) {
-    margin-right: 3.2rem;
-  }
-}
-
-@media (max-width: 59em) {
-  .no-flexbox-gap .main-nav-list li:not(:last-child) {
-    margin-right: 0;
-    margin-bottom: 4.8rem;
-  }
-}
-*/

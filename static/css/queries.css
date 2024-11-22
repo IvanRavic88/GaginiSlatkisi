@@ -275,7 +275,15 @@
   .grid--4-cols {
     grid-template-columns: repeat(2, 1fr);
   }
-
+  .section-hero {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(247, 141, 167, 0.25),
+        rgba(249, 175, 193, 0.25)
+      ),
+      url("../img/Gallery-65-hero-mobile.webp");
+    padding: 2.4rem 4.8rem 2.4rem;
+  }
   .diets {
     grid-column: 1/-1;
     justify-self: center;
@@ -308,7 +316,7 @@
   }
 
   .cake-img {
-    scale: 100%;
+    scale: 60%;
   }
 }
 
@@ -340,7 +348,15 @@
   .hero-img {
     width: 80%;
   }
-
+  .section-hero {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(247, 141, 167, 0.25),
+        rgba(249, 175, 193, 0.25)
+      ),
+      url("../img/Gallery-65-hero-mobile-small.webp");
+    padding: 2.4rem 4.8rem 2.4rem;
+  }
   .logos img {
     height: 1.2rem;
   }

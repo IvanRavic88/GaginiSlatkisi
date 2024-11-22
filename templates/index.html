@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="GaginiSlatkiši iz Lazarevca priprema domaće kolače i torte, savršene za ulepšavanje svih vaših posebnih trenutaka.">
+    
+    
 
+
+
+    <link rel="preload" href="{{url_for('static', filename='img/Gallery-65-hero.webp')}}" as="image" type="image/webp" />
     <link rel="icon" href="{{url_for('static', filename='/img/Favicon-GaginiSlatkiši.png')}}">
 
 <!-- FAVICONS FOR IPHONES AND ANDROID USERS -->
@@ -14,11 +19,16 @@
 <!-- -------------------------------------------------------------- -->
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Secular+One&display=swap" rel="stylesheet"> 
+ -->
 
-
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Secular+One&display=swap" as="style">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+ 
     <link rel="stylesheet" href="{{url_for('static', filename='/css/general.css')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='/css/styles.css')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='/css/queries.css')}}">
@@ -27,8 +37,13 @@
   <body>
     <section class="header-container">
     <header class="header">
-      <a href="#" class=" prevent-default-link">
-      <img src="{{url_for('static', filename='/img/GaginiSlatkiši.png')}}" alt="GaginiSlatkiši-logo" class="logo" />
+      <a href="#" class="prevent-default-link">
+        <picture>
+          <source srcset="{{url_for('static', filename='/img/GaginiSlatkiši.webp')}}" type="image/webp"/>
+          <source srcset="{{url_for('static', filename='img/GaginiSlatkiši.png')}}" type="image/png"/>
+          
+      <img loading="lazy" src="{{url_for('static', filename='img/GaginiSlatkiši.png')}}" alt="GaginiSlatkiši-logo" class="logo" />
+    </picture>
     </a>
       <nav class="main-nav">
         <ul class="main-nav-list">
@@ -67,13 +82,15 @@
 
 
 <picture>
-<source srcset="{{url_for('static', filename='/img/Desktop-3.webp')}}" type="image/webp"/>
-<source srcset="{{url_for('static', filename='/img/Desktop-3.png')}}" type="image/png"/>
+  <source srcset="{{url_for('static', filename='img/Desktop-3-small.webp')}}" media="(max-width: 600px)" type="image/webp"/>
+  <source srcset="{{url_for('static', filename='img/Desktop-3-mobile.webp')}}" media="(max-width: 400px)" type="image/webp"/>
+<source srcset="{{url_for('static', filename='img/Desktop-3.webp')}}" type="image/webp"/>
+<source srcset="{{url_for('static', filename='img/Desktop-3.png')}}" type="image/png"/>
 
 
   <img
   loading="eager"
-  src="{{url_for('static', filename='/img/Desktop-3.png')}}"
+  src="{{url_for('static', filename='img/Desktop-3.png')}}"
   class="hero-img"
   alt="Slika prelepo aranžiranih kolača, koje drži nasmejana devojka"/>
 
@@ -93,86 +110,85 @@
         <div class="container grid grid--3-cols margin-bottom-md">
          
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie = 'Torte')}}" class="slatkis-link">
+            <a href="{{ url_for('section', sweetie='Torte') }}" class="slatkis-link" aria-label="Visit the Torte page">
               <picture>
-                <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-92.webp')}}" type="image/webp"/>
-                <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-92.png')}}" type="image/png"/>
-
-
-            <img
-            loading="lazy"
-              src="{{url_for('static', filename='/img/Groups-img/Gallery-92.png')}}_"
-              alt="Slika čokoladne torte, ukrašena sa jagodama."
-              class="slatkis-img"
-            /></picture></a>
+                <source srcset="{{ url_for('static', filename='/img/Groups-img/Gallery-92.webp') }}" type="image/webp" />
+                <source srcset="{{ url_for('static', filename='/img/Groups-img/Gallery-92.png') }}" type="image/png" />
+                <img
+                  loading="lazy"
+                  src="{{ url_for('static', filename='/img/Groups-img/Gallery-92.png') }}"
+                  alt="Slika čokoladne torte, ukrašena sa jagodama."
+                  class="slatkis-img"
+                />
+              </picture>
+            </a>
             <div class="slatkis-content">
               <div class="slatkis-tag">
                 <span class="tag">Torte</span>
               </div>
               <p class="slatkis-title">Torte</p>
-              <a href="{{url_for('section', sweetie='Torte')}}" class="slatkis-link">
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
                   <span>Po proverenim receptima</span>
                 </li>
                 <li class="slatkis-attribute">
-                  <ion-icon
-                    class="slatkis-icon"
-                    name="restaurant-outline"
-                  ></ion-icon
-                  ><span>Idealne za sve Vaše prilike</span>
+                  <ion-icon class="slatkis-icon" name="restaurant-outline"></ion-icon>
+                  <span>Idealne za sve Vaše prilike</span>
                 </li>
                 <li class="slatkis-attribute">
-                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
-                  ><span>Mogu se naručiti pojedinačno</span>
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon>
+                  <span>Mogu se naručiti pojedinačno</span>
                 </li>
-                <li><a class="link slatkisi-link" href="{{url_for('section', sweetie='Torte')}}">Detaljnije</a></li>
+                <li class="slatkis-attribute">
+                  <a class="link slatkisi-link" href="{{ url_for('section', sweetie='Torte') }}">Detaljnije</a>
+                </li>
               </ul>
             </div>
-          </a>
           </div>
+          
         
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie='Mus')}}" class="slatkis-link">
+            <a href="{{url_for('section', sweetie='Mus')}}" class="slatkis-link" aria-label="Visit the Mus kolači page">
               <picture>
-                <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-81.webp')}}" type="image/webp"/>
-                <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-81.png')}}" type="image/png"/>
-            <img
-            loading="lazy"
-              src="{{url_for('static', filename='/img/Groups-img/Gallery-81.png')}}"
-              alt="Slika prelepo serviranih mus kolača."
-              class="slatkis-img"
-            /></picture></a>
+                <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-81.webp')}}" type="image/webp" />
+                <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-81.png')}}" type="image/png" />
+                <img
+                  loading="lazy"
+                  src="{{url_for('static', filename='/img/Groups-img/Gallery-81.png')}}"
+                  alt="Slika prelepo serviranih mus kolača."
+                  class="slatkis-img"
+                />
+              </picture>
+            </a>
             <div class="slatkis-content">
               <div class="slatkis-tag">
                 <span class="tag">Kolači</span>
               </div>
               <p class="slatkis-title">Mus kolači</p>
-              <a href="{{url_for('section', sweetie='Mus')}}" class="slatkis-link">
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
                   <span>Mogućnost izbora ukusa</span>
                 </li>
                 <li class="slatkis-attribute">
-                  <ion-icon
-                    class="slatkis-icon"
-                    name="restaurant-outline"
-                  ></ion-icon
-                  ><span>Idealni za svečane prilike</span>
+                  <ion-icon class="slatkis-icon" name="restaurant-outline"></ion-icon>
+                  <span>Idealni za svečane prilike</span>
                 </li>
                 <li class="slatkis-attribute">
-                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon
-                  ><span>Mogu se naručiti pojedinačno</span>
+                  <ion-icon class="slatkis-icon" name="star-outline"></ion-icon>
+                  <span>Mogu se naručiti pojedinačno</span>
                 </li>
-                <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Mus')}}">Detaljnije</a></li>
+                <li class="slatkis-attribute">
+                  <a class="link slatkisi-link" href="{{url_for('section', sweetie='Mus')}}">Detaljnije</a>
+                </li>
               </ul>
-            </a>
             </div>
           </div>
+          
+
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie='Casice')}}" class="slatkis-link">
+            <a href="{{url_for('section', sweetie='Casice')}}" class="slatkis-link" aria-label="Visit the Čokoladne čašice page">
               <picture>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-44.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-44.png')}}" type="image/png"/>
@@ -187,7 +203,7 @@
                 <span class="tag">Lux kolači</span>
               </div>
               <p class="slatkis-title">Čokoladne čašice</p>
-               <a href="{{url_for('section', sweetie='Casice')}}" class="slatkis-link">
+              
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
@@ -206,11 +222,11 @@
                 </li>
                 <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Casice')}}">Detaljnije</a></li>
               </ul>
-              </a>
             </div>
           </div>
+
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie='Sitni')}}" class="slatkis-link">
+            <a href="{{url_for('section', sweetie='Sitni')}}" class="slatkis-link" aria-label="Visit the Sitni kolači page">
             <picture>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-11.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-11.png')}}" type="image/png"/>
@@ -225,7 +241,7 @@
                 <span class="tag">Kolači</span>
               </div>
               <p class="slatkis-title">Sitni kolači</p>
-               <a href="{{url_for('section', sweetie='Sitni')}}" class="slatkis-link">
+              
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
@@ -244,11 +260,11 @@
                 </li>
                 <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Sitni')}}">Detaljnije</a></li>
               </ul>
-              </a>
             </div>
           </div>
+
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie='Mini')}}" class="slatkis-link">
+            <a href="{{url_for('section', sweetie='Mini')}}" class="slatkis-link" aria-label="Visit the Mini cheese page">
             <picture>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-26.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-26.png')}}" type="image/png"/>
@@ -263,7 +279,6 @@
                 <span class="tag">Kolači</span>
               </div>
               <p class="slatkis-title">Mini cheese</p>
-               <a href="{{url_for('section', sweetie='Mini')}}" class="slatkis-link">
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
@@ -282,11 +297,11 @@
                 </li>
                 <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Mini')}}">Detaljnije</a></li>
               </ul>
-              </a>
             </div>
           </div>
+
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie='Lux')}}" class="slatkis-link">
+            <a href="{{url_for('section', sweetie='Lux')}}" class="slatkis-link" aria-label="Visit the Lux kolači page">
             <picture>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-103.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-103.png')}}" type="image/png"/>
@@ -301,7 +316,6 @@
                 <span class="tag">Lux kolači</span>
               </div>
               <p class="slatkis-title">Lux kolači</p>
-               <a href="{{url_for('section', sweetie='Lux')}}" class="slatkis-link">
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
@@ -320,11 +334,11 @@
                 </li>
                 <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Lux')}}">Detaljnije</a></li>
               </ul>
-              </a>
             </div>
           </div>
+
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie='Tart')}}" class="slatkis-link">
+            <a href="{{url_for('section', sweetie='Tart')}}" class="slatkis-link" aria-label="Visit the Tart Torte page">
             <picture>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-82.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-82.png')}}" type="image/png"/>
@@ -339,7 +353,6 @@
                 <span class="tag">Torte</span>
               </div>
               <p class="slatkis-title">Tart Torte</p>
-               <a href="{{url_for('section', sweetie='Tart')}}" class="slatkis-link">
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
@@ -358,11 +371,11 @@
                 </li>
                 <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Tart')}}">Detaljnije</a></li>
               </ul>
-              </a>
             </div>
           </div>
+
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie='Medenjaci')}}" class="slatkis-link">
+            <a href="{{url_for('section', sweetie='Medenjaci')}}" class="slatkis-link" aria-label="Visit the Medenjaci page">
            <picture>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-60.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-60.png')}}" type="image/png"/>
@@ -377,7 +390,6 @@
                 <span class="tag">Medenjaci</span>
               </div>
               <p class="slatkis-title">Medenjaci</p>
-               <a href="{{url_for('section', sweetie='Medenjaci')}}" class="slatkis-link">
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
@@ -396,12 +408,11 @@
                 </li>
                 <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Medenjaci')}}">Detaljnije</a></li>
               </ul>
-              </a>
             </div>
           </div>
 
           <div class="slatkis">
-            <a href="{{url_for('section', sweetie='Bombone')}}" class="slatkis-link">
+            <a href="{{url_for('section', sweetie='Bombone')}}" class="slatkis-link" aria-label="Visit the Penaste Bombone page">
             <picture>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-83.webp')}}" type="image/webp"/>
                 <source srcset="{{url_for('static', filename='/img/Groups-img/Gallery-83.png')}}" type="image/png"/>
@@ -416,7 +427,6 @@
                 <span class="tag">Bombone</span>
               </div>
               <p class="slatkis-title">Penaste Bombone</p>
-               <a href="{{url_for('section', sweetie='Bombone')}}" class="slatkis-link">
               <ul class="slatkis-attributes">
                 <li class="slatkis-attribute">
                   <ion-icon class="slatkis-icon" name="flame-outline"></ion-icon>
@@ -435,7 +445,6 @@
                 </li>
                 <li><a  class="link slatkisi-link" href="{{url_for('section', sweetie='Bombone')}}">Detaljnije</a></li>
               </ul>
-              </a>
             </div>
           </div>
 
@@ -735,7 +744,16 @@
       {{ message_client_form.send(class_="btn btn--form message_button") }}      
     </form>
 </div>
-<div class="cta-img-box" role="img" aria-label="Women hold beautiful sweeties."></div>
+<!-- <div class="cta-img-box" role="img" aria-label="Women hold beautiful sweeties."></div> -->
+
+
+<div class="cta-img-box">
+  <picture>
+    <source srcset="{{ url_for('static', filename='img/GaginiSlatkisi IMG/Gallery-17.webp') }}" type="image/webp">
+    <source srcset="{{ url_for('static', filename='img/GaginiSlatkisi IMG/Gallery-17.jpg') }}" type="image/jpeg">
+    <img src="{{ url_for('static', filename='img/GaginiSlatkisi IMG/Gallery-17.jpg') }}" alt="Gallery Image" class="cta-img">
+  </picture>
+</div>
 </div>
         </div>
       </section>
@@ -802,7 +820,7 @@ Gagini Slatkiši, Lazarevac
 </nav>
 
 <div class="img-footer">
-  <img loading="lazy" class="cake-img" src="{{url_for('static', filename='/img/GaginiSlatkisi-footer-img.png')}}" alt="Nice ilustration of cake.">
+  <img loading="lazy"  class="cake-img" src="{{url_for('static', filename='/img/GaginiSlatkisi-footer-img.png')}}" alt="Nice ilustration of cake.">
 </div>
   </div>
 </footer>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novi Kontakt sa Sajta</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    "
+  >
+    <table
+      align="center"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+      style="
+        max-width: 600px;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        margin: 20px auto;
+        padding: 20px;
+      "
+    >
+      <tr>
+        <td align="center" style="padding: 20px 0">
+          <h2 style="margin: 0; color: #444">Novi Kontakt sa Sajta</h2>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px 20px; font-size: 16px; line-height: 1.6">
+          <p style="margin: 0 0 10px">
+            <strong>Ime korisnika:</strong> {{ name }}
+          </p>
+          <p style="margin: 0 0 10px">
+            <strong>Email korisnika:</strong>
+            <a
+              href="mailto:{{ email }}"
+              style="color: #007bff; text-decoration: none"
+              >{{ email }}</a
+            >
+          </p>
+          <p style="margin: 0 0 10px"><strong>Poruka korisnika:</strong></p>
+          <p
+            style="
+              margin: 0;
+              padding: 10px;
+              background-color: #f9f9f9;
+              border-left: 4px solid #007bff;
+              font-style: italic;
+            "
+          >
+            {{ message }}
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td
+          align="center"
+          style="padding: 20px 0; font-size: 12px; color: #888"
+        >
+          <p style="margin: 0">
+            Ova poruka je poslata automatski sa forme na sajtu.
+          </p>
+          <p style="margin: 0">Molimo vas da ne odgovarate na ovu poruku.</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

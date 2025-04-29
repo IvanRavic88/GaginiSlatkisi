@@ -58,18 +58,39 @@
               <div class="sweetie-text-box">
                 {{ form.sweetie_img.label}} 
                 {{form.sweetie_img(placeholder="IMG")}}
+                {% if form.sweetie_img.errors %}
+                  <ul class="form-errors">
+                    {% for error in form.sweetie_img.errors %}
+                      <li>{{ error }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
               </div>
-              <div  class="sweetie-text-box">
-              {{ form.sweetie_name_form.label }}
-              {{form.sweetie_name_form(placeholder="Čokoladna torta") }} 
-            </div>
+              <div class="sweetie-text-box">
+                {{ form.sweetie_name_form.label }}
+                {{ form.sweetie_name_form(placeholder="Čokoladna torta") }}
+                {% if form.sweetie_name_form.errors %}
+                  <ul class="form-errors">
+                    {% for error in form.sweetie_name_form.errors %}
+                      <li>{{ error }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
             <div class="sweetie-text-box">
               {{ form.description_text_form.label }}
               {{ form.description_text_form(placeholder="Čokoladna, a voćno osvežavajuća torta sa duplim kremom unutra i spolja.") }} 
+            {%if form.description_text_form.errors%}
+              <ul class="form-errors">
+                {% for error in form.description_text_form.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
             </div>
             
             <div class="sweetie-button">
-              {{ form.save(class_="sweetie-button-form") }}
+              {{ form.save(class_="sweetie-button-form btn") }}
             </div>
               
 

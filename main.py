@@ -3,11 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import table, column, select, join
 import os
 from dotenv import load_dotenv, find_dotenv
-import smtplib
-from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
+from werkzeug.security import check_password_hash
 from forms import LoginForm, SweetieAddForm, Client_Message
 from flask import session
+from werkzeug.utils import secure_filename
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ load_dotenv(find_dotenv())
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS_FOLDER')
 
 
-MAIL_GAGINI_SLATKISI = "ivan.ravic88@gmail.com"
+MAIL_GAGINI_SLATKISI = "ravic.ivan88@gmail.com"
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sweetie_table.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -27,7 +28,7 @@ app.config['DEBUG'] = True
 app.config['TESTING'] = False
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TTL'] = True
+app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 # app.config['MAIL_DEBUG'] = True
 app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
@@ -39,6 +40,17 @@ app.config['MAIL_ASCII_ATTACHMENT'] = False
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+# for flask_mail
+mail = Mail(app)
+
+
+# Define allowed file extensions for image uploads
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
+
+def allowed_filename(filename):
+  return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 # DATABASE
 class User(UserMixin, db.Model):
@@ -69,11 +81,22 @@ class SweetieHandle():
     # upload image
     if form.validate_on_submit():
       if request.files:
-        image = request.files["sweetie-img"]
+        image = request.files.get["sweetie-img"]
         
-        filepath  = os.path.join(app.config["IMAGE_UPLOADS"], image.filename)
+        if not image or image.filename == "":
+          flash("Please select an image.")
+          return redirect(url_for("section", sweetie=sweetie_value))
+        
+        if not allowed_filename(image.filename):
+          flash("Allowed image types are: png, jpg, jpeg, gif, webp")
+          return redirect(url_for("section", sweetie=sweetie_value))
+        
+        filename = secure_filename(image.filename)
+        filepath = os.path.join(app.config["IMAGE_UPLOADS"], filename)
+
         if not os.path.exists(filepath):
           image.save(filepath)
+
         else:
           flash("Image already exists. Please change the name of the image and try again.")
           return redirect(url_for("section", sweetie=sweetie_value))
@@ -93,15 +116,31 @@ def load_user(user_id):
 # main page whit form for sending message
 @app.route('/', methods=["POST", "GET"])
 def home():
-  message_client_form = Client_Message()
-  if message_client_form.validate_on_submit() and message_client_form.last_name.data == "":
-        with smtplib.SMTP(app.config['MAIL_SERVER'], port=app.config['MAIL_PORT']) as connection:
-          connection.starttls()
-          connection.login(user=app.config['MAIL_USERNAME'], password=app.config['MAIL_PASSWORD'])
-          connection.sendmail(from_addr=app.config['MAIL_USERNAME'], to_addrs=f"{MAIL_GAGINI_SLATKISI}",
-                              msg=f"Subject:{message_client_form.client_name.data}\n\n{message_client_form.client_message.data}\n\nClient email address: {message_client_form.client_email.data}")
+    message_client_form = Client_Message()
+    if message_client_form.validate_on_submit() and message_client_form.last_name.data == "":
+        html_message = render_template("email_template.html",
+                                       name=message_client_form.client_name.data,
+                                       email=message_client_form.client_email.data,
+                                       message=message_client_form.client_message.data)
+
+        subject = f"Pitanje posetioca sajta Gaginislatkisi.com: {message_client_form.client_name.data}"
+        recipient = MAIL_GAGINI_SLATKISI
+
+        msg = Message(subject=subject,
+                      recipients=[recipient],
+                      html=html_message,
+                      sender=app.config['MAIL_USERNAME'])
+        try:
+          mail.send(msg)
+          flash("Message is sent successfully!")
+        except Exception:
+          flash("Message is not sent!")
+         
+        
         return redirect(url_for("home"))
-  return render_template("index.html", message_client_form=message_client_form, admin=current_user)
+
+    return render_template("index.html", message_client_form=message_client_form, admin=current_user)
+
 
 # route for displaying sweeties from database
 @app.route('/section/<sweetie>', methods=["POST", "GET"])

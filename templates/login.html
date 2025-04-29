@@ -10,8 +10,9 @@
           enctype="multipart/form-data"
           novalidate
         >
-          {{ login_form.csrf_token }} {% with messages = get_flashed_messages()
-          %} {% if messages %} {% for message in messages %}
+          {{ login_form.hidden_tag() }} {% with messages =
+          get_flashed_messages() %} {% if messages %} {% for message in messages
+          %}
           <p>{{ message }}</p>
           {% endfor %} {% endif %} {% endwith %}
           <div class="sweetie-text-box">
@@ -24,7 +25,7 @@
           </div>
 
           <div class="sweetie-button">
-            {{ login_form.login(class_="sweetie-button-form") }}
+            {{ login_form.login(class_="sweetie-button-form btn") }}
           </div>
         </form>
       </div>

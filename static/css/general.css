@@ -312,3 +312,10 @@ textarea {
 strong {
   font-weight: 500;
 }
+
+.form-errors {
+  list-style-type: none;
+  margin: 0.3rem 0;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}

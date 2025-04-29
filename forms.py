@@ -13,9 +13,9 @@ class LoginForm(FlaskForm):
 
 # FORM FOR INSERT SWEETIES
 class SweetieAddForm(FlaskForm):
-  sweetie_name_form = StringField("Naziv slatkiša", validators=[InputRequired(message="Potrebno je uneti naziv")])
-  description_text_form = TextAreaField("Opis slatkiša", validators=[DataRequired()])
-  sweetie_img = FileField("Slika", name="sweetie-img", validators=[DataRequired()])
+  sweetie_name_form = StringField("Naziv slatkiša", validators=[InputRequired(message="Naziv slatkiša je obavezan")])
+  description_text_form = TextAreaField("Opis slatkiša", validators=[DataRequired(message="Potrebno je uneti opis slatkiša")])
+  sweetie_img = FileField("Slika", name="sweetie-img", validators=[DataRequired(message="Potrebno je uneti sliku")])
   save = SubmitField("Sačuvaj slatkiš")
 
 # FORM FOR MESSAGE
@@ -23,5 +23,5 @@ class Client_Message(FlaskForm):
   client_name = StringField("Vaše Ime", validators = [InputRequired()])
   client_email = EmailField("Email Adresa", validators = [InputRequired()])
   client_message = TextAreaField("Poruka", validators = [InputRequired()])
-  last_name = StringField("", validators=[DataRequired()], render_kw={"style":"display:none"})
+  last_name = StringField("", render_kw={"style":"display:none"})
   send = SubmitField("Pošalji")

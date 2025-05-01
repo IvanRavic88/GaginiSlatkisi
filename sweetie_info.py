@@ -1,5 +1,5 @@
 # Dictionary of sweetie info, for displaying sweeties from database
-from sweetie_classes import Torte, Mus, Casice, Sitni, Mini, Lux, Tart, Medenjaci, Bombone
+from sweetie_classes import *
 
 
 sweetie_info = {

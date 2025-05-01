@@ -2,7 +2,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
 from wtforms import StringField, SubmitField, TextAreaField, EmailField, PasswordField
-from wtforms.validators import DataRequired, InputRequired
+from wtforms.validators import DataRequired, InputRequired, Email
 
 
 # FORM FOR LOGIN
@@ -20,8 +20,8 @@ class SweetieAddForm(FlaskForm):
 
 # FORM FOR MESSAGE
 class Client_Message(FlaskForm):
-  client_name = StringField("Vaše Ime", validators = [InputRequired()])
-  client_email = EmailField("Email Adresa", validators = [InputRequired()])
-  client_message = TextAreaField("Poruka", validators = [InputRequired()])
+  client_name = StringField("Vaše Ime", validators = [InputRequired(), DataRequired()])
+  client_email = EmailField("Email Adresa", validators = [ DataRequired(), Email()])
+  client_message = TextAreaField("Poruka", validators = [InputRequired(), DataRequired()])
   last_name = StringField("", render_kw={"style":"display:none"})
   send = SubmitField("Pošalji")

@@ -76,6 +76,23 @@ function checkFlexGap() {
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
 
+// Inserting dynamic honeypot
+function insertDynamicHoneypot() {
+  const formEl = document.querySelector("form");
+  if (formEl && !formEl.querySelector('input[name="middle_name"]')) {
+    const honeypotInput = document.createElement("input");
+    honeypotInput.type = "text";
+    honeypotInput.name = "middle_name";
+    honeypotInput.style.display = "none";
+    honeypotInput.tabIndex = "-1";
+    honeypotInput.autocomplete = "off";
+
+    const submitInput = formEl.querySelector('input[type="submit"]');
+    if (submitInput) {
+      formEl.insertBefore(honeypotInput, submitInput);
+    }
+  }
+}
 // Initialize functions
 function init() {
   setCurrentYear();
@@ -83,6 +100,7 @@ function init() {
   enableSmoothScrolling();
   enableStickyNavigation();
   checkFlexGap();
+  insertDynamicHoneypot();
 }
 // Run the initialize functions when the DOM is loaded
 document.addEventListener("DOMContentLoaded", init);

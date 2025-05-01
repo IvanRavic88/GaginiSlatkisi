@@ -735,18 +735,18 @@
       {{ message_client_form.hidden_tag() }}  
       <div>
        {{ message_client_form.client_name.label }}
-        {{ message_client_form.client_name (placeholder="Ime") }}
+        {{ message_client_form.client_name (placeholder="Ime", required=True) }}
       </div>
 
       <div>
         {{ message_client_form.client_email.label }}
-        {{ message_client_form.client_email (placeholder="ime@primer.com") }}
+        {{ message_client_form.client_email (placeholder="ime@primer.com", required=True) }}
       </div>
 
       <div class="cta-message">
       {{ message_client_form.client_message.label }}
      <label>
-      {{ message_client_form.client_message(placeholder="Vaša poruka", rows="3") }}
+      {{ message_client_form.client_message(placeholder="Vaša poruka", rows="3", required=True) }}
      </label>
       </div>
       {{ message_client_form.last_name }}

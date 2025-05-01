@@ -46,5 +46,5 @@ class Bombone(db.Model):
     sweetie_name = db.Column(db.String(250), nullable=False)
     description_text = db.Column(db.Text, nullable=False)
     sweetie_img = db.Column(db.String(250), nullable=False)
-# db.create_all() # In case user table doesn't exists already. Else remove it.
+# db.create_all()  # In case the user table doesn't exist already. Otherwise, remove it.
 

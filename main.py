@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import table, column, select, join
+from sqlalchemy import table, column
 import os
 from dotenv import load_dotenv, find_dotenv
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
@@ -18,7 +18,7 @@ load_dotenv(find_dotenv())
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS_FOLDER')
 
 
-MAIL_GAGINI_SLATKISI = "ravic.ivan88@gmail.com"
+MAIL_GAGINI_SLATKISI = "ivan.ravic88@gmail.com"
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sweetie_table.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -117,27 +117,45 @@ def load_user(user_id):
 @app.route('/', methods=["POST", "GET"])
 def home():
     message_client_form = Client_Message()
-    if message_client_form.validate_on_submit() and message_client_form.last_name.data == "":
-        html_message = render_template("email_template.html",
-                                       name=message_client_form.client_name.data,
-                                       email=message_client_form.client_email.data,
-                                       message=message_client_form.client_message.data)
 
-        subject = f"Pitanje posetioca sajta Gaginislatkisi.com: {message_client_form.client_name.data}"
-        recipient = MAIL_GAGINI_SLATKISI
+    if message_client_form.validate_on_submit():
 
-        msg = Message(subject=subject,
-                      recipients=[recipient],
-                      html=html_message,
-                      sender=app.config['MAIL_USERNAME'])
-        try:
-          mail.send(msg)
-          flash("Message is sent successfully!")
-        except Exception:
-          flash("Message is not sent!")
-         
-        
+    # check if honeypot field is filled
+      if message_client_form.last_name.data !="" or request.form.get("middle_name", "") != "":
+        flash("Invalid form submission detected.")
         return redirect(url_for("home"))
+    
+
+      html_message = render_template(
+            "email_template.html",
+            name=message_client_form.client_name.data,
+            email=message_client_form.client_email.data,
+            message=message_client_form.client_message.data
+        )
+
+      subject = f"Pitanje posetioca sajta Gaginislatkisi.com: {message_client_form.client_name.data}"
+      recipient = MAIL_GAGINI_SLATKISI
+
+      msg = Message(
+          subject=subject,
+          recipients=[recipient],
+          html=html_message,
+          sender=app.config['MAIL_USERNAME']
+        )
+
+      try:
+        mail.send(msg)
+        flash("Message is sent successfully!")
+      except Exception:
+        flash("Message is not sent!")
+        
+      return redirect(url_for("home"))
+    
+    # Ako forma nije validna, prikaži greške
+    if message_client_form.errors:
+        for field, errors in message_client_form.errors.items():
+            for error in errors:
+                flash(f"{error}")
 
     return render_template("index.html", message_client_form=message_client_form, admin=current_user)
 

@@ -9,6 +9,7 @@ from forms import LoginForm, SweetieAddForm, Client_Message
 from flask import session
 from werkzeug.utils import secure_filename
 from flask_mail import Mail, Message
+import requests
 
 app = Flask(__name__)
 
@@ -18,7 +19,11 @@ load_dotenv(find_dotenv())
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS_FOLDER')
 
 
-MAIL_GAGINI_SLATKISI = "ivan.ravic88@gmail.com"
+MAIL_GAGINI_SLATKISI = "gaginislatkisi@gmail.com"
+
+RECAPTCHA_SITE_KEY = os.getenv('RECAPTCHA_SITE_KEY')
+RECAPTCHA_SECRET_KEY=os.getenv('RECAPTCHA_SECRET_KEY')
+
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sweetie_table.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -125,6 +130,18 @@ def home():
         flash("Invalid form submission detected.")
         return redirect(url_for("home"))
     
+      recaptcha_response = request.form.get("g-recaptcha-response")
+
+      data = {'secret': RECAPTCHA_SECRET_KEY,
+              'response': recaptcha_response
+              }
+      
+      r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+      result = r.json()
+
+      if not result.get('success') or result.get('score', 0) < 0.5:
+         flash("Suspicious activity detected. Please try again.")
+         return redirect(url_for("home"))
 
       html_message = render_template(
             "email_template.html",
@@ -157,7 +174,7 @@ def home():
             for error in errors:
                 flash(f"{error}")
 
-    return render_template("index.html", message_client_form=message_client_form, admin=current_user)
+    return render_template("index.html", message_client_form=message_client_form, admin=current_user, site_key=RECAPTCHA_SITE_KEY)
 
 
 # route for displaying sweeties from database

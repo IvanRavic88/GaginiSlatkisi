@@ -93,6 +93,30 @@ function insertDynamicHoneypot() {
     }
   }
 }
+
+// reCaptcha
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".cta-form");
+  if (!form) return;
+
+  const siteKey = form.dataset.sitekey;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    grecaptcha.ready(function () {
+      grecaptcha.execute(siteKey, { action: "submit" }).then(function (token) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "g-recaptcha-response";
+        input.value = token;
+        form.appendChild(input);
+        form.submit();
+      });
+    });
+  });
+});
+
 // Initialize functions
 function init() {
   setCurrentYear();

@@ -1,7 +1,7 @@
 # Description: Forms for login, insert sweeties and send message
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
-from wtforms import StringField, SubmitField, TextAreaField, EmailField, PasswordField
+from wtforms import StringField, SubmitField, TextAreaField, EmailField, PasswordField, HiddenField
 from wtforms.validators import DataRequired, InputRequired, Email
 
 
@@ -24,4 +24,5 @@ class Client_Message(FlaskForm):
   client_email = EmailField("Email Adresa", validators = [ DataRequired(), Email()])
   client_message = TextAreaField("Poruka", validators = [InputRequired(), DataRequired()])
   last_name = StringField("", render_kw={"style":"display:none"})
+  g_recaptcha_response = HiddenField("g-recaptcha-response")
   send = SubmitField("Pošalji")

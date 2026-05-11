@@ -1,4 +1,19 @@
 
+# === AI tooling & private docs (NEVER commit to public repo) ===
+.claude/
+.claude*
+.cursor/
+.aider*
+.continue/
+.windsurf/
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+docs/superpowers/
+docs/ai/
+memory/
+.ai/
+
 # Created by https://www.toptal.com/developers/gitignore/api/flask,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=flask,python
 
@@ -37,10 +52,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 335e3f7545617486cbbb65b945c6e12d771ed6bb
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.

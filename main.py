@@ -10,12 +10,16 @@ from flask import session
 from werkzeug.utils import secure_filename
 from flask_mail import Mail, Message
 import requests
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = Flask(__name__)
 
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
+
 load_dotenv(find_dotenv())
 
-
+app.config["PREFERRED_URL_SCHEEM"] = 'https'
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS_FOLDER')
 
 

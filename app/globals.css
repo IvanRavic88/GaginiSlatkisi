@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  /* Boje iz postojećeg CSS-a — popuniće se detaljnije u Planu B */
+  --color-primary: #d4a373;
+  --color-primary-dark: #b88a5a;
+  --color-background: #fefae0;
+  --color-text: #4a3a1f;
+
+  /* Fontovi iz postojećeg CSS-a */
+  --font-family-display: "Secular One", serif;
+  --font-family-sans: "Poppins", sans-serif;
+}
+
+/* Tailwind v4 base globals — popunjava se u Planu B */
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+}

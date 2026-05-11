@@ -1,4 +1,10 @@
 
+# === Secrets — NEVER commit (public repo!) ===
+.env
+.env.*
+!.env.example
+!.env.local.example
+
 # === AI tooling & private docs (NEVER commit to public repo) ===
 .claude/
 .claude*

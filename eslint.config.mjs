@@ -1,16 +1,11 @@
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
-import { FlatCompat } from '@eslint/eslintrc'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-})
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals'
+import nextTypeScript from 'eslint-config-next/typescript'
+import prettier from 'eslint-config-prettier'
 
 const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  ...nextCoreWebVitals,
+  ...nextTypeScript,
+  prettier,
   {
     ignores: [
       'main.py',
@@ -21,6 +16,12 @@ const eslintConfig = [
       'static/**',
       'instance/**',
       'sanity.types.ts',
+      '.next/**',
+      'node_modules/**',
+      'venv/**',
+      '__pycache__/**',
+      'out/**',
+      '.vercel/**',
     ],
   },
 ]

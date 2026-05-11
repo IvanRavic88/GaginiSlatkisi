@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.vercel
+sanity.types.ts
+public
+package-lock.json
+
+main.py
+forms.py
+sweetie_classes.py
+sweetie_info.py
+templates/
+static/
+instance/
+*.py

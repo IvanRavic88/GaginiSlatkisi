@@ -1,20 +1,70 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Boje iz postojećeg CSS-a — popuniće se detaljnije u Planu B */
-  --color-primary: #d4a373;
-  --color-primary-dark: #b88a5a;
+  /* === Brend boje (iz starog general.css) === */
+  --color-primary: #ffebf2;
+  --color-primary-tint: #fdf2e9;
+  --color-primary-tint-2: #fae5d3;
+  --color-primary-shade: #f78da7;
   --color-background: #fefae0;
-  --color-text: #4a3a1f;
+  --color-foreground: #4a3a1f;
+  --color-text-default: #555555;
+  --color-text-muted: #6f6f6f;
+  --color-text-dark: #333333;
+  --color-accent: #d4a373;
+  --color-accent-dark: #b88a5a;
 
-  /* Fontovi iz postojećeg CSS-a */
-  --font-family-display: 'Secular One', serif;
-  --font-family-sans: 'Poppins', sans-serif;
+  /* === Tipografija === */
+  --font-display: 'Secular One', serif;
+  --font-sans: var(--font-poppins), 'Poppins', sans-serif;
+
+  /* === Spacing scale (2/4/8/12/16/24/32/48/64/80/96/128 px) === */
+  --spacing-2xs: 0.2rem;
+  --spacing-xs: 0.4rem;
+  --spacing-sm: 0.8rem;
+  --spacing-md: 1.2rem;
+  --spacing-lg: 1.6rem;
+  --spacing-xl: 2.4rem;
+  --spacing-2xl: 3.2rem;
+  --spacing-3xl: 4.8rem;
+  --spacing-4xl: 6.4rem;
+  --spacing-5xl: 8rem;
+  --spacing-6xl: 9.6rem;
+  --spacing-7xl: 12.8rem;
+
+  /* === Shadows === */
+  --shadow-soft: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  --shadow-card: 0 1.6rem 3.2rem rgba(0, 0, 0, 0.06);
+
+  /* === Border radius === */
+  --radius-default: 9px;
+  --radius-pill: 9999px;
 }
 
-/* Tailwind v4 base globals — popunjava se u Planu B */
-body {
-  background: var(--color-background);
-  color: var(--color-text);
-  font-family: var(--font-family-sans);
+@layer base {
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--color-text-default);
+    background-color: var(--color-background);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }

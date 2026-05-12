@@ -76,7 +76,7 @@ tests/e2e/        # Playwright testovi
 
 | Stranica          | Performance | Accessibility | Best Practices | SEO |
 | ----------------- | ----------- | ------------- | -------------- | --- |
-| Home `/` (Mobile) | 100         | 92            | 100            | 100 |
+| Home `/` (Mobile) | 94          | 96            | 100            | 100 |
 
 ## Live
 

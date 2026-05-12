@@ -72,6 +72,12 @@ scripts/          # Migracioni skripti
 tests/e2e/        # Playwright testovi
 ```
 
+## Lighthouse rezultati (lokalni produkcijski build, 2026-05-12)
+
+| Stranica          | Performance | Accessibility | Best Practices | SEO |
+| ----------------- | ----------- | ------------- | -------------- | --- |
+| Home `/` (Mobile) | 100         | 92            | 100            | 100 |
+
 ## Live
 
 Stara Flask verzija: https://www.gaginislatkisi.com/

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import type { Image as SanityImageType } from 'sanity'
 
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-jsonld'
+import { ProductJsonLd } from '@/components/seo/product-jsonld'
 import { Container, Heading, SanityImage, Subheading } from '@/components/ui'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import {
@@ -63,6 +65,25 @@ export default async function CategoryPage({ params }: PageProps) {
   if (!category) notFound()
 
   return (
+    <>
+      <BreadcrumbJsonLd
+        crumbs={[
+          { name: 'Naslovna', url: 'https://www.gaginislatkisi.com/' },
+          { name: category.name!, url: `https://www.gaginislatkisi.com/${slug}` },
+        ]}
+      />
+      {sweets.length > 0 ? (
+        <ProductJsonLd
+          sweets={sweets
+            .filter((s): s is typeof s & { name: string; description: string; image: SanityImageType } => Boolean(s.name && s.description && s.image))
+            .map((s) => ({
+              name: s.name,
+              description: s.description,
+              image: s.image,
+              categoryName: category.name!,
+            }))}
+        />
+      ) : null}
     <Container as="section" className="py-[6.4rem] text-center">
       <Subheading>{category.subheading ?? category.name}</Subheading>
       <Heading as="h1" variant="sweet" className="mx-auto max-w-[64rem]">
@@ -101,5 +122,6 @@ export default async function CategoryPage({ params }: PageProps) {
         </div>
       )}
     </Container>
+    </>
   )
 }

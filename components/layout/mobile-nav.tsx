@@ -26,7 +26,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
-        className="block rounded p-[0.8rem] md:hidden"
+        className="relative z-[60] block rounded p-[0.8rem] md:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

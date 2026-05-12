@@ -14,7 +14,9 @@
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "sanity:typegen": "sanity schema extract && sanity typegen generate",
+    "sanity:extract": "sanity schema extract --enforce-required-fields"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",

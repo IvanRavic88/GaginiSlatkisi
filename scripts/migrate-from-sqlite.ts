@@ -1,12 +1,10 @@
-import { config as loadEnv } from 'dotenv'
-
-loadEnv({ path: '.env.local' })
-
 import { readFileSync } from 'fs'
 import { basename } from 'path'
 import slugify from 'slugify'
 
-import { writeClient } from '@/lib/sanity/write-client'
+import { createWriteClient } from '@/lib/sanity/write-client-factory'
+
+const writeClient = createWriteClient()
 
 import { getAllCategoryDefs, getCategoryForTable } from './lib/category-mapper'
 import { findImageInDir } from './lib/image-finder'

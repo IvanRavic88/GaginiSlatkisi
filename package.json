@@ -17,7 +17,7 @@
     "test:e2e:ui": "playwright test --ui",
     "sanity:typegen": "sanity schema extract && sanity typegen generate",
     "sanity:extract": "sanity schema extract --enforce-required-fields",
-    "migrate": "tsx scripts/migrate-from-sqlite.ts"
+    "migrate": "tsx --env-file=.env.local --use-system-ca scripts/migrate-from-sqlite.ts"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",
@@ -26,7 +26,8 @@
     "next-sanity": "^12.4.5",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "sanity": "^5.24.0"
+    "sanity": "^5.24.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",

@@ -283,9 +283,11 @@ node_modules/
 .vercel
 tsconfig.tsbuildinfo
 
-# Override Python template — TypeScript lib/ folder is tracked
+# Override Python template — TypeScript lib/ folders are tracked
 !/lib/
 !/lib/**
+!**/lib/
+!**/lib/**
 
 # Playwright
 /playwright-report/

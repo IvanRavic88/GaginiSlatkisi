@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test'
 test.use({ viewport: { width: 375, height: 800 } })
 
 test('mobile menu otvara i zatvara', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
 
   const toggle = page.getByRole('button', { name: /Otvori meni/ })
   await expect(toggle).toBeVisible()
@@ -19,7 +19,7 @@ test('mobile menu otvara i zatvara', async ({ page }) => {
 })
 
 test('klik na link u mobile menu-u zatvara meni', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
   await page.getByRole('button', { name: /Otvori meni/ }).click()
   await page.locator('#mobile-menu').getByRole('link', { name: 'Kontakt' }).click()
   await expect(page).toHaveURL(/#footer$/)

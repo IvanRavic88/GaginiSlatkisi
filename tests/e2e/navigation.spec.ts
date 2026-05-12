@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('home → klik na CategoryGrid karticu vodi na njenu stranicu', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
   await expect(page.getByRole('heading', { name: /Sočne poslastice/ })).toBeVisible()
 
   // CategoryGrid je u sekciji #kolaci — uzimam prvu karticu (Torte je prva po order asc)
@@ -13,7 +13,7 @@ test('home → klik na CategoryGrid karticu vodi na njenu stranicu', async ({ pa
 })
 
 test('footer kategorija link radi', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
   const footerLink = page.locator('footer').getByRole('link', { name: 'Medenjaci' })
   await footerLink.click()
   await expect(page).toHaveURL(/\/medenjaci$/)

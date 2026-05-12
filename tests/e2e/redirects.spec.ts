@@ -10,7 +10,7 @@ const LEGACY_TO_NEW = [
 
 for (const { from, to } of LEGACY_TO_NEW) {
   test(`${from} → 308 → ${to}`, async ({ page }) => {
-    const response = await page.goto(from)
+    const response = await page.goto(from, { waitUntil: 'domcontentloaded' })
     expect(response?.status()).toBe(200) // posle redirect-a
     await expect(page).toHaveURL(new RegExp(`${to.replace('/', '\\/')}$`))
   })

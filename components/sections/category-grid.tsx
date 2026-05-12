@@ -39,7 +39,7 @@ export async function CategoryGrid() {
               ) : null}
             </div>
             <div className="p-[2.4rem]">
-              <p className="mb-[0.8rem] text-[1.2rem] font-medium tracking-wide text-[var(--color-accent-dark)] uppercase">
+              <p className="mb-[0.8rem] text-[1.2rem] font-medium tracking-wide text-[var(--color-accent-text)] uppercase">
                 {cat.subheading ?? cat.name}
               </p>
               <h3 className="text-[2.4rem] font-semibold text-[var(--color-text-dark)]">
@@ -50,7 +50,7 @@ export async function CategoryGrid() {
                   {cat.secondaryHeading}
                 </p>
               ) : null}
-              <span className="mt-[1.6rem] inline-block text-[1.4rem] font-semibold text-[var(--color-accent-dark)] underline-offset-4 group-hover:underline">
+              <span className="mt-[1.6rem] inline-block text-[1.4rem] font-semibold text-[var(--color-accent-text)] underline-offset-4 group-hover:underline">
                 Detaljnije →
               </span>
             </div>

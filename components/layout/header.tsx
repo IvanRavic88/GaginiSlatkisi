@@ -40,7 +40,7 @@ export function Header() {
           <li>
             <Link
               href="/#footer"
-              className="rounded-[var(--radius-default)] bg-[var(--color-accent)] px-[2.4rem] py-[1.2rem] text-[1.6rem] font-semibold text-white transition-colors hover:bg-[var(--color-accent-dark)]"
+              className="rounded-[var(--radius-default)] bg-[var(--color-accent)] px-[2.4rem] py-[1.2rem] text-[1.6rem] font-semibold text-[var(--color-text-dark)] transition-colors hover:bg-[var(--color-accent-dark)] hover:text-white"
             >
               Kontakt
             </Link>

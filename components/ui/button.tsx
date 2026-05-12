@@ -7,7 +7,7 @@ type Variant = 'full' | 'outline' | 'form'
 
 const variantClass: Record<Variant, string> = {
   full:
-    'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] focus-visible:ring-[var(--color-accent-dark)]',
+    'bg-[var(--color-accent)] text-[var(--color-text-dark)] hover:bg-[var(--color-accent-dark)] hover:text-white focus-visible:ring-[var(--color-accent-dark)]',
   outline:
     'bg-white text-[var(--color-text-dark)] shadow-[inset_0_0_0_3px_var(--color-accent)] hover:bg-[var(--color-primary-tint)] focus-visible:ring-[var(--color-accent)]',
   form: 'bg-[var(--color-primary-shade)] text-white hover:bg-[#ec6c8c] focus-visible:ring-[var(--color-primary-shade)]',

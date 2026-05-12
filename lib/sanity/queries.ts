@@ -47,3 +47,14 @@ export const FEATURED_SWEETS_QUERY = defineQuery(`
 export const SITE_SETTINGS_QUERY = defineQuery(`
   *[_type == "siteSettings"][0]
 `)
+
+export const CATEGORIES_WITH_PREVIEW_QUERY = defineQuery(`
+  *[_type == "category"] | order(order asc) {
+    _id,
+    name,
+    "slug": slug.current,
+    subheading,
+    secondaryHeading,
+    "previewImage": *[_type == "sweet" && references(^._id)] | order(order asc) [0].image
+  }
+`)

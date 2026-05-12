@@ -1,8 +1,19 @@
-export default function Home() {
+import { CategoryGrid } from '@/components/sections/category-grid'
+import { ContactCta } from '@/components/sections/contact-cta'
+import { FeaturedSweets } from '@/components/sections/featured-sweets'
+import { Hero } from '@/components/sections/hero'
+import { Pricing } from '@/components/sections/pricing'
+
+export const revalidate = 60
+
+export default function HomePage() {
   return (
-    <main>
-      <h1>Gagini Slatkiši</h1>
-      <p>Poslastičarnica u Lazarevcu — sajt u izradi.</p>
-    </main>
+    <>
+      <Hero />
+      <CategoryGrid />
+      <FeaturedSweets />
+      <Pricing />
+      <ContactCta />
+    </>
   )
 }

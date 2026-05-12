@@ -74,9 +74,9 @@ tests/e2e/        # Playwright testovi
 
 ## Lighthouse rezultati (lokalni produkcijski build, 2026-05-12)
 
-| Stranica          | Performance | Accessibility | Best Practices | SEO |
-| ----------------- | ----------- | ------------- | -------------- | --- |
-| Home `/` (Mobile) | 94          | 96            | 100            | 100 |
+| Stranica           | Performance | Accessibility | Best Practices | SEO |
+| ------------------ | ----------- | ------------- | -------------- | --- |
+| Home `/` (Desktop) | 94          | 96            | 100            | 100 |
 
 ## Live
 

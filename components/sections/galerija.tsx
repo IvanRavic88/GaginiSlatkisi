@@ -61,7 +61,9 @@ export function Galerija() {
               src={`/img/Gallery/27/Gallery-${item.num}.webp`}
               alt={item.alt}
               fill
-              sizes="(min-width: 1024px) 22vw, (min-width: 768px) 33vw, (min-width: 640px) 33vw, 50vw"
+              loading="lazy"
+              sizes="(min-width: 1024px) 22vw, (min-width: 768px) 17vw, 50vw"
+              quality={70}
               className="object-cover transition-transform duration-400 hover:scale-110"
             />
           </figure>

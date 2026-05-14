@@ -6,7 +6,7 @@ const baseProps = {
   xmlns: 'http://www.w3.org/2000/svg',
   fill: 'none',
   stroke: 'currentColor',
-  strokeWidth: 32,
+  strokeWidth: 24,
   strokeLinecap: 'round',
   strokeLinejoin: 'round',
   viewBox: '0 0 512 512',

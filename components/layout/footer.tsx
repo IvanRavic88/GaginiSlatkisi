@@ -25,11 +25,20 @@ export async function Footer() {
   return (
     <footer
       id="footer"
-      className="relative overflow-hidden border-t border-[var(--color-cta-from)] bg-[var(--color-primary)] py-[10.8rem]"
+      className="relative overflow-hidden border-t border-[var(--color-cta-from)] bg-[var(--color-primary)]"
     >
-      <div className="mx-auto grid max-w-[120rem] grid-cols-1 gap-[6.4rem] px-[3.2rem] md:grid-cols-3">
-        <div className="flex flex-col">
-          <Link href="/" aria-label="Naslovna" className="mb-[3.2rem] self-center">
+      <Image
+        src="/img/GaginiSlatkisi-footer-img.png"
+        alt=""
+        width={420}
+        height={420}
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-[6rem] -top-[3rem] hidden h-[36rem] w-auto -rotate-[12deg] select-none opacity-90 lg:block"
+      />
+
+      <div className="mx-auto grid max-w-[120rem] gap-[6.4rem] px-[3.2rem] py-[9.6rem] md:grid-cols-3 lg:gap-[4.8rem]">
+        <div className="flex flex-col items-center text-center md:items-start md:text-left">
+          <Link href="/" aria-label="Naslovna" className="mb-[2.4rem]">
             <Image
               src="/img/GaginiSlatkiši.png"
               alt="GaginiSlatkiši logo"
@@ -39,16 +48,16 @@ export async function Footer() {
             />
           </Link>
 
-          <ul className="flex list-none justify-center gap-[3rem]">
+          <ul className="mb-[2.4rem] flex list-none gap-[2.4rem]">
             <li>
               <a
                 href="https://instagram.com/gaginislatkisi"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-dark)]"
+                className="grid h-[4.8rem] w-[4.8rem] place-items-center rounded-full bg-white text-[var(--color-accent)] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:bg-[var(--color-accent)] hover:text-white"
               >
-                <InstagramIcon className="h-[5rem] w-[5rem]" />
+                <InstagramIcon className="h-[2.6rem] w-[2.6rem]" />
               </a>
             </li>
             <li>
@@ -57,50 +66,57 @@ export async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent-dark)]"
+                className="grid h-[4.8rem] w-[4.8rem] place-items-center rounded-full bg-white text-[var(--color-accent)] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:bg-[var(--color-accent)] hover:text-white"
               >
-                <FacebookIcon className="h-[5rem] w-[5rem]" />
+                <FacebookIcon className="h-[2.6rem] w-[2.6rem]" />
               </a>
             </li>
           </ul>
 
-          <p className="mt-auto pt-[3.2rem] text-[1.4rem] leading-[1.6] text-[var(--color-footer-text)]">
-            Copyright © {new Date().getFullYear()} by GaginiSlatkiši. All rights reserved.
+          <p className="text-[1.4rem] leading-[1.6] text-[var(--color-footer-text)]">
+            Domaći kolači i torte<br />iz Lazarevca
           </p>
         </div>
 
-        <div className="font-bold text-[var(--color-text-dark)]">
-          <p className="mb-[4rem] text-[1.8rem] font-medium">Kontaktirajte nas:</p>
-          <address className="not-italic text-[1.6rem] font-normal leading-[1.6]">
-            <p className="mb-[2.4rem]">Gagini Slatkiši, {city}</p>
+        <div>
+          <p className="mb-[2.4rem] text-[1.8rem] font-semibold text-[var(--color-text-dark)]">
+            Kontaktirajte nas
+          </p>
+          <address className="space-y-[1.6rem] not-italic text-[1.6rem] leading-[1.6]">
+            <p className="font-medium text-[var(--color-text-dark)]">
+              Gagini Slatkiši, {city}
+            </p>
             <p>
               <a
                 href={`tel:${phone.replace(/\s+/g, '')}`}
-                className="text-[var(--color-footer-text)] transition-colors hover:text-[var(--color-text-default)]"
+                className="inline-flex items-center gap-[0.8rem] text-[var(--color-text-default)] transition-colors hover:text-[var(--color-accent)]"
               >
+                <span aria-hidden="true">☎</span>
                 {phone}
               </a>
-              <br />
+            </p>
+            <p>
               <a
                 href={`mailto:${email}`}
-                className="text-[var(--color-footer-text)] transition-colors hover:text-[var(--color-text-default)]"
+                className="inline-flex items-center gap-[0.8rem] text-[var(--color-text-default)] transition-colors hover:text-[var(--color-accent)]"
               >
+                <span aria-hidden="true">✉</span>
                 {email}
               </a>
             </p>
           </address>
         </div>
 
-        <nav aria-label="Kategorije">
-          <p className="mb-[4rem] text-[1.8rem] font-medium text-[var(--color-text-dark)]">
-            Slatkiši
+        <nav aria-label="Slatkiši">
+          <p className="mb-[2.4rem] text-[1.8rem] font-semibold text-[var(--color-text-dark)]">
+            Naši slatkiši
           </p>
-          <ul className="flex flex-col gap-[2.4rem] text-[1.6rem]">
+          <ul className="grid grid-cols-2 gap-x-[2.4rem] gap-y-[1.2rem] text-[1.5rem] md:grid-cols-1 md:gap-y-[1.4rem]">
             {categories.map((c) => (
               <li key={c._id}>
                 <Link
                   href={`/${c.slug}`}
-                  className="text-[var(--color-footer-text)] transition-colors hover:text-[var(--color-text-default)]"
+                  className="text-[var(--color-text-default)] transition-colors hover:text-[var(--color-accent)]"
                 >
                   {c.name}
                 </Link>
@@ -110,14 +126,14 @@ export async function Footer() {
         </nav>
       </div>
 
-      <Image
-        src="/img/GaginiSlatkisi-footer-img.png"
-        alt=""
-        width={320}
-        height={320}
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-[10rem] bottom-0 hidden h-[32rem] w-auto -rotate-[10deg] select-none md:block"
-      />
+      <div className="relative border-t border-[var(--color-cta-from)]/40 bg-[var(--color-primary)]">
+        <div className="mx-auto flex max-w-[120rem] flex-col items-center justify-between gap-[1.2rem] px-[3.2rem] py-[2.4rem] text-[1.3rem] text-[var(--color-footer-text)] md:flex-row">
+          <p>Copyright © {new Date().getFullYear()} GaginiSlatkiši. Sva prava zadržana.</p>
+          <p>
+            Domaća poslastičarnica iz <span className="font-medium">{city}</span>
+          </p>
+        </div>
+      </div>
     </footer>
   )
 }

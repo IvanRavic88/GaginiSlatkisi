@@ -9,11 +9,13 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 
 const variantClass: Record<NonNullable<HeadingProps['variant']>, string> = {
   primary:
-    'font-display text-[5.2rem] font-bold leading-[1.05] tracking-[-0.5px] text-[var(--color-text-dark)]',
+    'font-sans text-[5.2rem] font-bold leading-[1.05] tracking-[-0.5px] text-[var(--color-text-dark)]',
   secondary:
-    'font-display text-[4.4rem] font-bold leading-[1.2] tracking-[-0.5px] text-[var(--color-text-dark)]',
-  tertiary: 'font-display text-[3rem] font-semibold leading-[1.2] text-[var(--color-text-dark)]',
-  sweet: 'font-display text-[3.6rem] font-semibold leading-[1.2] text-[var(--color-text-dark)]',
+    'font-sans text-[4.4rem] font-bold leading-[1.2] tracking-[-0.5px] text-[var(--color-text-dark)]',
+  tertiary:
+    'font-sans text-[3rem] font-bold leading-[1.2] tracking-[-0.5px] text-[var(--color-text-dark)]',
+  sweet:
+    'font-sans text-[3.6rem] font-bold leading-[1.2] tracking-[-0.5px] text-[var(--color-text-dark)]',
 }
 
 export function Heading({

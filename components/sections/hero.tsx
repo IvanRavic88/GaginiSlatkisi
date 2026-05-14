@@ -9,6 +9,7 @@ export function Hero() {
         src="/img/Gallery-65-hero.webp"
         alt=""
         fill
+        priority
         sizes="100vw"
         className="-z-10 object-cover object-center"
       />
@@ -39,7 +40,8 @@ export function Hero() {
               width={720}
               height={720}
               priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
+              sizes="(min-width: 1024px) 50vw, (min-width: 640px) 80vw, 100vw"
+              quality={85}
               className="h-auto w-full shadow-[0.2rem_0.2rem_1.3rem_0_rgba(0,0,0,0.5)]"
             />
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Poppins, Secular_One } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
 import { FloatingSocials } from '@/components/layout/floating-socials'
 import { Footer } from '@/components/layout/footer'
@@ -17,13 +17,6 @@ const poppins = Poppins({
   display: 'swap',
 })
 
-const secularOne = Secular_One({
-  subsets: ['latin-ext'],
-  weight: '400',
-  variable: '--font-secular-one',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.gaginislatkisi.com'),
   title: {
@@ -36,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="sr" className={`${poppins.variable} ${secularOne.variable}`}>
+    <html lang="sr" className={poppins.variable}>
       <body>
         <ToastProvider>
           <SkipLink />

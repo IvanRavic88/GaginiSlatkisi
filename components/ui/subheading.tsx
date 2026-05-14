@@ -10,7 +10,7 @@ export function Subheading({
   return (
     <span
       className={cn(
-        'inline-block text-[1.6rem] font-medium uppercase tracking-[0.75px] text-[var(--color-accent-text)]',
+        'inline-block text-[1.6rem] font-medium uppercase tracking-[0.75px] text-[var(--color-primary-shade)]',
         'mb-[1.6rem]',
         className,
       )}

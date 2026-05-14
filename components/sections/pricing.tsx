@@ -70,7 +70,7 @@ export function Pricing() {
               {['Pažljivo odabrani sastojci', 'Različitih ukusa', 'Mogućnost izbora vrste', 'Za sve prilike'].map(
                 (item) => (
                   <li key={item} className="flex items-center gap-[1.6rem] text-[1.8rem]">
-                    <CheckIcon className="h-[3rem] w-[3rem] flex-none text-[var(--color-primary-shade)]" />
+                    <CheckIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
                     <span>{item}</span>
                   </li>
                 ),

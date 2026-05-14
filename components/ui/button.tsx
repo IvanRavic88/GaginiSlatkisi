@@ -7,15 +7,15 @@ type Variant = 'full' | 'outline'
 
 const variantClass: Record<Variant, string> = {
   full:
-    'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] focus-visible:ring-[var(--color-accent-dark)]',
+    'bg-[var(--color-accent)] text-white shadow-[0_4px_14px_rgba(246,80,160,0.25)] hover:-translate-y-[0.2rem] hover:bg-[var(--color-accent-dark)] hover:shadow-[0_8px_22px_rgba(246,80,160,0.4)] focus-visible:ring-[var(--color-accent-dark)]',
   outline:
-    'bg-white text-[var(--color-text-dark)] shadow-[inset_0_0_0_3px_var(--color-accent)] hover:bg-[var(--color-primary)] focus-visible:ring-[var(--color-accent)]',
+    'bg-white text-[var(--color-text-dark)] shadow-[inset_0_0_0_3px_var(--color-accent),0_2px_8px_rgba(0,0,0,0.05)] hover:-translate-y-[0.2rem] hover:bg-[var(--color-primary)] hover:shadow-[inset_0_0_0_3px_var(--color-accent),0_6px_16px_rgba(246,80,160,0.2)] focus-visible:ring-[var(--color-accent)]',
 }
 
 const base =
   'inline-flex items-center justify-center gap-[0.8rem] rounded-[var(--radius-default)] ' +
   'px-[2.4rem] py-[1.6rem] text-[1.6rem] font-semibold ' +
-  'transition-all duration-200 focus-visible:ring-2 focus-visible:ring-offset-2 ' +
+  'transition-all duration-300 ease-out focus-visible:ring-2 focus-visible:ring-offset-2 ' +
   'disabled:cursor-not-allowed disabled:opacity-60'
 
 interface ButtonAsButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

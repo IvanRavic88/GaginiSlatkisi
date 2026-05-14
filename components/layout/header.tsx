@@ -37,7 +37,7 @@ export function Header() {
           scrolled ? 'h-[7.2rem]' : 'h-[9.6rem]',
         ].join(' ')}
       >
-        <Link href="/" aria-label="GaginiSlatkiši — naslovna">
+        <Link href="/" aria-label="GaginiSlatkiši — naslovna" className="group inline-block">
           <Image
             src="/img/GaginiSlatkiši.png"
             alt="GaginiSlatkiši logo"
@@ -45,7 +45,8 @@ export function Header() {
             height={80}
             priority
             className={[
-              'w-auto transition-all duration-300',
+              'w-auto transition-all duration-300 ease-out',
+              'group-hover:-rotate-2 group-hover:scale-105',
               scrolled ? 'h-[5.6rem]' : 'h-[8rem]',
             ].join(' ')}
           />
@@ -57,16 +58,20 @@ export function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[1.8rem] font-medium text-[var(--color-text-dark)] transition-colors hover:text-[var(--color-accent)]"
+                  className="group relative inline-block py-[0.4rem] text-[1.8rem] font-medium text-[var(--color-text-dark)] transition-colors hover:text-[var(--color-accent)]"
                 >
                   {link.label}
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-[0.2rem] left-0 h-[2px] w-0 bg-[var(--color-accent)] transition-all duration-300 group-hover:w-full"
+                  />
                 </Link>
               </li>
             ))}
             <li>
               <Link
                 href="/#cta"
-                className="inline-block rounded-[9px] bg-[var(--color-accent)] px-[2.4rem] py-[1.2rem] text-[1.8rem] font-medium text-white transition-colors hover:bg-[var(--color-accent-dark)]"
+                className="inline-block rounded-[9px] bg-[var(--color-accent)] px-[2.4rem] py-[1.2rem] text-[1.8rem] font-medium text-white shadow-[0_4px_12px_rgba(246,80,160,0.25)] transition-all duration-300 hover:-translate-y-[0.2rem] hover:bg-[var(--color-accent-dark)] hover:shadow-[0_8px_20px_rgba(246,80,160,0.4)]"
               >
                 Kontakt
               </Link>

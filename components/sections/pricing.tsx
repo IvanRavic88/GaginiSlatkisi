@@ -45,14 +45,14 @@ export function Pricing() {
 
       <div className="mb-[9.6rem] grid grid-cols-1 gap-[6.4rem] md:grid-cols-2">
         {/* Starter */}
-        <div className="w-full overflow-hidden rounded-[11px] border-2 border-[var(--color-primary)]">
+        <div className="group w-full overflow-hidden rounded-[11px] border-2 border-[var(--color-primary)] bg-white transition-all duration-500 hover:-translate-y-[0.8rem] hover:border-[var(--color-primary-shade)] hover:shadow-[0_2.4rem_4.8rem_rgba(246,80,160,0.15)]">
           <Image
             src="/img/Groups-img/Gallery-11.webp"
             alt="Slika prelepo spakovanih sitnih kolača."
             width={600}
             height={450}
             sizes="(min-width: 768px) 35vw, 100vw"
-            className="block w-full pb-[3.2rem]"
+            className="block w-full pb-[3.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
           <div className="px-[4.6rem] pb-[4.6rem]">
             <header className="mb-[4.8rem] text-center">
@@ -81,12 +81,12 @@ export function Pricing() {
         </div>
 
         {/* Complete */}
-        <div className="relative w-full overflow-hidden rounded-[11px] bg-[var(--color-primary)]">
+        <div className="group relative w-full overflow-hidden rounded-[11px] bg-[var(--color-primary)] shadow-[0_1.6rem_3.2rem_rgba(246,80,160,0.1)] transition-all duration-500 hover:-translate-y-[0.8rem] hover:shadow-[0_2.4rem_5.6rem_rgba(246,80,160,0.25)]">
           <span
-            className="absolute right-[-18%] top-[6%] z-10 rotate-45 bg-[var(--color-ribbon-bg)] px-[8rem] py-[0.8rem] text-[1.4rem] font-bold uppercase text-[var(--color-text-dark)]"
+            className="absolute right-[-18%] top-[6%] z-10 rotate-45 bg-[linear-gradient(135deg,#ffd34b,#ffb700)] px-[8rem] py-[0.8rem] text-[1.4rem] font-bold uppercase tracking-wide text-[var(--color-text-dark)] shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
             aria-hidden="true"
           >
-            Best value
+            ★ Best value
           </span>
           <Image
             src="/img/Groups-img/Gallery-103.webp"
@@ -94,7 +94,7 @@ export function Pricing() {
             width={600}
             height={450}
             sizes="(min-width: 768px) 35vw, 100vw"
-            className="block w-full pb-[3.2rem]"
+            className="block w-full pb-[3.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
           <div className="px-[4.6rem] pb-[4.6rem]">
             <header className="mb-[4.8rem] text-center">

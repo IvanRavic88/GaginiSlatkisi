@@ -116,8 +116,9 @@ export async function Footer() {
               <li key={c._id}>
                 <Link
                   href={`/${c.slug}`}
-                  className="text-[var(--color-text-default)] transition-colors hover:text-[var(--color-accent)]"
+                  className="group inline-flex items-center gap-[0.6rem] text-[var(--color-text-default)] transition-colors hover:text-[var(--color-accent)]"
                 >
+                  <span className="h-[1px] w-0 bg-[var(--color-accent)] transition-all duration-300 group-hover:w-[1.6rem]" aria-hidden="true" />
                   {c.name}
                 </Link>
               </li>

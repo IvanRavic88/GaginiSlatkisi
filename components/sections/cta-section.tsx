@@ -199,11 +199,13 @@ function SubmitButton() {
 
 function inputCls(hasError: boolean) {
   return [
-    'w-full rounded-[9px] border-0 bg-[var(--color-primary)] px-[1.2rem] py-[1.2rem]',
+    'w-full rounded-[9px] border-2 border-transparent bg-white/95 px-[1.4rem] py-[1.2rem]',
     'text-[1.8rem] text-[var(--color-cta-dark)]',
-    'placeholder:text-[#aaa]',
-    'shadow-[0_1px_2px_rgba(0,0,0,0.1)]',
-    'focus:outline-none focus-visible:ring-[0.4rem] focus-visible:ring-[rgba(252,241,232,0.7)]',
-    hasError ? 'ring-2 ring-[#7a0019]' : '',
+    'placeholder:text-[#b8a5ad]',
+    'shadow-[0_2px_6px_rgba(0,0,0,0.06)]',
+    'transition-all duration-200',
+    'hover:bg-white focus:bg-white',
+    'focus:outline-none focus-visible:border-white focus-visible:shadow-[0_0_0_0.4rem_rgba(255,255,255,0.5)]',
+    hasError ? 'border-[#7a0019] ring-1 ring-[#7a0019]' : '',
   ].join(' ')
 }

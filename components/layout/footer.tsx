@@ -238,7 +238,10 @@ export async function Footer() {
         <div className="mx-auto flex max-w-[120rem] flex-col items-center justify-between gap-[0.8rem] px-[3.2rem] py-[2rem] text-[1.3rem] text-[var(--color-footer-text)] md:flex-row">
           <p>© {new Date().getFullYear()} GaginiSlatkiši · Sva prava zadržana</p>
           <p>
-            Domaća poslastičarnica iz <span className="font-medium text-[var(--color-accent-text)]">{city}</span>
+            Domaća poslastičarnica iz{' '}
+            <span className="font-medium text-[var(--color-accent-text)]">
+              {city === 'Lazarevac' ? 'Lazarevca' : city}
+            </span>
           </p>
         </div>
       </div>

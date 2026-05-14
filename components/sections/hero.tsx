@@ -10,7 +10,9 @@ export function Hero() {
         alt=""
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
+        quality={75}
         className="-z-10 object-cover object-center"
       />
       <div
@@ -39,9 +41,9 @@ export function Hero() {
               alt="Slika prelepo aranžiranih kolača, koje drži nasmejana devojka"
               width={720}
               height={720}
-              priority
+              loading="lazy"
               sizes="(min-width: 1024px) 50vw, (min-width: 640px) 80vw, 100vw"
-              quality={85}
+              quality={75}
               className="h-auto w-full shadow-[0.2rem_0.2rem_1.3rem_0_rgba(0,0,0,0.5)]"
             />
           </div>

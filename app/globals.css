@@ -22,6 +22,12 @@
   --color-footer-text: #767676;
   --color-ribbon-bg: #ffd34b;
 
+  /* === Topli akcenti (Faza 6) === */
+  --color-cream: #faf0e6;
+  --color-vanilla: #fdf6e3;
+  --color-caramel: #b8693a;
+  --color-caramel-light: #d99b6f;
+
   /* === Tipografija === */
   --font-sans: var(--font-poppins), 'Poppins', sans-serif;
   --font-display: var(--font-caveat), 'Caveat', cursive;

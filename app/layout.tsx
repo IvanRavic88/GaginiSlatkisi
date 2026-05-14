@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Caveat, Poppins } from 'next/font/google'
 
 import { FloatingSocials } from '@/components/layout/floating-socials'
 import { Footer } from '@/components/layout/footer'
@@ -21,6 +21,13 @@ const poppins = Poppins({
   display: 'swap',
 })
 
+const caveat = Caveat({
+  subsets: ['latin-ext'],
+  weight: ['400', '700'],
+  variable: '--font-caveat',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.gaginislatkisi.com'),
   title: {
@@ -39,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const phone = settings?.phone ?? '065/5593-678'
 
   return (
-    <html lang="sr" className={poppins.variable}>
+    <html lang="sr" className={`${poppins.variable} ${caveat.variable}`}>
       <body>
         <ToastProvider>
           <SkipLink />
@@ -56,3 +63,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     </html>
   )
 }
+
+
+

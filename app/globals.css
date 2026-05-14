@@ -24,6 +24,7 @@
 
   /* === Tipografija === */
   --font-sans: var(--font-poppins), 'Poppins', sans-serif;
+  --font-display: var(--font-caveat), 'Caveat', cursive;
 
   /* === Spacing scale (2/4/8/12/16/24/32/48/64/80/96/128 px) === */
   --spacing-2xs: 0.2rem;

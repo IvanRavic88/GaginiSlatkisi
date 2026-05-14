@@ -11,14 +11,14 @@ import { ToastProvider } from '@/components/ui'
 import './globals.css'
 
 const poppins = Poppins({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin-ext'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-poppins',
   display: 'swap',
 })
 
 const secularOne = Secular_One({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin-ext'],
   weight: '400',
   variable: '--font-secular-one',
   display: 'swap',

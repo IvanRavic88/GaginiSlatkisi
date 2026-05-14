@@ -133,7 +133,7 @@ export function CtaSection() {
 
           <div className="relative hidden h-full min-h-[40rem] w-full overflow-hidden lg:block">
             <Image
-              src="/img/GaginiSlatkisi IMG/Gallery-17.jpg"
+              src="/img/GaginiSlatkisi IMG/Gallery-17.webp"
               alt="Lepo aranžirani GaginiSlatkiši na poslužavniku."
               fill
               sizes="(min-width: 1024px) 40vw, 0px"

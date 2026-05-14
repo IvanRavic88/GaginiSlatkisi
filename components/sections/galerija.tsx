@@ -58,7 +58,7 @@ export function Galerija() {
             ].join(' ')}
           >
             <Image
-              src={`/img/Gallery/27/Gallery-${item.num}.png`}
+              src={`/img/Gallery/27/Gallery-${item.num}.webp`}
               alt={item.alt}
               fill
               sizes="(min-width: 1024px) 22vw, (min-width: 768px) 33vw, (min-width: 640px) 33vw, 50vw"

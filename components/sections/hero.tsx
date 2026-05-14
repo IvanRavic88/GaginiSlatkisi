@@ -9,7 +9,6 @@ export function Hero() {
         src="/img/Gallery-65-hero.webp"
         alt=""
         fill
-        priority
         sizes="100vw"
         className="-z-10 object-cover object-center"
       />
@@ -35,7 +34,7 @@ export function Hero() {
 
           <div className="relative">
             <Image
-              src="/img/Desktop-3.png"
+              src="/img/Desktop-3.webp"
               alt="Slika prelepo aranžiranih kolača, koje drži nasmejana devojka"
               width={720}
               height={720}

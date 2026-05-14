@@ -18,7 +18,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Torte',
     tag: 'Torte',
     image: {
-      src: '/img/Groups-img/Gallery-92.png',
+      src: '/img/Groups-img/Gallery-92.webp',
       alt: 'Slika čokoladne torte, ukrašena sa jagodama.',
     },
     attributes: [
@@ -32,7 +32,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Mus kolači',
     tag: 'Kolači',
     image: {
-      src: '/img/Groups-img/Gallery-81.png',
+      src: '/img/Groups-img/Gallery-81.webp',
       alt: 'Slika prelepo serviranih mus kolača.',
     },
     attributes: [
@@ -46,7 +46,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Čokoladne čašice',
     tag: 'Lux kolači',
     image: {
-      src: '/img/Groups-img/Gallery-44.png',
+      src: '/img/Groups-img/Gallery-44.webp',
       alt: 'Slika čokoladnih čašica',
     },
     attributes: [
@@ -60,7 +60,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Sitni kolači',
     tag: 'Kolači',
     image: {
-      src: '/img/Groups-img/Gallery-11.png',
+      src: '/img/Groups-img/Gallery-11.webp',
       alt: 'Slika sitnih kolača, različitih vrsta.',
     },
     attributes: ['Prelepog ukusa i izgleda', 'Idealni za sve prilike', 'Naručuju se u paketu'],
@@ -70,7 +70,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Mini cheese',
     tag: 'Kolači',
     image: {
-      src: '/img/Groups-img/Gallery-26.png',
+      src: '/img/Groups-img/Gallery-26.webp',
       alt: 'Slika mini cheese-a.',
     },
     attributes: ['Različitih ukusa', 'Idealni za sve prilike', 'Naručuju se na kilogram'],
@@ -80,7 +80,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Lux kolači',
     tag: 'Lux kolači',
     image: {
-      src: '/img/Groups-img/Gallery-103.png',
+      src: '/img/Groups-img/Gallery-103.webp',
       alt: 'Slika Lux kolača.',
     },
     attributes: ['Prelepog ukusa i izgleda', 'Idealni za sve prilike', 'Naručuju se u paketu'],
@@ -90,7 +90,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Tart Torte',
     tag: 'Torte',
     image: {
-      src: '/img/Groups-img/Gallery-82.png',
+      src: '/img/Groups-img/Gallery-82.webp',
       alt: 'Slika Tart Torte od čokolade i plazme.',
     },
     attributes: [
@@ -104,7 +104,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Medenjaci',
     tag: 'Medenjaci',
     image: {
-      src: '/img/Groups-img/Gallery-60.png',
+      src: '/img/Groups-img/Gallery-60.webp',
       alt: 'Medenjak sa likom Deda Mraza.',
     },
     attributes: ['Prelepog ukusa i izgleda', 'Idealni za sve prilike', 'Naručuju se pojedinačno'],
@@ -114,7 +114,7 @@ const SLATKISI: Slatkis[] = [
     title: 'Penaste Bombone',
     tag: 'Bombone',
     image: {
-      src: '/img/Groups-img/Gallery-83.png',
+      src: '/img/Groups-img/Gallery-83.webp',
       alt: 'Slika bombone u obliku mede sa srcem, potopljena u kakao.',
     },
     attributes: [

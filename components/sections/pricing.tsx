@@ -46,7 +46,7 @@ export function Pricing() {
         {/* Starter */}
         <div className="w-full overflow-hidden rounded-[11px] border-2 border-[var(--color-primary)]">
           <Image
-            src="/img/Groups-img/Gallery-11.png"
+            src="/img/Groups-img/Gallery-11.webp"
             alt="Slika prelepo spakovanih sitnih kolača."
             width={600}
             height={450}
@@ -88,7 +88,7 @@ export function Pricing() {
             Best value
           </span>
           <Image
-            src="/img/Groups-img/Gallery-103.png"
+            src="/img/Groups-img/Gallery-103.webp"
             alt="Slika prelepo spakovanih lux kolača."
             width={600}
             height={450}

@@ -10,10 +10,11 @@ Sajt poslastičarnice GaginiSlatkiši, Lazarevac. Next.js 16 + Sanity CMS + Tail
 - **Jezik:** TypeScript 5 (strict)
 - **Styling:** Tailwind CSS 4 (CSS-first config)
 - **CMS:** Sanity Studio v5 (embedovan na `/studio`)
-- **Email:** Resend (dodaje se u Planu C)
-- **Bot zaštita:** Cloudflare Turnstile (dodaje se u Planu C)
+- **Email:** Resend (verifikovan domen + Server Action + React Email template)
+- **Bot zaštita:** Cloudflare Turnstile (managed widget + server-side siteverify)
+- **Validacija:** Zod (deljena shema klijent + server)
 - **Testovi:** Vitest (unit), Playwright (E2E)
-- **Hosting:** Vercel (dodaje se u Planu C)
+- **Hosting:** Vercel (dodaje se u Planu D)
 
 ## Lokalni razvoj
 
@@ -77,6 +78,51 @@ tests/e2e/        # Playwright testovi
 | Stranica           | Performance | Accessibility | Best Practices | SEO |
 | ------------------ | ----------- | ------------- | -------------- | --- |
 | Home `/` (Desktop) | 100         | 96            | 100            | 100 |
+
+## Kontakt forma — setup
+
+Forma na home stranici (`/#kontakt`) šalje email preko **Resend**-a sa **Cloudflare Turnstile** bot zaštitom. Zahteva 5 env varijabli u `.env.local` (pogledaj `.env.local.example`).
+
+### 1. Resend
+
+1. Registruj se na https://resend.com.
+2. **Domains → Add Domain** → `gaginislatkisi.com`. Dodaj DNS zapise (SPF/DKIM TXT + bounce MX) na svojoj DNS zoni. Sačekaj status **Verified**.
+3. **API Keys → Create** → permission **Sending access** → kopiraj `re_…` ključ.
+
+```env
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+RESEND_FROM_EMAIL=kontakt@gaginislatkisi.com
+RESEND_TO_EMAIL=gaginislatkisi@gmail.com
+```
+
+`RESEND_FROM_EMAIL` mora biti na verifikovanom domenu. Free tier: 100 email-ova/dan, 3000/mesec.
+
+### 2. Cloudflare Turnstile
+
+1. https://dash.cloudflare.com → **Turnstile** → **Add site**.
+2. Hostnames: `gaginislatkisi.com`, `localhost`, `127.0.0.1`.
+3. Widget Mode: **Managed**. Save.
+4. Kopiraj **Site Key** i **Secret Key**.
+
+```env
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAA...
+TURNSTILE_SECRET_KEY=0x4AAA...
+```
+
+`NEXT_PUBLIC_` prefiks je obavezan — site key ide u browser bundle.
+
+### Flow
+
+```
+client ContactForm  ──▶  Server Action sendContact
+   (Zod preview)         1. honeypot check
+                         2. Zod validate
+                         3. siteverify (Cloudflare)
+                         4. resend.emails.send(React template)
+                         5. { ok, error?, fieldErrors? }
+```
+
+Honeypot polje `last_name` (display:none + aria-hidden + tabindex=-1) — ako bot popuni, server vraća tihi success bez slanja.
 
 ## Live
 

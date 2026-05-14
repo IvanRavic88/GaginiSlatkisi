@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
 import { SkipLink } from '@/components/layout/skip-link'
 import { LocalBusinessJsonLd } from '@/components/seo/local-business-jsonld'
+import { ToastProvider } from '@/components/ui'
 
 import './globals.css'
 
@@ -37,12 +38,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="sr" className={`${poppins.variable} ${secularOne.variable}`}>
       <body>
-        <SkipLink />
-        <Header />
-        <FloatingSocials />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <LocalBusinessJsonLd />
+        <ToastProvider>
+          <SkipLink />
+          <Header />
+          <FloatingSocials />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <LocalBusinessJsonLd />
+        </ToastProvider>
       </body>
     </html>
   )

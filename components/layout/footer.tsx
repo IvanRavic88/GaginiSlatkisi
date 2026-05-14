@@ -33,7 +33,7 @@ export async function Footer() {
         width={420}
         height={420}
         aria-hidden="true"
-        className="pointer-events-none absolute -right-[6rem] -top-[3rem] hidden h-[36rem] w-auto -rotate-[12deg] select-none opacity-90 lg:block"
+        className="pointer-events-none absolute -right-[6rem] -top-[3rem] hidden h-[36rem] w-auto -rotate-[12deg] select-none opacity-90 animate-float-gentle lg:block"
       />
 
       <div className="mx-auto grid max-w-[120rem] gap-[6.4rem] px-[3.2rem] py-[9.6rem] md:grid-cols-3 lg:gap-[4.8rem]">
@@ -48,16 +48,20 @@ export async function Footer() {
             />
           </Link>
 
-          <ul className="mb-[2.4rem] flex list-none gap-[2.4rem]">
+          <ul className="mb-[2.4rem] flex list-none gap-[1.6rem]">
             <li>
               <a
                 href="https://instagram.com/gaginislatkisi"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="grid h-[4.8rem] w-[4.8rem] place-items-center rounded-full bg-white text-[var(--color-accent)] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:bg-[var(--color-accent)] hover:text-white"
+                className="group relative grid h-[5rem] w-[5rem] place-items-center overflow-hidden rounded-full bg-white text-[var(--color-accent)] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_8px_20px_rgba(225,48,108,0.35)]"
               >
-                <InstagramIcon className="h-[2.6rem] w-[2.6rem]" />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <InstagramIcon className="relative h-[2.6rem] w-[2.6rem] transition-colors duration-300 group-hover:text-white" />
               </a>
             </li>
             <li>
@@ -66,9 +70,13 @@ export async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="grid h-[4.8rem] w-[4.8rem] place-items-center rounded-full bg-white text-[var(--color-accent)] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-110 hover:bg-[var(--color-accent)] hover:text-white"
+                className="group relative grid h-[5rem] w-[5rem] place-items-center overflow-hidden rounded-full bg-white text-[var(--color-accent)] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_8px_20px_rgba(24,119,242,0.35)]"
               >
-                <FacebookIcon className="h-[2.6rem] w-[2.6rem]" />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[#1877f2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <FacebookIcon className="relative h-[2.6rem] w-[2.6rem] transition-colors duration-300 group-hover:text-white" />
               </a>
             </li>
           </ul>

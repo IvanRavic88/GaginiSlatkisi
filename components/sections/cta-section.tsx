@@ -111,19 +111,13 @@ export function CtaSection() {
               </div>
 
               {siteKey ? (
-                <div className="flex justify-center sm:col-span-2">
-                  <div
-                    className="cf-turnstile"
-                    data-sitekey={siteKey}
-                    data-theme="light"
-                    data-language="sr"
-                  />
-                </div>
-              ) : (
-                <p className="text-center text-[1.4rem] italic text-[var(--color-cta-dark)] sm:col-span-2">
-                  (Bot zaštita nije konfigurisana — Turnstile site key nedostaje.)
-                </p>
-              )}
+                <div
+                  className="cf-turnstile"
+                  data-sitekey={siteKey}
+                  data-size="invisible"
+                  data-language="sr"
+                />
+              ) : null}
 
               <div className="sm:col-span-2">
                 <SubmitButton />

@@ -178,8 +178,11 @@ export function SlatkisiGrid() {
                     <span>{s.attributes[2]}</span>
                   </li>
                   <li className="text-[1.8rem]">
-                    <span className="inline-block border-b border-[var(--color-primary-shade)] pb-[2px] text-[var(--color-primary-shade)] transition-all hover:border-transparent">
-                      Detaljnije →
+                    <span className="inline-flex items-center gap-[0.4rem] border-b border-[var(--color-primary-shade)] pb-[2px] text-[var(--color-primary-shade)] transition-all group-hover:border-transparent">
+                      Detaljnije
+                      <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-[0.4rem]">
+                        →
+                      </span>
                     </span>
                   </li>
                 </ul>

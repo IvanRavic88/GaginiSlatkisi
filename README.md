@@ -73,11 +73,14 @@ scripts/          # Migracioni skripti
 tests/e2e/        # Playwright testovi
 ```
 
-## Lighthouse rezultati (lokalni produkcijski build, 2026-05-12)
+## Lighthouse rezultati (lokalni produkcijski build, 2026-05-14)
 
-| Stranica           | Performance | Accessibility | Best Practices | SEO |
-| ------------------ | ----------- | ------------- | -------------- | --- |
-| Home `/` (Desktop) | 100         | 96            | 100            | 100 |
+| Stranica          | Performance | Accessibility | Best Practices | SEO |
+| ----------------- | ----------- | ------------- | -------------- | --- |
+| Home `/` Desktop  | 96          | 95            | 100            | 100 |
+| Home `/` Mobile   | 74          | 96            | 100            | 100 |
+
+Mereno u Chrome DevTools Lighthouse na `npm run start` (produkcijski build). Skorovi reflektuju home stranicu sa svim sekcijama (Hero, 9 slatkiša kartica, 27 galerija slika, Pricing sa 2 kartice + 4 feature, CTA forma, Footer).
 
 ## Kontakt forma — setup
 

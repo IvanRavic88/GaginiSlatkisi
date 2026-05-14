@@ -22,5 +22,5 @@ test('klik na link u mobile menu-u zatvara meni', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' })
   await page.getByRole('button', { name: /Otvori meni/ }).click()
   await page.locator('#mobile-menu').getByRole('link', { name: 'Kontakt' }).click()
-  await expect(page).toHaveURL(/#footer$/)
+  await expect(page).toHaveURL(/#cta$/)
 })

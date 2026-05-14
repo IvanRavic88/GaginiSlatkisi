@@ -1,19 +1,26 @@
 @import 'tailwindcss';
 
 @theme {
-  /* === Brend boje (iz starog general.css) === */
+  /* === Brend boje (iz starog general.css/styles.css) === */
   --color-primary: #ffebf2;
   --color-primary-tint: #fdf2e9;
   --color-primary-tint-2: #fae5d3;
   --color-primary-shade: #f78da7;
-  --color-background: #fefae0;
-  --color-foreground: #4a3a1f;
+  --color-background: #ffffff;
+  --color-foreground: #333333;
   --color-text-default: #555555;
   --color-text-muted: #6f6f6f;
   --color-text-dark: #333333;
-  --color-accent: #d4a373;
-  --color-accent-dark: #b88a5a;
-  --color-accent-text: #7a4f1f;
+  --color-accent: #f650a0;
+  --color-accent-dark: #dd4890;
+  --color-accent-text: #d12877;
+  --color-header-bg: #fef4f6;
+  --color-cta-dark: #622040;
+  --color-cta-from: #f9afc1;
+  --color-cta-to: #f78da7;
+  --color-cta-heading: #7c4754;
+  --color-footer-text: #767676;
+  --color-ribbon-bg: #ffd34b;
 
   /* === Tipografija === */
   --font-display: 'Secular One', serif;

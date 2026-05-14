@@ -3,9 +3,9 @@ import { expect, test } from '@playwright/test'
 test.describe('Contact form', () => {
   test('renderuje sva tri polja + submit dugme', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('#kontakt').scrollIntoViewIfNeeded()
+    await page.locator('#cta').scrollIntoViewIfNeeded()
 
-    await expect(page.getByLabel('Ime i prezime')).toBeVisible()
+    await expect(page.getByLabel('Ime', { exact: true })).toBeVisible()
     await expect(page.getByLabel('Email', { exact: true })).toBeVisible()
     await expect(page.getByLabel('Poruka')).toBeVisible()
     await expect(page.getByRole('button', { name: /Pošalji poruku/ })).toBeVisible()
@@ -34,7 +34,7 @@ test.describe('Contact form', () => {
       return route.abort()
     })
 
-    await page.getByLabel('Ime i prezime').fill('A')
+    await page.getByLabel('Ime', { exact: true }).fill('A')
     await page.getByLabel('Email', { exact: true }).fill('nije-email')
     await page.getByLabel('Poruka').fill('kratko')
 

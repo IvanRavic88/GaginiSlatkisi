@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 import { MobileNav } from './mobile-nav'
 
@@ -10,9 +13,30 @@ const NAV_LINKS = [
 ] as const
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <section className="bg-[var(--color-header-bg)]">
-      <header className="mx-auto flex h-[9.6rem] max-w-[120rem] items-center justify-between px-[3.2rem]">
+    <section
+      className={[
+        'sticky top-0 z-50 transition-all duration-300',
+        scrolled
+          ? 'bg-white/95 shadow-[0_1.2rem_3.2rem_rgba(0,0,0,0.06)] backdrop-blur-md'
+          : 'bg-[var(--color-header-bg)]',
+      ].join(' ')}
+    >
+      <header
+        className={[
+          'mx-auto flex max-w-[120rem] items-center justify-between px-[3.2rem] transition-all duration-300',
+          scrolled ? 'h-[7.2rem]' : 'h-[9.6rem]',
+        ].join(' ')}
+      >
         <Link href="/" aria-label="GaginiSlatkiši — naslovna">
           <Image
             src="/img/GaginiSlatkiši.png"
@@ -20,7 +44,10 @@ export function Header() {
             width={240}
             height={80}
             priority
-            className="h-[8rem] w-auto"
+            className={[
+              'w-auto transition-all duration-300',
+              scrolled ? 'h-[5.6rem]' : 'h-[8rem]',
+            ].join(' ')}
           />
         </Link>
 

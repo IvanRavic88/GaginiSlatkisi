@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { Container, Heading, Subheading } from '@/components/ui'
+import { FadeIn } from '@/components/ui/fade-in'
 import { FlameIcon, RestaurantIcon, StarIcon } from '@/components/ui/icons'
 
 type Slatkis = {
@@ -136,24 +137,24 @@ export function SlatkisiGrid() {
       </div>
 
       <div className="grid grid-cols-1 gap-[6.4rem] sm:grid-cols-2 lg:grid-cols-3">
-        {SLATKISI.map((s) => (
-          <article
-            key={s.slug}
-            className="overflow-hidden rounded-[11px] shadow-[0_2.4rem_4.8rem_rgba(0,0,0,0.1)] transition-all duration-400 hover:-translate-y-[1.2rem] hover:shadow-[0_3.2rem_6.4rem_rgba(0,0,0,0.2)]"
-          >
+        {SLATKISI.map((s, idx) => (
+          <FadeIn key={s.slug} delay={(idx % 3) * 100}>
+            <article className="group h-full overflow-hidden rounded-[11px] bg-white shadow-[0_2.4rem_4.8rem_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[1.2rem] hover:shadow-[0_3.2rem_6.4rem_rgba(246,80,160,0.2)]">
             <Link
               href={`/${s.slug}`}
-              className="flex flex-col gap-[2rem] text-[var(--color-text-default)]"
+              className="flex h-full flex-col gap-[2rem] text-[var(--color-text-default)]"
               aria-label={`Otvori stranicu — ${s.title}`}
             >
-              <Image
-                src={s.image.src}
-                alt={s.image.alt}
-                width={600}
-                height={450}
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="block w-full"
-              />
+              <div className="overflow-hidden">
+                <Image
+                  src={s.image.src}
+                  alt={s.image.alt}
+                  width={600}
+                  height={450}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="block w-full transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+              </div>
               <div className="px-[4.8rem] pb-[4.8rem] pt-[1.2rem]">
                 <div className="mb-[1.2rem] flex gap-[0.4rem]">
                   <span className="inline-block rounded-full bg-[var(--color-accent)] px-[0.8rem] py-[0.4rem] text-[1.2rem] font-medium uppercase text-white">
@@ -184,7 +185,8 @@ export function SlatkisiGrid() {
                 </ul>
               </div>
             </Link>
-          </article>
+            </article>
+          </FadeIn>
         ))}
       </div>
     </Container>

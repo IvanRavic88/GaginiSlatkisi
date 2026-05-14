@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { Container, Heading, Subheading } from '@/components/ui'
+import { FadeIn } from '@/components/ui/fade-in'
 import {
   CheckIcon,
   InfiniteIcon,
@@ -131,8 +132,9 @@ export function Pricing() {
       </aside>
 
       <div className="grid grid-cols-1 gap-[6.4rem] sm:grid-cols-2 lg:grid-cols-4">
-        {FEATURES.map(({ Icon, title, text }) => (
-          <div key={title} className="text-center">
+        {FEATURES.map(({ Icon, title, text }, idx) => (
+          <FadeIn key={title} delay={idx * 120}>
+            <div className="text-center">
             <span
               aria-hidden="true"
               className="mx-auto mb-[3.2rem] grid h-[6.4rem] w-[6.4rem] place-items-center rounded-full bg-[var(--color-primary)] p-[1.6rem] text-[var(--color-primary-shade)]"
@@ -143,7 +145,8 @@ export function Pricing() {
               {title}
             </h3>
             <p className="text-[1.8rem] leading-[1.8] text-[var(--color-text-default)]">{text}</p>
-          </div>
+            </div>
+          </FadeIn>
         ))}
       </div>
     </Container>

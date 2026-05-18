@@ -82,51 +82,6 @@ tests/e2e/        # Playwright testovi
 
 Mereno preko `npx lighthouse` (headless Chrome) nakon Faza 6 redizajna. Skorovi reflektuju home stranicu sa svim sekcijama (Hero sa Caveat akcent rečju, 9 SlatkisiGrid kartica iz Sanity-ja, 27 galerija slika iz Sanity-ja, Pricing sa 2 kartice + 4 feature, CTA forma sa floating labels + WhatsApp link, Footer).
 
-## Kontakt forma — setup
-
-Forma na home stranici (`/#kontakt`) šalje email preko **Resend**-a sa **Cloudflare Turnstile** bot zaštitom. Zahteva 5 env varijabli u `.env.local` (pogledaj `.env.local.example`).
-
-### 1. Resend
-
-1. Registruj se na https://resend.com.
-2. **Domains → Add Domain** → `gaginislatkisi.com`. Dodaj DNS zapise (SPF/DKIM TXT + bounce MX) na svojoj DNS zoni. Sačekaj status **Verified**.
-3. **API Keys → Create** → permission **Sending access** → kopiraj `re_…` ključ.
-
-```env
-RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
-RESEND_FROM_EMAIL=kontakt@gaginislatkisi.com
-RESEND_TO_EMAIL=gaginislatkisi@gmail.com
-```
-
-`RESEND_FROM_EMAIL` mora biti na verifikovanom domenu. Free tier: 100 email-ova/dan, 3000/mesec.
-
-### 2. Cloudflare Turnstile
-
-1. https://dash.cloudflare.com → **Turnstile** → **Add site**.
-2. Hostnames: `gaginislatkisi.com`, `localhost`, `127.0.0.1`.
-3. Widget Mode: **Managed**. Save.
-4. Kopiraj **Site Key** i **Secret Key**.
-
-```env
-NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAA...
-TURNSTILE_SECRET_KEY=0x4AAA...
-```
-
-`NEXT_PUBLIC_` prefiks je obavezan — site key ide u browser bundle.
-
-### Flow
-
-```
-client ContactForm  ──▶  Server Action sendContact
-   (Zod preview)         1. honeypot check
-                         2. Zod validate
-                         3. siteverify (Cloudflare)
-                         4. resend.emails.send(React template)
-                         5. { ok, error?, fieldErrors? }
-```
-
-Honeypot polje `last_name` (display:none + aria-hidden + tabindex=-1) — ako bot popuni, server vraća tihi success bez slanja.
-
 ## Live
 
 Stara Flask verzija: https://www.gaginislatkisi.com/

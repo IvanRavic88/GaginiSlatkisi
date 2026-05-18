@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { MobileNav } from './mobile-nav'
@@ -13,7 +14,9 @@ const NAV_LINKS = [
 ] as const
 
 export function Header() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState<string | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
@@ -21,6 +24,35 @@ export function Header() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      setActiveSection(null)
+      return
+    }
+
+    const sectionIds = NAV_LINKS.map((l) => l.href.split('#')[1]).filter(
+      (id): id is string => Boolean(id),
+    )
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null)
+
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (visible) setActiveSection(visible.target.id)
+      },
+      { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.1, 0.5, 1] },
+    )
+
+    sections.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [pathname])
 
   return (
     <section
@@ -54,20 +86,31 @@ export function Header() {
 
         <nav className="hidden md:block" aria-label="Glavna navigacija">
           <ul className="flex items-center gap-[4.8rem]">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="group relative inline-block py-[0.4rem] text-[1.8rem] font-medium text-[var(--color-text-dark)] transition-colors hover:text-[var(--color-accent)]"
-                >
-                  {link.label}
-                  <span
-                    aria-hidden="true"
-                    className="absolute -bottom-[0.2rem] left-0 h-[2px] w-0 bg-[var(--color-accent)] transition-all duration-300 group-hover:w-full"
-                  />
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const sectionId = link.href.split('#')[1]
+              const isActive = activeSection === sectionId
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={isActive ? 'true' : undefined}
+                    className={`group relative inline-block py-[0.4rem] text-[1.8rem] font-medium transition-colors hover:text-[var(--color-accent)] ${
+                      isActive
+                        ? 'text-[var(--color-accent)]'
+                        : 'text-[var(--color-text-dark)]'
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -bottom-[0.2rem] left-0 h-[2px] bg-[var(--color-accent)] transition-all duration-300 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    />
+                  </Link>
+                </li>
+              )
+            })}
             <li>
               <Link
                 href="/#cta"

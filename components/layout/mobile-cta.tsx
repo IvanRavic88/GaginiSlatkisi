@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
-import { PhoneIcon, WhatsAppIcon } from '@/components/ui/icons'
+import { PhoneIcon, ViberIcon } from '@/components/ui/icons'
 
 export function MobileCta({ phone }: { phone: string }) {
   const [visible, setVisible] = useState(false)
@@ -21,7 +21,7 @@ export function MobileCta({ phone }: { phone: string }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const waNumber = phone.replace(/[^0-9]/g, '').replace(/^0/, '381')
+  const viberNumber = phone.replace(/[^0-9]/g, '').replace(/^0/, '381')
 
   return (
     <div
@@ -37,13 +37,11 @@ export function MobileCta({ phone }: { phone: string }) {
         Pošalji upit
       </Link>
       <a
-        href={`https://wa.me/${waNumber}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp"
-        className="grid h-[4.8rem] w-[4.8rem] flex-none place-items-center rounded-[9px] bg-[#25D366] text-white transition-colors hover:bg-[#1ebe57]"
+        href={`viber://chat?number=%2B${viberNumber}`}
+        aria-label="Viber"
+        className="grid h-[4.8rem] w-[4.8rem] flex-none place-items-center rounded-[9px] bg-[#7360F2] text-white transition-colors hover:bg-[#5d4ad0]"
       >
-        <WhatsAppIcon className="h-[2.4rem] w-[2.4rem]" />
+        <ViberIcon className="h-[2.4rem] w-[2.4rem]" />
       </a>
       <a
         href={`tel:${phone.replace(/\s+/g, '')}`}

@@ -4,7 +4,7 @@ import type { Image as SanityImageType } from 'sanity'
 
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-jsonld'
 import { ProductJsonLd } from '@/components/seo/product-jsonld'
-import { Button, Container, Heading, SanityImage } from '@/components/ui'
+import { Button, Container, Heading, SanityImage, Subheading } from '@/components/ui'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import {
   ALL_CATEGORIES_QUERY,
@@ -90,15 +90,10 @@ export default async function CategoryPage({ params }: PageProps) {
         />
       ) : null}
       <Container as="section" className="py-[6.4rem] text-center">
+        <Subheading>{category.subheading ?? category.name}</Subheading>
         <Heading as="h1" variant="sweet" className="mx-auto max-w-[64rem]">
           {category.secondaryHeading ?? category.name}
         </Heading>
-
-        {category.seoCopy ? (
-          <p className="mx-auto mt-[2.4rem] max-w-[64rem] text-[1.6rem] leading-[1.7] whitespace-pre-line text-[var(--color-text-default)]">
-            {category.seoCopy}
-          </p>
-        ) : null}
 
         {sweets.length === 0 ? (
           <div className="mx-auto mt-[6.4rem] max-w-[56rem] rounded-[16px] border border-[var(--color-primary-shade)]/20 bg-white px-[3.2rem] py-[6.4rem] shadow-[0_1.6rem_3.2rem_rgba(0,0,0,0.05)]">
@@ -115,7 +110,15 @@ export default async function CategoryPage({ params }: PageProps) {
           </div>
         ) : (
           <>
-            <div className="mt-[6.4rem] grid grid-cols-1 gap-[6.4rem] text-left sm:grid-cols-2 lg:grid-cols-3">
+            <div
+              className={`mx-auto mt-[6.4rem] grid gap-[6.4rem] text-left ${
+                sweets.length === 1
+                  ? 'max-w-[36rem] grid-cols-1'
+                  : sweets.length === 2
+                    ? 'max-w-[80rem] grid-cols-1 sm:grid-cols-2'
+                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+              }`}
+            >
               {sweets.map((s) => (
                 <article
                   key={s._id}

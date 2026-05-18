@@ -90,10 +90,10 @@ export function Pricing() {
           {/* Complete */}
           <div className="group relative w-full overflow-hidden rounded-[11px] bg-[var(--color-primary)] shadow-[0_1.6rem_3.2rem_rgba(246,80,160,0.1)] transition-all duration-500 hover:-translate-y-[0.8rem] hover:shadow-[0_2.4rem_5.6rem_rgba(246,80,160,0.25)]">
             <span
-              className="absolute top-[6%] right-[-18%] z-10 rotate-45 bg-[linear-gradient(135deg,#ffd34b,#ffb700)] px-[8rem] py-[0.8rem] text-[1.4rem] font-bold tracking-wide text-[var(--color-text-dark)] uppercase shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
               aria-hidden="true"
+              className="absolute top-[1.6rem] right-[1.6rem] z-10 rounded-full bg-[var(--color-accent)] px-[1.4rem] py-[0.6rem] text-[1.2rem] font-bold tracking-[0.1em] text-white uppercase shadow-[0_4px_14px_rgba(246,80,160,0.4)]"
             >
-              ★ Best value
+              Preporučeno
             </span>
             <Image
               src="/img/Groups-img/Gallery-103.webp"

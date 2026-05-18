@@ -1,4 +1,4 @@
-import { FacebookIcon, InstagramIcon, WhatsAppIcon } from '@/components/ui/icons'
+import { FacebookIcon, InstagramIcon, ViberIcon } from '@/components/ui/icons'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import { SITE_SETTINGS_QUERY } from '@/lib/sanity/queries'
 import type { SITE_SETTINGS_QUERY_RESULT } from '@/sanity.types'
@@ -13,7 +13,7 @@ export async function FloatingSocials() {
   const facebook =
     settings?.facebookUrl ?? 'https://m.facebook.com/Gagini-slatkisi-101539355408806/'
   const phone = settings?.phone ?? '065/5593-678'
-  const waNumber = phone.replace(/[^0-9]/g, '').replace(/^0/, '381')
+  const viberNumber = phone.replace(/[^0-9]/g, '').replace(/^0/, '381')
 
   return (
     <aside
@@ -21,17 +21,15 @@ export async function FloatingSocials() {
       aria-label="Društvene mreže"
     >
       <a
-        href={`https://wa.me/${waNumber}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp poruka"
-        className="group relative grid h-[4.6rem] w-[4.6rem] place-items-center overflow-hidden rounded-full bg-white text-[#25D366] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-x-[0.4rem] hover:shadow-[0_8px_22px_rgba(37,211,102,0.45)]"
+        href={`viber://chat?number=%2B${viberNumber}`}
+        aria-label="Viber poruka"
+        className="group relative grid h-[4.6rem] w-[4.6rem] place-items-center overflow-hidden rounded-full bg-white text-[#7360F2] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-x-[0.4rem] hover:shadow-[0_8px_22px_rgba(115,96,242,0.45)]"
       >
         <span
           aria-hidden="true"
-          className="absolute inset-0 bg-[#25D366] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="absolute inset-0 bg-[#7360F2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         />
-        <WhatsAppIcon className="relative h-[2.4rem] w-[2.4rem] transition-colors duration-300 group-hover:text-white" />
+        <ViberIcon className="relative h-[2.4rem] w-[2.4rem] transition-colors duration-300 group-hover:text-white" />
       </a>
 
       <a

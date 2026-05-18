@@ -58,3 +58,14 @@ export const CATEGORIES_WITH_PREVIEW_QUERY = defineQuery(`
     "previewImage": *[_type == "sweet" && references(^._id)] | order(order asc) [0].image
   }
 `)
+
+export const GALLERY_QUERY = defineQuery(`
+  *[_type == "gallery"][0] {
+    "items": items[] {
+      src,
+      alt,
+      span,
+      order
+    } | order(order asc)
+  }
+`)

@@ -17,7 +17,8 @@
     "test:e2e:ui": "playwright test --ui",
     "sanity:typegen": "sanity schema extract && sanity typegen generate",
     "sanity:extract": "sanity schema extract --enforce-required-fields",
-    "migrate": "tsx --env-file=.env.local --use-system-ca scripts/migrate-from-sqlite.ts"
+    "migrate": "tsx --env-file=.env.local --use-system-ca scripts/migrate-from-sqlite.ts",
+    "seed:gallery": "tsx --env-file=.env.local --use-system-ca scripts/seed-gallery.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

@@ -24,7 +24,13 @@ export function Hero() {
         <div className="mx-auto grid max-w-[130rem] items-center gap-[6.4rem] px-[3.2rem] lg:grid-cols-2 lg:gap-[12.8rem]">
           <div>
             <Heading as="h1" variant="primary" className="mb-[3.2rem]">
-              Sočne poslastice koje bude sva čula
+              <span
+                data-testid="hero-accent"
+                className="mr-[0.4rem] inline-block origin-bottom-left -rotate-[3deg] font-[family-name:var(--font-caveat)] font-bold text-[var(--color-accent)]"
+              >
+                Sočne
+              </span>{' '}
+              poslastice koje bude sva čula
             </Heading>
             <p className="mb-[4.8rem] text-[2rem] leading-[1.6] text-[var(--color-text-default)]">
               Svi naši kolači i torte su napravljeni od pažljivo odabranih i kvalitetnih sastojaka,

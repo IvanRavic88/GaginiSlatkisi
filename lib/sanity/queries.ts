@@ -69,3 +69,15 @@ export const GALLERY_QUERY = defineQuery(`
     } | order(order asc)
   }
 `)
+
+export const HOMEPAGE_CATEGORIES_QUERY = defineQuery(`
+  *[_type == "category" && showOnHomepage == true] | order(homepageOrder asc) {
+    _id,
+    name,
+    "slug": slug.current,
+    tag,
+    homepageImageSrc,
+    homepageImageAlt,
+    attributes
+  }
+`)

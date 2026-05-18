@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: '%s | GaginiSlatkiši',
   },
   description:
-    'Domaći kolači i torte po porudžbini iz Lazarevca. Torte za rođendane, svadbe i sve posebne prilike. Kontaktirajte nas preko forme ili WhatsApp-a.',
+    'Domaći kolači i torte po porudžbini iz Lazarevca. Torte za rođendane, svadbe i sve posebne prilike. Kontaktirajte nas preko forme ili Vibera.',
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

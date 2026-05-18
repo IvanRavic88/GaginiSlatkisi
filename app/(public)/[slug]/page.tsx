@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: category.name ?? undefined,
     description:
-      `${category.name} po porudžbini iz Lazarevca. ${secondary} Pišite nam preko forme ili WhatsApp-a.`.trim(),
+      `${category.name} po porudžbini iz Lazarevca. ${secondary} Pišite nam preko forme ili Vibera.`.trim(),
     alternates: { canonical: `/${slug}` },
   }
 }

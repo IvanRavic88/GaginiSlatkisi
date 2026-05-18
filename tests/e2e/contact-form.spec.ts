@@ -7,8 +7,8 @@ test.describe('Contact form', () => {
 
     await expect(page.getByLabel('Ime', { exact: true })).toBeVisible()
     await expect(page.getByLabel('Email', { exact: true })).toBeVisible()
-    await expect(page.getByLabel('Poruka')).toBeVisible()
-    await expect(page.getByRole('button', { name: /Pošalji poruku/ })).toBeVisible()
+    await expect(page.getByLabel('Poruka', { exact: true })).toBeVisible()
+    await expect(page.getByRole('button', { name: /Pošalji nam pitanje/ })).toBeVisible()
   })
 
   test('honeypot polje je sakriveno od korisnika i ne dobija fokus', async ({ page }) => {
@@ -36,9 +36,9 @@ test.describe('Contact form', () => {
 
     await page.getByLabel('Ime', { exact: true }).fill('A')
     await page.getByLabel('Email', { exact: true }).fill('nije-email')
-    await page.getByLabel('Poruka').fill('kratko')
+    await page.getByLabel('Poruka', { exact: true }).fill('kratko')
 
-    await page.getByRole('button', { name: /Pošalji poruku/ }).click()
+    await page.getByRole('button', { name: /Pošalji nam pitanje/ }).click()
 
     await expect(page.getByRole('alert').first()).toBeVisible({ timeout: 5000 })
     expect(resendCalled).toBe(false)

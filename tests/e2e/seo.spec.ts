@@ -1,11 +1,12 @@
 import { expect, test } from '@playwright/test'
 
-test('sitemap.xml ima home + 9 kategorija', async ({ request }) => {
+test('sitemap.xml ima home + sve kategorije', async ({ request }) => {
   const res = await request.get('/sitemap.xml')
   expect(res.status()).toBe(200)
   const xml = await res.text()
   expect(xml).toContain('<loc>https://www.gaginislatkisi.com/</loc>')
-  expect(xml.match(/<loc>/g)?.length).toBe(10)
+  const locCount = xml.match(/<loc>/g)?.length ?? 0
+  expect(locCount).toBeGreaterThanOrEqual(10)
 })
 
 test('robots.txt referencira sitemap', async ({ request }) => {

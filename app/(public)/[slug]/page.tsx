@@ -40,9 +40,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     tags: ['category'],
   })
   if (!category) return {}
+  const secondary = category.secondaryHeading ?? ''
   return {
     title: category.name ?? undefined,
-    description: category.secondaryHeading ?? undefined,
+    description:
+      `${category.name} po porudžbini iz Lazarevca. ${secondary} Pišite nam preko forme ili WhatsApp-a.`.trim(),
     alternates: { canonical: `/${slug}` },
   }
 }

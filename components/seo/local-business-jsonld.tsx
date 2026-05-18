@@ -9,35 +9,30 @@ export async function LocalBusinessJsonLd() {
   })
   if (!s) return null
 
-  const data = {
+  const data: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Bakery',
     name: 'GaginiSlatkiši',
     url: 'https://www.gaginislatkisi.com',
+    image: 'https://www.gaginislatkisi.com/img/Gallery-65-hero.webp',
+    description:
+      'Domaći kolači i torte po porudžbini iz Lazarevca. Torte za rođendane, svadbe i sve posebne prilike.',
+    priceRange: '$$',
     email: s.contactEmail,
     telephone: s.phone,
-    address: s.address
-      ? {
-          '@type': 'PostalAddress',
-          streetAddress: s.address.street,
-          addressLocality: s.address.city,
-          postalCode: s.address.postalCode,
-          addressCountry: s.address.country ?? 'RS',
-        }
-      : undefined,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: s.address?.city ?? 'Lazarevac',
+      addressCountry: s.address?.country ?? 'RS',
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Lazarevac' },
+      { '@type': 'City', name: 'Beograd' },
+    ],
     sameAs: [s.instagramUrl, s.facebookUrl].filter(Boolean),
-    openingHoursSpecification: s.openingHours?.map((h) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: h.day,
-      opens: h.opens,
-      closes: h.closes,
-    })),
   }
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
   )
 }

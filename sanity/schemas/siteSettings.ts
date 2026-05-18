@@ -31,9 +31,19 @@ export const siteSettings = defineType({
       title: 'Adresa',
       type: 'object',
       fields: [
-        { name: 'street', title: 'Ulica i broj', type: 'string' },
+        {
+          name: 'street',
+          title: 'Ulica i broj',
+          type: 'string',
+          description: 'Ne koristi se — nema fizičke lokacije (rad po dogovoru)',
+        },
         { name: 'city', title: 'Grad', type: 'string' },
-        { name: 'postalCode', title: 'Poštanski broj', type: 'string' },
+        {
+          name: 'postalCode',
+          title: 'Poštanski broj',
+          type: 'string',
+          description: 'Ne koristi se — nema fizičke lokacije',
+        },
         { name: 'country', title: 'Država', type: 'string', initialValue: 'Srbija' },
       ],
     }),
@@ -41,6 +51,7 @@ export const siteSettings = defineType({
       name: 'openingHours',
       title: 'Radno vreme',
       type: 'array',
+      description: 'Ne koristi se — rad po dogovoru, kontakt preko forme ili WhatsApp-a',
       of: [
         {
           type: 'object',

@@ -150,6 +150,15 @@
   }
 }
 
+@keyframes btnShineSweep {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
 @utility animate-pulse-glow {
   animation: pulseGlow 2.4s ease-in-out infinite;
 }
@@ -164,4 +173,40 @@
 
 @utility animate-form-shake {
   animation: formShake 0.4s ease-in-out;
+}
+
+@utility btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 70%
+  );
+  transform: skewX(-22deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-shine:hover::before,
+.group:hover .btn-shine::before {
+  animation: btnShineSweep 0.85s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-shine:hover::before,
+  .group:hover .btn-shine::before {
+    animation: none;
+  }
 }

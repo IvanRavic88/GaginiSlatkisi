@@ -112,7 +112,6 @@ export function CtaSection({ phone }: { phone: string }) {
                 <div
                   className="cf-turnstile"
                   data-sitekey={siteKey}
-                  data-size="invisible"
                   data-language="sr"
                 />
               ) : null}
@@ -244,7 +243,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="w-full rounded-[9px] bg-[var(--color-cta-dark)] px-[3.2rem] py-[1.6rem] font-[family-name:var(--font-caveat)] text-[2.6rem] font-bold text-[var(--color-primary)] shadow-[0_1px_2px_rgba(0,0,0,0.1)] transition-all duration-200 hover:bg-white hover:text-[var(--color-cta-dark)] focus-visible:ring-2 focus-visible:ring-[var(--color-cta-dark)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+      className="btn-shine w-full rounded-[9px] bg-[var(--color-cta-dark)] px-[3.2rem] py-[1.6rem] font-[family-name:var(--font-caveat)] text-[2.6rem] font-bold text-[var(--color-primary)] shadow-[0_1px_2px_rgba(0,0,0,0.1)] transition-all duration-200 hover:bg-white hover:text-[var(--color-cta-dark)] focus-visible:ring-2 focus-visible:ring-[var(--color-cta-dark)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? 'Šaljemo…' : 'Pošalji nam pitanje'}
     </button>

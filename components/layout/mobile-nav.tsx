@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
+import { CloseIcon, MenuIcon } from '@/components/ui/icons'
+
 interface NavLink {
   href: string
   label: string
@@ -28,31 +30,11 @@ export function MobileNav({ links }: { links: NavLink[] }) {
         onClick={() => setOpen((v) => !v)}
         className="relative z-[60] block rounded p-[0.8rem] text-[var(--color-text-dark)] md:hidden"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          {open ? (
-            <>
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </>
-          ) : (
-            <>
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </>
-          )}
-        </svg>
+        {open ? (
+          <CloseIcon className="h-[3.2rem] w-[3.2rem]" />
+        ) : (
+          <MenuIcon className="h-[3.2rem] w-[3.2rem]" />
+        )}
       </button>
 
       <div

@@ -54,56 +54,56 @@ export async function SlatkisiGrid() {
         <div className="grid grid-cols-1 gap-[6.4rem] sm:grid-cols-2 lg:grid-cols-3">
           {valid.map((c, idx) => (
             <FadeIn key={c._id} delay={(idx % 3) * 100}>
-              <article className="group h-full overflow-hidden rounded-[11px] bg-white shadow-[0_2.4rem_4.8rem_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[1.2rem] hover:shadow-[0_3.2rem_6.4rem_rgba(246,80,160,0.2)]">
+              <article className="group h-full overflow-hidden rounded-[16px] border border-[var(--color-primary-shade)]/15 bg-white shadow-[0_1.6rem_3.2rem_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-[0.8rem] hover:border-[var(--color-primary-shade)]/40 hover:shadow-[0_2.4rem_5.6rem_rgba(246,80,160,0.18)]">
                 <Link
                   href={`/${c.slug}`}
-                  className="flex h-full flex-col gap-[2rem] text-[var(--color-text-default)]"
+                  className="flex h-full flex-col text-[var(--color-text-default)]"
                   aria-label={`Otvori stranicu — ${c.name}`}
                 >
-                  <div className="overflow-hidden">
+                  <div className="relative overflow-hidden">
                     <Image
                       src={c.homepageImageSrc}
                       alt={c.homepageImageAlt}
                       width={600}
                       height={450}
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="block w-full transition-transform duration-700 ease-out group-hover:scale-110"
+                      className="block w-full transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                     />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-[10rem] bg-gradient-to-t from-black/30 via-black/10 to-transparent"
+                    />
+                    <span className="absolute bottom-[1.6rem] left-[1.6rem] inline-flex items-center rounded-full bg-white/90 px-[1.2rem] py-[0.5rem] text-[1.1rem] font-bold uppercase tracking-[0.1em] text-[var(--color-accent-text)] shadow-[0_4px_12px_rgba(0,0,0,0.15)] backdrop-blur-sm">
+                      {c.tag}
+                    </span>
                   </div>
-                  <div className="px-[4.8rem] pb-[4.8rem] pt-[1.2rem]">
-                    <div className="mb-[1.2rem] flex gap-[0.4rem]">
-                      <span className="inline-block rounded-full bg-[var(--color-accent)] px-[0.8rem] py-[0.4rem] text-[1.2rem] font-medium uppercase text-white">
-                        {c.tag}
-                      </span>
-                    </div>
-                    <p className="mb-[3.2rem] text-[2.4rem] font-semibold text-[var(--color-text-dark)]">
+                  <div className="flex flex-1 flex-col px-[3.2rem] pb-[3.2rem] pt-[2.8rem]">
+                    <h3 className="mb-[2rem] text-[2.4rem] font-semibold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-dark)]">
                       {c.name}
-                    </p>
-                    <ul className="flex flex-col gap-[2rem]">
-                      <li className="flex items-center gap-[1.6rem] text-[1.8rem]">
-                        <FlameIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
+                    </h3>
+                    <ul className="mb-[2.8rem] flex flex-col gap-[1.4rem]">
+                      <li className="flex items-center gap-[1.2rem] text-[1.5rem] text-[var(--color-text-default)]">
+                        <FlameIcon className="h-[1.8rem] w-[1.8rem] flex-none text-[var(--color-primary-shade)]" />
                         <span>{c.attributes[0]}</span>
                       </li>
-                      <li className="flex items-center gap-[1.6rem] text-[1.8rem]">
-                        <CakeIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
+                      <li className="flex items-center gap-[1.2rem] text-[1.5rem] text-[var(--color-text-default)]">
+                        <CakeIcon className="h-[1.8rem] w-[1.8rem] flex-none text-[var(--color-primary-shade)]" />
                         <span>{c.attributes[1]}</span>
                       </li>
-                      <li className="flex items-center gap-[1.6rem] text-[1.8rem]">
-                        <RibbonIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
+                      <li className="flex items-center gap-[1.2rem] text-[1.5rem] text-[var(--color-text-default)]">
+                        <RibbonIcon className="h-[1.8rem] w-[1.8rem] flex-none text-[var(--color-primary-shade)]" />
                         <span>{c.attributes[2]}</span>
                       </li>
-                      <li className="text-[1.8rem]">
-                        <span className="inline-flex items-center gap-[0.4rem] border-b border-[var(--color-primary-shade)] pb-[2px] text-[var(--color-primary-shade)] transition-all group-hover:border-transparent">
-                          Detaljnije
-                          <span
-                            aria-hidden="true"
-                            className="inline-block transition-transform duration-300 group-hover:translate-x-[0.4rem]"
-                          >
-                            →
-                          </span>
-                        </span>
-                      </li>
                     </ul>
+                    <span className="btn-shine mt-auto inline-flex w-fit items-center gap-[0.6rem] rounded-full border-2 border-[var(--color-primary-shade)]/40 px-[2rem] py-[1rem] text-[1.3rem] font-semibold uppercase tracking-[0.1em] text-[var(--color-accent-text)] transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white group-hover:shadow-[0_4px_14px_rgba(246,80,160,0.35)]">
+                      <span>Pogledaj</span>
+                      <span
+                        aria-hidden="true"
+                        className="inline-block transition-transform duration-300 group-hover:translate-x-[0.4rem]"
+                      >
+                        →
+                      </span>
+                    </span>
                   </div>
                 </Link>
               </article>

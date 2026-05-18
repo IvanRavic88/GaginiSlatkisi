@@ -2,108 +2,229 @@ import type { SVGProps } from 'react'
 
 type IconProps = SVGProps<SVGSVGElement>
 
-const baseProps = {
+const lineProps = {
   xmlns: 'http://www.w3.org/2000/svg',
   fill: 'none',
   stroke: 'currentColor',
-  strokeWidth: 24,
+  strokeWidth: 1.75,
   strokeLinecap: 'round',
   strokeLinejoin: 'round',
-  viewBox: '0 0 512 512',
+  viewBox: '0 0 24 24',
   'aria-hidden': true,
 } as const
 
+const fillProps = {
+  xmlns: 'http://www.w3.org/2000/svg',
+  fill: 'currentColor',
+  viewBox: '0 0 24 24',
+  'aria-hidden': true,
+} as const
+
+/* ============================================================
+   CATEGORY GRID — atributi proizvoda (slatkisi-grid)
+   ============================================================ */
+
 export function FlameIcon(props: IconProps) {
   return (
-    <svg {...baseProps} {...props}>
-      <path d="M112 320c0-93 124-165 96-272 66 0 192 96 192 272 0 70.69-57.31 128-128 128h-32c-70.69 0-128-57.31-128-128Z" />
-      <path d="M320 368c0 59-39.6 80-80 80" />
+    <svg {...lineProps} {...props}>
+      <path d="M12 2.5c3.5 3.5 5.5 6.5 5.5 11.5a5.5 5.5 0 0 1-11 0c0-4.5 2-7.5 5.5-11.5z" />
+      <path d="M12 11c1.5 1.5 2 2.5 2 4a2 2 0 0 1-4 0c0-1 .5-2 2-4z" />
     </svg>
   )
 }
 
-export function RestaurantIcon(props: IconProps) {
+export function CakeIcon(props: IconProps) {
   return (
-    <svg {...baseProps} {...props}>
-      <path d="M57.49 47.74S65 357.05 64 432a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16c-1-86-6.59-372.69-6.59-384.69 0-15.34-48-15.34-63.92.43ZM416 32c-29.4 0-48 27.4-48 64s14.21 64 36 64h12v272a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16ZM246.84 33.84a8 8 0 0 0-15.68 0L208 160h-16V40a8 8 0 0 0-16 0v120h-16V40a8 8 0 0 0-16 0v120h-16V40a8 8 0 0 0-16 0v120l-3.4 80-1.8 11.06C90.79 290.42 137.05 320 191.74 320H192v112a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V320h.26c54.69 0 100.95-29.58 95.94-68.94L350.4 240Z" />
+    <svg {...lineProps} {...props}>
+      <path d="M6 11h12l-1.5 9h-9z" />
+      <path d="M6 11c0-3.5 2.5-6 6-6s6 2.5 6 6" />
+      <circle cx="12" cy="4" r="1" />
     </svg>
   )
+}
+
+export function RibbonIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <circle cx="12" cy="9" r="6" />
+      <path d="m9 9 2 2 4-4" />
+      <path d="m8.5 13.5-2 7.5L12 19l5.5 2-2-7.5" />
+    </svg>
+  )
+}
+
+/* Back-compat aliase za stari API (RestaurantIcon = cake, StarIcon = ribbon) */
+export function RestaurantIcon(props: IconProps) {
+  return <CakeIcon {...props} />
 }
 
 export function StarIcon(props: IconProps) {
+  return <RibbonIcon {...props} />
+}
+
+/* ============================================================
+   PRICING FEATURES — 4 benefita
+   ============================================================ */
+
+/* "Prepustite nama" — sparkle (poseban dodir) */
+export function SparkleIcon(props: IconProps) {
   return (
-    <svg {...baseProps} {...props}>
-      <path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160Z" />
+    <svg {...lineProps} {...props}>
+      <path d="M10 3c0 4 1 5 5 5-4 0-5 1-5 5 0-4-1-5-5-5 4 0 5-1 5-5z" />
+      <path d="M18.5 13c0 2 .5 2.5 2.5 2.5-2 0-2.5.5-2.5 2.5 0-2-.5-2.5-2.5-2.5 2 0 2.5-.5 2.5-2.5z" />
     </svg>
   )
 }
 
+/* "Vrhunskog kvaliteta" — pšenica (premium sastojci) */
+export function WheatIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <path d="M12 22V9" />
+      <path d="M12 9c0-2 1.5-3.5 3.5-3.5 0 2-1.5 3.5-3.5 3.5z" />
+      <path d="M12 9c0-2-1.5-3.5-3.5-3.5 0 2 1.5 3.5 3.5 3.5z" />
+      <path d="M12 13.5c0-1.8 1.5-3 3.5-3 0 1.8-1.5 3-3.5 3z" />
+      <path d="M12 13.5c0-1.8-1.5-3-3.5-3 0 1.8 1.5 3 3.5 3z" />
+      <path d="M12 18c0-1.8 1.5-3 3.5-3 0 1.8-1.5 3-3.5 3z" />
+      <path d="M12 18c0-1.8-1.5-3-3.5-3 0 1.8 1.5 3 3.5 3z" />
+    </svg>
+  )
+}
+
+/* "Bez brige" — štit sa kvačicom (rok, pouzdanost) */
+export function ShieldCheckIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <path d="M12 22c-1-.5-8-4-8-10V5l8-3 8 3v7c0 6-7 9.5-8 10z" />
+      <path d="m9 12 2 2 4-5" />
+    </svg>
+  )
+}
+
+/* "Šta izabrati?" — chat sa srcem (savet) */
+export function ChatHeartIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.5A8 8 0 1 1 21 12z" />
+      <path d="M12 15s-3-1.7-3-4a1.7 1.7 0 0 1 3-1 1.7 1.7 0 0 1 3 1c0 2.3-3 4-3 4z" />
+    </svg>
+  )
+}
+
+/* Modernizovani check za listu cena */
 export function CheckIcon(props: IconProps) {
   return (
-    <svg {...baseProps} {...props}>
-      <path d="m416 128-192 192-96-96" />
+    <svg {...lineProps} {...props}>
+      <path d="m5 12 4.5 4.5L20 6" />
     </svg>
   )
 }
 
+/* Back-compat aliase */
 export function InfiniteIcon(props: IconProps) {
-  return (
-    <svg {...baseProps} {...props}>
-      <path d="M256 256s-48-96-126-96c-54.12 0-98 43-98 96s43.88 96 98 96c30 0 56.45-13.18 78-32M256 256s48 96 126 96c54.12 0 98-43 98-96s-43.88-96-98-96c-29.37 0-56.66 13.75-78 32" />
-    </svg>
-  )
+  return <SparkleIcon {...props} />
 }
 
 export function NutritionIcon(props: IconProps) {
-  return (
-    <svg {...baseProps} {...props}>
-      <path d="M448 273c0 87.21-65.83 175-149.14 175a126.46 126.46 0 0 1-39-6.06 16.07 16.07 0 0 0-9.7 0 126.46 126.46 0 0 1-39 6.06c-83.31 0-149.16-87.79-149.16-175 0-77.4 56.13-129 127.94-129 30.92 0 53.07 10.16 66.62 18.86a16 16 0 0 0 17.27 0c13.55-8.7 35.71-18.86 66.65-18.86 71.83 0 127.52 51.61 127.52 129Z" />
-      <path d="M376.59 99.46c-23.21 12.18-46.36 35-46.36 35M256 144l16-48s-6.78-32-40-64M384 64s-32 23-32 64" />
-    </svg>
-  )
+  return <WheatIcon {...props} />
 }
 
 export function LeafIcon(props: IconProps) {
+  return <ShieldCheckIcon {...props} />
+}
+
+export function PauseIcon(props: IconProps) {
+  return <ChatHeartIcon {...props} />
+}
+
+/* ============================================================
+   KONTAKT / UI
+   ============================================================ */
+
+export function PhoneIcon(props: IconProps) {
   return (
-    <svg {...baseProps} {...props}>
-      <path d="M161.35 242a16 16 0 0 1 9.55-15.06A176.3 176.3 0 0 1 240 213c44.89 0 82.41 19.92 108 50.79V155.13a16 16 0 0 0-10.34-15c-30.31-11.41-89.85-29.51-159.34-21.66-67.39 7.63-118.91 36.43-153.13 85.6A153.81 153.81 0 0 0 11.05 273c-7.92 32.27-12.92 100.43 11.61 124.92a17.94 17.94 0 0 0 23.43 1.51c12.6-9.91 32.05-18.59 51.27-25.7l28.43-10.42A16 16 0 0 0 134.85 354.86Z" />
+    <svg {...lineProps} {...props}>
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.99.35 1.95.65 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.86.3 1.82.52 2.81.65A2 2 0 0 1 22 16.92z" />
     </svg>
   )
 }
 
-export function PauseIcon(props: IconProps) {
+export function MailIcon(props: IconProps) {
   return (
-    <svg {...baseProps} {...props}>
-      <path d="M176 96h16v320h-16zM320 96h16v320h-16z" />
+    <svg {...lineProps} {...props}>
+      <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  )
+}
+
+export function PinIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <path d="M20 10c0 6.5-8 12-8 12s-8-5.5-8-12a8 8 0 0 1 16 0z" />
+      <circle cx="12" cy="10" r="2.75" />
+    </svg>
+  )
+}
+
+export function MenuIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  )
+}
+
+export function CloseIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <path d="M6 6 18 18M18 6 6 18" />
+    </svg>
+  )
+}
+
+export function ChevronLeftIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <path d="m15 6-6 6 6 6" />
+    </svg>
+  )
+}
+
+export function ChevronRightIcon(props: IconProps) {
+  return (
+    <svg {...lineProps} {...props}>
+      <path d="m9 6 6 6-6 6" />
+    </svg>
+  )
+}
+
+/* ============================================================
+   SOCIAL — brand glyphs (filled)
+   ============================================================ */
+
+export function WhatsAppIcon(props: IconProps) {
+  return (
+    <svg {...fillProps} {...props}>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.768.967-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413" />
     </svg>
   )
 }
 
 export function InstagramIcon(props: IconProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      viewBox="0 0 512 512"
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="M349.33 69.33a93.62 93.62 0 0 1 93.34 93.34v186.66a93.62 93.62 0 0 1-93.34 93.34H162.67a93.62 93.62 0 0 1-93.34-93.34V162.67a93.62 93.62 0 0 1 93.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32Z" />
-      <path d="M377.33 162.67a28 28 0 1 1 28-28 27.94 27.94 0 0 1-28 28Zm-121.33 22a48 48 0 1 1-48 48 48 48 0 0 1 48-48m0-32a80 80 0 1 0 80 80 80.09 80.09 0 0 0-80-80Z" />
+    <svg {...lineProps} {...props}>
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
     </svg>
   )
 }
 
 export function FacebookIcon(props: IconProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      viewBox="0 0 512 512"
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31Z" />
+    <svg {...fillProps} {...props}>
+      <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z" />
     </svg>
   )
 }

@@ -71,7 +71,7 @@ export function Header() {
             <li>
               <Link
                 href="/#cta"
-                className="inline-block rounded-[9px] bg-[var(--color-accent)] px-[2.4rem] py-[1.2rem] text-[1.8rem] font-medium text-white shadow-[0_4px_12px_rgba(246,80,160,0.25)] transition-all duration-300 hover:-translate-y-[0.2rem] hover:bg-[var(--color-accent-dark)] hover:shadow-[0_8px_20px_rgba(246,80,160,0.4)]"
+                className="btn-shine inline-block rounded-[9px] bg-[var(--color-accent)] px-[2.4rem] py-[1.2rem] text-[1.8rem] font-medium text-white shadow-[0_4px_12px_rgba(246,80,160,0.25)] transition-all duration-300 hover:-translate-y-[0.2rem] hover:bg-[var(--color-accent-dark)] hover:shadow-[0_8px_20px_rgba(246,80,160,0.4)]"
               >
                 Kontakt
               </Link>

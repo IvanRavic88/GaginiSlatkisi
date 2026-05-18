@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 
+import { ChevronLeftIcon, ChevronRightIcon, CloseIcon } from '@/components/ui/icons'
+
 export type GalleryItem = {
   src: string
   alt: string
@@ -89,9 +91,9 @@ export function GalerijaClient({ items }: { items: GalleryItem[] }) {
               close()
             }}
             aria-label="Zatvori"
-            className="absolute right-[2rem] top-[2rem] z-[110] grid h-[5rem] w-[5rem] place-items-center rounded-full bg-white/15 text-[3.2rem] text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="absolute right-[2rem] top-[2rem] z-[110] grid h-[5rem] w-[5rem] place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            ×
+            <CloseIcon className="h-[2.4rem] w-[2.4rem]" />
           </button>
           <button
             type="button"
@@ -102,18 +104,7 @@ export function GalerijaClient({ items }: { items: GalleryItem[] }) {
             aria-label="Prethodna slika"
             className="absolute left-[2rem] top-1/2 z-[110] grid h-[5rem] w-[5rem] -translate-y-1/2 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:left-[3.2rem] md:h-[6rem] md:w-[6rem]"
           >
-            <svg
-              viewBox="0 0 24 24"
-              className="h-[2.4rem] w-[2.4rem]"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
+            <ChevronLeftIcon className="h-[2.4rem] w-[2.4rem]" />
           </button>
           <button
             type="button"
@@ -124,18 +115,7 @@ export function GalerijaClient({ items }: { items: GalleryItem[] }) {
             aria-label="Sledeća slika"
             className="absolute right-[2rem] top-1/2 z-[110] grid h-[5rem] w-[5rem] -translate-y-1/2 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:right-[3.2rem] md:h-[6rem] md:w-[6rem]"
           >
-            <svg
-              viewBox="0 0 24 24"
-              className="h-[2.4rem] w-[2.4rem]"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
+            <ChevronRightIcon className="h-[2.4rem] w-[2.4rem]" />
           </button>
           <figure
             onClick={(e) => e.stopPropagation()}

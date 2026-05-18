@@ -33,8 +33,8 @@ export function Hero() {
               poslastice koje bude sva čula
             </Heading>
             <p className="mb-[4.8rem] text-[2rem] leading-[1.6] text-[var(--color-text-default)]">
-              Svi naši kolači i torte su napravljeni od pažljivo odabranih i kvalitetnih sastojaka,
-              po proverenim receptima.
+              Domaći kolači i torte iz Lazarevca, napravljeni od pažljivo odabranih sastojaka po
+              proverenim receptima. Idealni za rođendane, svadbe i sve posebne prilike.
             </p>
             <Button href="/#cta" variant="full">
               Poručite odmah
@@ -44,7 +44,7 @@ export function Hero() {
           <div className="relative">
             <Image
               src="/img/Desktop-3.webp"
-              alt="Slika prelepo aranžiranih kolača, koje drži nasmejana devojka"
+              alt="Nasmejana devojka aranžira kolače — domaće torte Lazarevac"
               width={720}
               height={720}
               loading="lazy"

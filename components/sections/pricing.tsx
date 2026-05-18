@@ -47,12 +47,12 @@ export function Pricing() {
         </Heading>
       </div>
 
-      <div className="mb-[9.6rem] grid grid-cols-1 gap-[6.4rem] md:grid-cols-2">
+      <div className="mb-[2.4rem] grid grid-cols-1 gap-[6.4rem] md:grid-cols-2">
         {/* Starter */}
         <div className="group w-full overflow-hidden rounded-[11px] border-2 border-[var(--color-primary)] bg-white transition-all duration-500 hover:-translate-y-[0.8rem] hover:border-[var(--color-primary-shade)] hover:shadow-[0_2.4rem_4.8rem_rgba(246,80,160,0.15)]">
           <Image
             src="/img/Groups-img/Gallery-11.webp"
-            alt="Slika prelepo spakovanih sitnih kolača."
+            alt="Spakovani sitni kolači, raznovrsnih ukusa — domaći slatkiši Lazarevac"
             width={600}
             height={450}
             sizes="(min-width: 768px) 35vw, 100vw"
@@ -94,7 +94,7 @@ export function Pricing() {
           </span>
           <Image
             src="/img/Groups-img/Gallery-103.webp"
-            alt="Slika prelepo spakovanih lux kolača."
+            alt="Lux kolači u elegantnoj kutiji — porudžbina po komadu, Lazarevac"
             width={600}
             height={450}
             sizes="(min-width: 768px) 35vw, 100vw"
@@ -130,7 +130,10 @@ export function Pricing() {
         </div>
       </div>
 
-      <aside className="mx-auto mb-[9.6rem] max-w-[80rem] text-center text-[1.6rem] leading-[1.6] text-[var(--color-text-default)]">
+      <aside className="mx-auto mb-[9.6rem] max-w-[72rem] text-center text-[1.3rem] italic leading-[1.6] text-[var(--color-text-muted)]">
+        <span aria-hidden="true" className="mr-[0.4rem] not-italic font-bold text-[var(--color-accent)]">
+          *
+        </span>
         Navedene cene su informativnog karaktera i mogu se promeniti na osnovu specifičnosti
         zahteva. Konačna cena biće utvrđena nakon dogovora.
       </aside>

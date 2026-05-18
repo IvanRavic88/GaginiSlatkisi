@@ -136,7 +136,7 @@ export function CtaSection({ phone }: { phone: string }) {
           <div className="relative hidden h-full min-h-[40rem] w-full overflow-hidden lg:block">
             <Image
               src="/img/GaginiSlatkisi IMG/Gallery-17.webp"
-              alt="Lepo aranžirani GaginiSlatkiši na poslužavniku."
+              alt="Aranžman GaginiSlatkiši torti i kolača — porudžbine za sve prilike, Lazarevac"
               fill
               sizes="(min-width: 1024px) 40vw, 0px"
               className="object-cover object-top"

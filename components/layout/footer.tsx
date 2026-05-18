@@ -133,13 +133,9 @@ export async function Footer() {
                 <a
                   href={`viber://chat?number=%2B${viberNumber}`}
                   aria-label="Viber"
-                  className="group relative grid h-[4.4rem] w-[4.4rem] place-items-center overflow-hidden rounded-full bg-white text-[var(--color-accent)] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_8px_20px_rgba(115,96,242,0.35)]"
+                  className="grid h-[4.4rem] w-[4.4rem] place-items-center rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_8px_20px_rgba(115,96,242,0.4)]"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-[#7360F2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  />
-                  <ViberIcon className="relative h-[2.2rem] w-[2.2rem] transition-colors duration-300 group-hover:text-white" />
+                  <ViberIcon className="h-[2.4rem] w-[2.4rem]" />
                 </a>
               </li>
             </ul>

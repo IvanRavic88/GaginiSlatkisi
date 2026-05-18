@@ -3,32 +3,32 @@ import Image from 'next/image'
 import { Container, Heading, Subheading } from '@/components/ui'
 import { FadeIn } from '@/components/ui/fade-in'
 import {
+  ChatHeartIcon,
   CheckIcon,
-  InfiniteIcon,
-  LeafIcon,
-  NutritionIcon,
-  PauseIcon,
+  ShieldCheckIcon,
+  SparkleIcon,
+  WheatIcon,
 } from '@/components/ui/icons'
-import { SprinkleDot, SprinkleStick } from '@/components/ui/sprinkle'
+import { SprinkleCluster } from '@/components/ui/sprinkle'
 
 const FEATURES = [
   {
-    Icon: InfiniteIcon,
+    Icon: SparkleIcon,
     title: 'Prepustite nama',
     text: 'Da budemo najslađi deo Vaše proslave sa slatkišima kojima ćete se uvek vraćati.',
   },
   {
-    Icon: NutritionIcon,
+    Icon: WheatIcon,
     title: 'Vrhunskog kvaliteta',
     text: 'Naši poslastičari koriste samo najbolje sastojke za Gagine Slatkiše.',
   },
   {
-    Icon: LeafIcon,
+    Icon: ShieldCheckIcon,
     title: 'Bez brige',
     text: 'Nakon što izaberete naš proizvod, možete da se opustite, jer mi uvek ispoštujemo naše rokove.',
   },
   {
-    Icon: PauseIcon,
+    Icon: ChatHeartIcon,
     title: 'Šta izabrati?',
     text: 'Ukoliko imate nedoumicu ili posebnu želju, mi ćemo Vam rado pomoći da zajedno kreiramo savršen slatkiš.',
   },
@@ -39,14 +39,8 @@ export function Pricing() {
     <section id="pricing" className="bg-[var(--color-vanilla)] py-[9.6rem]">
       <Container>
       <div className="relative mb-[9.6rem] text-center">
-        <SprinkleStick
-          className="absolute left-[22%] top-[-0.5rem] h-[0.6rem] w-[2rem] animate-float-gentle"
-          rotate={15}
-        />
-        <SprinkleDot
-          className="absolute right-[20%] top-[1rem] h-[1rem] w-[1rem] animate-float-gentle"
-          color="var(--color-caramel)"
-        />
+        <SprinkleCluster side="left" />
+        <SprinkleCluster side="right" />
         <Subheading>Cene</Subheading>
         <Heading as="h2" variant="secondary" className="mx-auto max-w-[64rem]">
           Primeri cena naših najprodavanijih slatkiša

@@ -51,3 +51,60 @@ export function HeartDecor({ color = 'var(--color-accent)', className = '' }: Sp
     </svg>
   )
 }
+
+const COLORS = {
+  pink: 'var(--color-accent)',
+  caramel: 'var(--color-caramel)',
+  caramelLight: 'var(--color-caramel-light)',
+  primary: 'var(--color-primary-shade)',
+  yellow: 'var(--color-ribbon-bg)',
+} as const
+
+type ClusterSide = 'left' | 'right'
+
+export function SprinkleCluster({ side }: { side: ClusterSide }) {
+  if (side === 'left') {
+    return (
+      <>
+        <SprinkleStick
+          className="absolute left-[10%] top-[-1.5rem] h-[0.5rem] w-[1.8rem] animate-float-gentle"
+          rotate={-30}
+          color={COLORS.pink}
+        />
+        <SprinkleDot
+          className="absolute left-[16%] top-[1rem] h-[0.9rem] w-[0.9rem] animate-float-gentle"
+          color={COLORS.caramel}
+        />
+        <SprinkleStick
+          className="absolute left-[22%] top-[2.8rem] h-[0.5rem] w-[1.6rem] animate-float-gentle"
+          rotate={40}
+          color={COLORS.yellow}
+        />
+        <SprinkleDot
+          className="absolute left-[28%] top-[-0.5rem] h-[0.6rem] w-[0.6rem] animate-float-gentle"
+          color={COLORS.primary}
+        />
+      </>
+    )
+  }
+
+  return (
+    <>
+      <SprinkleDot
+        className="absolute right-[10%] top-[2rem] h-[0.9rem] w-[0.9rem] animate-float-gentle"
+        color={COLORS.pink}
+      />
+      <SprinkleStick
+        className="absolute right-[16%] top-[-1rem] h-[0.5rem] w-[1.8rem] animate-float-gentle"
+        rotate={25}
+        color={COLORS.caramel}
+      />
+      <HeartDecor className="absolute right-[22%] top-[2.5rem] h-[1.6rem] w-[1.6rem] animate-float-gentle" />
+      <SprinkleStick
+        className="absolute right-[28%] top-[0.5rem] h-[0.5rem] w-[1.4rem] animate-float-gentle"
+        rotate={-50}
+        color={COLORS.yellow}
+      />
+    </>
+  )
+}

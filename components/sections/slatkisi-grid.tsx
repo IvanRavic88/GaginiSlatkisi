@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 import { Container, Heading, Subheading } from '@/components/ui'
 import { FadeIn } from '@/components/ui/fade-in'
-import { FlameIcon, RestaurantIcon, StarIcon } from '@/components/ui/icons'
-import { HeartDecor, SprinkleDot, SprinkleStick } from '@/components/ui/sprinkle'
+import { CakeIcon, FlameIcon, RibbonIcon } from '@/components/ui/icons'
+import { SprinkleCluster } from '@/components/ui/sprinkle'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import { HOMEPAGE_CATEGORIES_QUERY } from '@/lib/sanity/queries'
 import type { HOMEPAGE_CATEGORIES_QUERY_RESULT } from '@/sanity.types'
@@ -43,12 +43,8 @@ export async function SlatkisiGrid() {
     <section id="kolaci" className="bg-[var(--color-cream)] py-[9.6rem]">
       <Container>
         <div className="relative mb-[6.4rem] text-center">
-          <SprinkleDot className="absolute left-[20%] top-[-1rem] h-[1rem] w-[1rem] animate-float-gentle" />
-          <SprinkleStick
-            className="absolute right-[25%] top-[0.5rem] h-[0.6rem] w-[2rem] animate-float-gentle"
-            color="var(--color-primary-shade)"
-          />
-          <HeartDecor className="absolute right-[18%] top-[2rem] h-[1.8rem] w-[1.8rem] animate-float-gentle" />
+          <SprinkleCluster side="left" />
+          <SprinkleCluster side="right" />
           <Subheading>Slatkiši</Subheading>
           <Heading as="h2" variant="secondary" className="mx-auto max-w-[64rem]">
             Izaberite slatkiš koji odgovara Vašem ukusu
@@ -89,11 +85,11 @@ export async function SlatkisiGrid() {
                         <span>{c.attributes[0]}</span>
                       </li>
                       <li className="flex items-center gap-[1.6rem] text-[1.8rem]">
-                        <RestaurantIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
+                        <CakeIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
                         <span>{c.attributes[1]}</span>
                       </li>
                       <li className="flex items-center gap-[1.6rem] text-[1.8rem]">
-                        <StarIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
+                        <RibbonIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
                         <span>{c.attributes[2]}</span>
                       </li>
                       <li className="text-[1.8rem]">

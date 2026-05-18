@@ -27,12 +27,13 @@ export function Header() {
 
   useEffect(() => {
     if (pathname !== '/') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveSection(null)
       return
     }
 
-    const sectionIds = NAV_LINKS.map((l) => l.href.split('#')[1]).filter(
-      (id): id is string => Boolean(id),
+    const sectionIds = NAV_LINKS.map((l) => l.href.split('#')[1]).filter((id): id is string =>
+      Boolean(id),
     )
     const sections = sectionIds
       .map((id) => document.getElementById(id))
@@ -95,9 +96,7 @@ export function Header() {
                     href={link.href}
                     aria-current={isActive ? 'true' : undefined}
                     className={`group relative inline-block py-[0.4rem] text-[1.8rem] font-medium transition-colors hover:text-[var(--color-accent)] ${
-                      isActive
-                        ? 'text-[var(--color-accent)]'
-                        : 'text-[var(--color-text-dark)]'
+                      isActive ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-dark)]'
                     }`}
                   >
                     {link.label}

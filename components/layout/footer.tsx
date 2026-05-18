@@ -1,7 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon } from '@/components/ui/icons'
+import {
+  FacebookIcon,
+  InstagramIcon,
+  MailIcon,
+  PhoneIcon,
+  PinIcon,
+  ViberIcon,
+} from '@/components/ui/icons'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import { ALL_CATEGORIES_QUERY, SITE_SETTINGS_QUERY } from '@/lib/sanity/queries'
 import type { ALL_CATEGORIES_QUERY_RESULT, SITE_SETTINGS_QUERY_RESULT } from '@/sanity.types'
@@ -58,6 +65,7 @@ export async function Footer() {
   const phone = settings?.phone ?? '065/5593-678'
   const email = settings?.contactEmail ?? 'gaginislatkisi@gmail.com'
   const city = settings?.address?.city ?? 'Lazarevac'
+  const viberNumber = phone.replace(/[^0-9]/g, '').replace(/^0/, '381')
 
   return (
     <footer
@@ -119,6 +127,19 @@ export async function Footer() {
                     className="absolute inset-0 bg-[#1877f2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   />
                   <FacebookIcon className="relative h-[2.2rem] w-[2.2rem] transition-colors duration-300 group-hover:text-white" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`viber://chat?number=%2B${viberNumber}`}
+                  aria-label="Viber"
+                  className="group relative grid h-[4.4rem] w-[4.4rem] place-items-center overflow-hidden rounded-full bg-white text-[#7360F2] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_8px_20px_rgba(115,96,242,0.4)]"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-[#7360F2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                  <ViberIcon className="relative h-[2.2rem] w-[2.2rem] transition-colors duration-300 group-hover:text-white" />
                 </a>
               </li>
             </ul>

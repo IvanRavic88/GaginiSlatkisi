@@ -20,6 +20,14 @@ docs/ai/
 memory/
 .ai/
 
+# === Dev / testovi / dev scripts (NEVER commit to public repo) ===
+tests/
+scripts/
+playwright.config.ts
+vitest.config.ts
+sanity-typegen.json
+.lighthouse/
+
 # Created by https://www.toptal.com/developers/gitignore/api/flask,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=flask,python
 

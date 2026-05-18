@@ -9,17 +9,7 @@
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx,js,mjs,css,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,css,md}\"",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:ui": "vitest --ui",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "sanity:typegen": "sanity schema extract && sanity typegen generate",
-    "sanity:extract": "sanity schema extract --enforce-required-fields",
-    "migrate": "tsx --env-file=.env.local --use-system-ca scripts/migrate-from-sqlite.ts",
-    "seed:gallery": "tsx --env-file=.env.local --use-system-ca scripts/seed-gallery.ts",
-    "seed:categories": "tsx --env-file=.env.local --use-system-ca scripts/seed-categories.ts"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

@@ -46,6 +46,14 @@ export const category = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'seoCopy',
+      title: 'SEO opis kategorije',
+      description:
+        'Jedan-dva paragrafa SEO copy-a koji se prikazuje ispod naslova na kategorijskoj stranici.',
+      type: 'text',
+      rows: 4,
+    }),
+    defineField({
       name: 'attributes',
       title: 'Atributi (tri bullet-a)',
       description: 'Tri kratke linije teksta koje se prikazuju u home kartici',

@@ -17,7 +17,8 @@ export const CATEGORY_BY_SLUG_QUERY = defineQuery(`
     name,
     "slug": slug.current,
     subheading,
-    secondaryHeading
+    secondaryHeading,
+    seoCopy
   }
 `)
 

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Container, Heading, Subheading } from '@/components/ui'
 import { FadeIn } from '@/components/ui/fade-in'
 import { FlameIcon, RestaurantIcon, StarIcon } from '@/components/ui/icons'
+import { HeartDecor, SprinkleDot, SprinkleStick } from '@/components/ui/sprinkle'
 
 type Slatkis = {
   slug: string
@@ -130,7 +131,13 @@ export function SlatkisiGrid() {
   return (
     <section id="kolaci" className="bg-[var(--color-cream)] py-[9.6rem]">
       <Container>
-      <div className="mb-[6.4rem] text-center">
+      <div className="relative mb-[6.4rem] text-center">
+        <SprinkleDot className="absolute left-[20%] top-[-1rem] h-[1rem] w-[1rem] animate-float-gentle" />
+        <SprinkleStick
+          className="absolute right-[25%] top-[0.5rem] h-[0.6rem] w-[2rem] animate-float-gentle"
+          color="var(--color-primary-shade)"
+        />
+        <HeartDecor className="absolute right-[18%] top-[2rem] h-[1.8rem] w-[1.8rem] animate-float-gentle" />
         <Subheading>Slatkiši</Subheading>
         <Heading as="h2" variant="secondary" className="mx-auto max-w-[64rem]">
           Izaberite slatkiš koji odgovara Vašem ukusu

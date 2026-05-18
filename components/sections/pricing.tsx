@@ -9,6 +9,7 @@ import {
   NutritionIcon,
   PauseIcon,
 } from '@/components/ui/icons'
+import { SprinkleDot, SprinkleStick } from '@/components/ui/sprinkle'
 
 const FEATURES = [
   {
@@ -37,7 +38,15 @@ export function Pricing() {
   return (
     <section id="pricing" className="bg-[var(--color-vanilla)] py-[9.6rem]">
       <Container>
-      <div className="mb-[9.6rem] text-center">
+      <div className="relative mb-[9.6rem] text-center">
+        <SprinkleStick
+          className="absolute left-[22%] top-[-0.5rem] h-[0.6rem] w-[2rem] animate-float-gentle"
+          rotate={15}
+        />
+        <SprinkleDot
+          className="absolute right-[20%] top-[1rem] h-[1rem] w-[1rem] animate-float-gentle"
+          color="var(--color-caramel)"
+        />
         <Subheading>Cene</Subheading>
         <Heading as="h2" variant="secondary" className="mx-auto max-w-[64rem]">
           Primeri cena naših najprodavanijih slatkiša

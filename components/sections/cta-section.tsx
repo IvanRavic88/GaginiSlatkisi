@@ -33,6 +33,7 @@ export function CtaSection({ phone }: { phone: string }) {
       window.turnstile?.reset()
     } else {
       show(state.error, 'error')
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShake(true)
       const t = setTimeout(() => setShake(false), 400)
       return () => clearTimeout(t)
@@ -46,7 +47,7 @@ export function CtaSection({ phone }: { phone: string }) {
       <div className="mx-auto max-w-[120rem]">
         <div className="grid overflow-hidden rounded-[11px] bg-[linear-gradient(to_right_bottom,var(--color-cta-from),var(--color-cta-to))] shadow-[0_2.4rem_4.8rem_rgba(0,0,0,0.15)] lg:grid-cols-[1.5fr_1fr]">
           <div className="px-[3.2rem] py-[4.8rem] text-[var(--color-cta-dark)] md:px-[6.4rem] md:pb-[6.4rem]">
-            <h2 className="mb-[3.2rem] font-sans text-[4.4rem] font-bold leading-[1.2] tracking-[-0.5px] text-[var(--color-cta-heading)]">
+            <h2 className="mb-[3.2rem] font-sans text-[4.4rem] leading-[1.2] font-bold tracking-[-0.5px] text-[var(--color-cta-heading)]">
               Odgovaramo na sva vaša pitanja!
             </h2>
             <p className="mb-[4.8rem] text-[1.8rem] leading-[1.8]">
@@ -109,11 +110,7 @@ export function CtaSection({ phone }: { phone: string }) {
               </div>
 
               {siteKey ? (
-                <div
-                  className="cf-turnstile"
-                  data-sitekey={siteKey}
-                  data-language="sr"
-                />
+                <div className="cf-turnstile" data-sitekey={siteKey} data-language="sr" />
               ) : null}
 
               <div className="flex flex-col gap-[1.6rem] sm:col-span-2">

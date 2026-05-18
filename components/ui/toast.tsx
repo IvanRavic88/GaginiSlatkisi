@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from 'react'
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
 
 type ToastVariant = 'success' | 'error'
 
@@ -44,7 +37,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       <div
         aria-live="polite"
         aria-atomic="false"
-        className="pointer-events-none fixed bottom-[2.4rem] right-[2.4rem] z-[100] flex flex-col gap-[1.2rem]"
+        className="pointer-events-none fixed right-[2.4rem] bottom-[2.4rem] z-[100] flex flex-col gap-[1.2rem]"
       >
         {toasts.map((toast) => (
           <ToastItem key={toast.id} toast={toast} onDismiss={dismiss} />
@@ -60,8 +53,7 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number)
     return () => clearTimeout(timer)
   }, [toast.id, onDismiss])
 
-  const borderColor =
-    toast.variant === 'success' ? 'border-l-[#2f7a3a]' : 'border-l-[#b3261e]'
+  const borderColor = toast.variant === 'success' ? 'border-l-[#2f7a3a]' : 'border-l-[#b3261e]'
 
   return (
     <div

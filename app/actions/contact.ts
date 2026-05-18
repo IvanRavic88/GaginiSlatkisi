@@ -9,8 +9,7 @@ export type ContactState =
   | { ok: true }
   | { ok: false; error: string; fieldErrors?: Record<string, string[]> }
 
-const TURNSTILE_VERIFY_URL =
-  'https://challenges.cloudflare.com/turnstile/v0/siteverify'
+const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify'
 
 function requireEnv(key: string): string {
   const v = process.env[key]

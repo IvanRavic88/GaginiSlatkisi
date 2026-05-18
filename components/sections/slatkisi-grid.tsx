@@ -28,12 +28,12 @@ export async function SlatkisiGrid() {
     } =>
       Boolean(
         c.slug &&
-          c.name &&
-          c.tag &&
-          c.homepageImageSrc &&
-          c.homepageImageAlt &&
-          c.attributes &&
-          c.attributes.length === 3,
+        c.name &&
+        c.tag &&
+        c.homepageImageSrc &&
+        c.homepageImageAlt &&
+        c.attributes &&
+        c.attributes.length === 3,
       ),
   )
 
@@ -73,12 +73,12 @@ export async function SlatkisiGrid() {
                       aria-hidden="true"
                       className="pointer-events-none absolute inset-x-0 bottom-0 h-[10rem] bg-gradient-to-t from-black/30 via-black/10 to-transparent"
                     />
-                    <span className="absolute bottom-[1.6rem] left-[1.6rem] inline-flex items-center rounded-full bg-white/90 px-[1.2rem] py-[0.5rem] text-[1.1rem] font-bold uppercase tracking-[0.1em] text-[var(--color-accent-text)] shadow-[0_4px_12px_rgba(0,0,0,0.15)] backdrop-blur-sm">
+                    <span className="absolute bottom-[1.6rem] left-[1.6rem] inline-flex items-center rounded-full bg-white/90 px-[1.2rem] py-[0.5rem] text-[1.1rem] font-bold tracking-[0.1em] text-[var(--color-accent-text)] uppercase shadow-[0_4px_12px_rgba(0,0,0,0.15)] backdrop-blur-sm">
                       {c.tag}
                     </span>
                   </div>
-                  <div className="flex flex-1 flex-col px-[3.2rem] pb-[3.2rem] pt-[2.8rem]">
-                    <h3 className="mb-[2rem] text-[2.4rem] font-semibold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-dark)]">
+                  <div className="flex flex-1 flex-col px-[3.2rem] pt-[2.8rem] pb-[3.2rem]">
+                    <h3 className="mb-[2rem] text-[2.4rem] leading-[1.2] font-semibold tracking-[-0.01em] text-[var(--color-text-dark)]">
                       {c.name}
                     </h3>
                     <ul className="mb-[2.8rem] flex flex-col gap-[1.4rem]">
@@ -95,7 +95,7 @@ export async function SlatkisiGrid() {
                         <span>{c.attributes[2]}</span>
                       </li>
                     </ul>
-                    <span className="btn-shine mt-auto inline-flex w-fit items-center gap-[0.6rem] rounded-full border-2 border-[var(--color-primary-shade)]/40 px-[2rem] py-[1rem] text-[1.3rem] font-semibold uppercase tracking-[0.1em] text-[var(--color-accent-text)] transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white group-hover:shadow-[0_4px_14px_rgba(246,80,160,0.35)]">
+                    <span className="btn-shine mt-auto inline-flex w-fit items-center gap-[0.6rem] rounded-full border-2 border-[var(--color-primary-shade)]/40 px-[2rem] py-[1rem] text-[1.3rem] font-semibold tracking-[0.1em] text-[var(--color-accent-text)] uppercase transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white group-hover:shadow-[0_4px_14px_rgba(246,80,160,0.35)]">
                       <span>Pogledaj</span>
                       <span
                         aria-hidden="true"

@@ -67,21 +67,21 @@ export function SprinkleCluster({ side }: { side: ClusterSide }) {
     return (
       <>
         <SprinkleStick
-          className="absolute left-[10%] top-[-1.5rem] h-[0.5rem] w-[1.8rem] animate-float-gentle"
+          className="animate-float-gentle absolute top-[-1.5rem] left-[10%] h-[0.5rem] w-[1.8rem]"
           rotate={-30}
           color={COLORS.pink}
         />
         <SprinkleDot
-          className="absolute left-[16%] top-[1rem] h-[0.9rem] w-[0.9rem] animate-float-gentle"
+          className="animate-float-gentle absolute top-[1rem] left-[16%] h-[0.9rem] w-[0.9rem]"
           color={COLORS.caramel}
         />
         <SprinkleStick
-          className="absolute left-[22%] top-[2.8rem] h-[0.5rem] w-[1.6rem] animate-float-gentle"
+          className="animate-float-gentle absolute top-[2.8rem] left-[22%] h-[0.5rem] w-[1.6rem]"
           rotate={40}
           color={COLORS.yellow}
         />
         <SprinkleDot
-          className="absolute left-[28%] top-[-0.5rem] h-[0.6rem] w-[0.6rem] animate-float-gentle"
+          className="animate-float-gentle absolute top-[-0.5rem] left-[28%] h-[0.6rem] w-[0.6rem]"
           color={COLORS.primary}
         />
       </>
@@ -91,17 +91,17 @@ export function SprinkleCluster({ side }: { side: ClusterSide }) {
   return (
     <>
       <SprinkleDot
-        className="absolute right-[10%] top-[2rem] h-[0.9rem] w-[0.9rem] animate-float-gentle"
+        className="animate-float-gentle absolute top-[2rem] right-[10%] h-[0.9rem] w-[0.9rem]"
         color={COLORS.pink}
       />
       <SprinkleStick
-        className="absolute right-[16%] top-[-1rem] h-[0.5rem] w-[1.8rem] animate-float-gentle"
+        className="animate-float-gentle absolute top-[-1rem] right-[16%] h-[0.5rem] w-[1.8rem]"
         rotate={25}
         color={COLORS.caramel}
       />
-      <HeartDecor className="absolute right-[22%] top-[2.5rem] h-[1.6rem] w-[1.6rem] animate-float-gentle" />
+      <HeartDecor className="animate-float-gentle absolute top-[2.5rem] right-[22%] h-[1.6rem] w-[1.6rem]" />
       <SprinkleStick
-        className="absolute right-[28%] top-[0.5rem] h-[0.5rem] w-[1.4rem] animate-float-gentle"
+        className="animate-float-gentle absolute top-[0.5rem] right-[28%] h-[0.5rem] w-[1.4rem]"
         rotate={-50}
         color={COLORS.yellow}
       />

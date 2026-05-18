@@ -51,9 +51,7 @@ export default function ContactMessageEmail({
           <Text style={messageText}>{message}</Text>
 
           <Hr style={divider} />
-          <Text style={footer}>
-            Odgovor ide na adresu pošiljaoca (Reply-To je postavljen).
-          </Text>
+          <Text style={footer}>Odgovor ide na adresu pošiljaoca (Reply-To je postavljen).</Text>
         </Container>
       </Body>
     </Html>
@@ -70,8 +68,7 @@ function Row({ label, value }: { label: string; value: string }) {
 
 const body: React.CSSProperties = {
   backgroundColor: '#fefae0',
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
+  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
   margin: 0,
   padding: '24px 0',
 }

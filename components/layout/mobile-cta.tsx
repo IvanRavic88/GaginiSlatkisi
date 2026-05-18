@@ -26,7 +26,7 @@ export function MobileCta({ phone }: { phone: string }) {
   return (
     <div
       aria-hidden={!visible}
-      className={`fixed bottom-0 left-0 right-0 z-40 flex gap-[1.2rem] border-t border-[var(--color-cta-from)]/40 bg-white/95 px-[1.6rem] py-[1.2rem] shadow-[0_-4px_16px_rgba(0,0,0,0.08)] backdrop-blur-md transition-transform duration-300 md:hidden ${
+      className={`fixed right-0 bottom-0 left-0 z-40 flex gap-[1.2rem] border-t border-[var(--color-cta-from)]/40 bg-white/95 px-[1.6rem] py-[1.2rem] shadow-[0_-4px_16px_rgba(0,0,0,0.08)] backdrop-blur-md transition-transform duration-300 md:hidden ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >

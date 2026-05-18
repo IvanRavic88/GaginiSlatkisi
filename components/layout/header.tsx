@@ -46,7 +46,7 @@ export function Header() {
             priority
             className={[
               'w-auto transition-all duration-300 ease-out',
-              'group-hover:-rotate-2 group-hover:scale-105',
+              'group-hover:scale-105 group-hover:-rotate-2',
               scrolled ? 'h-[5.6rem]' : 'h-[8rem]',
             ].join(' ')}
           />

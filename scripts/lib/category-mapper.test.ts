@@ -25,7 +25,17 @@ describe('getCategoryForTable', () => {
   })
 
   it('pokriva svih 9 kategorija', () => {
-    const tables = ['torte', 'mus', 'sitni', 'mini', 'lux', 'casice', 'tart', 'medenjaci', 'bombone']
+    const tables = [
+      'torte',
+      'mus',
+      'sitni',
+      'mini',
+      'lux',
+      'casice',
+      'tart',
+      'medenjaci',
+      'bombone',
+    ]
     const slugs = tables.map((t) => getCategoryForTable(t).slug)
     expect(new Set(slugs).size).toBe(9)
   })

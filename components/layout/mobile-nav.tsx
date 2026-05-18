@@ -58,9 +58,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
               href={link.href}
               onClick={() => setOpen(false)}
               className={`text-[2.6rem] font-medium text-[var(--color-text-dark)] transition-all duration-500 hover:text-[var(--color-accent)] ${
-                open
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-[1.6rem] opacity-0'
+                open ? 'translate-y-0 opacity-100' : 'translate-y-[1.6rem] opacity-0'
               }`}
               style={{ transitionDelay: open ? `${150 + idx * 80}ms` : '0ms' }}
             >

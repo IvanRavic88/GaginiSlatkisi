@@ -4,11 +4,11 @@ import slugify from 'slugify'
 
 import { createWriteClient } from '@/lib/sanity/write-client-factory'
 
-const writeClient = createWriteClient()
-
 import { getAllCategoryDefs, getCategoryForTable } from './lib/category-mapper'
 import { findImageInDir } from './lib/image-finder'
 import { readAllSweets } from './lib/sqlite-reader'
+
+const writeClient = createWriteClient()
 
 const DB_PATH = 'instance/sweetie_table.db'
 const IMAGES_ROOT = 'static/img'

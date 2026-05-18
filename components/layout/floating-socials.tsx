@@ -17,7 +17,7 @@ export async function FloatingSocials() {
 
   return (
     <aside
-      className="fixed right-[1.6rem] top-1/2 z-[60] hidden -translate-y-1/2 flex-col gap-[1rem] md:flex"
+      className="fixed top-1/2 right-[1.6rem] z-[60] hidden -translate-y-1/2 flex-col gap-[1rem] md:flex"
       aria-label="Društvene mreže"
     >
       <a

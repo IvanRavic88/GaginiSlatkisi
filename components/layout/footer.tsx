@@ -1,13 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import {
-  FacebookIcon,
-  InstagramIcon,
-  MailIcon,
-  PhoneIcon,
-  PinIcon,
-} from '@/components/ui/icons'
+import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon } from '@/components/ui/icons'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import { ALL_CATEGORIES_QUERY, SITE_SETTINGS_QUERY } from '@/lib/sanity/queries'
 import type { ALL_CATEGORIES_QUERY_RESULT, SITE_SETTINGS_QUERY_RESULT } from '@/sanity.types'
@@ -29,7 +23,7 @@ function ContactLine({
         {icon}
       </span>
       <span className="flex flex-col">
-        <span className="text-[1.2rem] font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
+        <span className="text-[1.2rem] font-medium tracking-wide text-[var(--color-text-muted)] uppercase">
           {label}
         </span>
         <span className="text-[1.6rem] font-medium text-[var(--color-text-dark)] transition-colors duration-300 group-hover:text-[var(--color-accent)]">
@@ -76,7 +70,7 @@ export async function Footer() {
         width={420}
         height={420}
         aria-hidden="true"
-        className="pointer-events-none absolute -right-[5rem] top-[2rem] hidden h-[28rem] w-auto -rotate-[12deg] select-none opacity-25 animate-float-gentle lg:block"
+        className="animate-float-gentle pointer-events-none absolute top-[2rem] -right-[5rem] hidden h-[28rem] w-auto -rotate-[12deg] opacity-25 select-none lg:block"
       />
 
       <div className="relative mx-auto max-w-[120rem] px-[3.2rem] py-[6.4rem]">
@@ -132,7 +126,7 @@ export async function Footer() {
 
           {/* CONTACT COL */}
           <div className="md:col-span-4">
-            <p className="mb-[2rem] text-[1.4rem] font-bold uppercase tracking-wide text-[var(--color-accent-text)]">
+            <p className="mb-[2rem] text-[1.4rem] font-bold tracking-wide text-[var(--color-accent-text)] uppercase">
               Kontaktirajte nas
             </p>
             <ul className="space-y-[1.6rem]">
@@ -164,23 +158,21 @@ export async function Footer() {
 
           {/* CATEGORIES COL */}
           <nav aria-label="Slatkiši" className="md:col-span-4">
-            <p className="mb-[2rem] text-[1.4rem] font-bold uppercase tracking-wide text-[var(--color-accent-text)]">
+            <p className="mb-[2rem] text-[1.4rem] font-bold tracking-wide text-[var(--color-accent-text)] uppercase">
               Naši slatkiši
             </p>
-            <ul className="flex flex-wrap gap-[0.8rem]">
+            <ul className="grid grid-cols-2 gap-x-[2.4rem] gap-y-[1.1rem] text-[1.5rem]">
               {categories.map((c) => (
                 <li key={c._id}>
                   <Link
                     href={`/${c.slug}`}
-                    className="group inline-flex items-center gap-[0.6rem] rounded-full border border-[var(--color-primary-shade)]/40 bg-white/60 px-[1.4rem] py-[0.7rem] text-[1.4rem] font-medium text-[var(--color-text-dark)] shadow-[0_1px_2px_rgba(0,0,0,0.04)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[0.2rem] hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white hover:shadow-[0_6px_16px_rgba(246,80,160,0.3)]"
+                    className="group relative inline-block text-[var(--color-text-default)] transition-colors duration-300 hover:text-[var(--color-accent)]"
                   >
                     <span>{c.name}</span>
                     <span
                       aria-hidden="true"
-                      className="text-[1rem] opacity-0 transition-all duration-300 group-hover:translate-x-[0.2rem] group-hover:opacity-100"
-                    >
-                      →
-                    </span>
+                      className="absolute -bottom-[2px] left-0 h-[1px] w-0 bg-[var(--color-accent)] transition-all duration-300 group-hover:w-full"
+                    />
                   </Link>
                 </li>
               ))}

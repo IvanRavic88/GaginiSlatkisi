@@ -91,7 +91,7 @@ export function GalerijaClient({ items }: { items: GalleryItem[] }) {
               close()
             }}
             aria-label="Zatvori"
-            className="absolute right-[2rem] top-[2rem] z-[110] grid h-[5rem] w-[5rem] place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="absolute top-[2rem] right-[2rem] z-[110] grid h-[5rem] w-[5rem] place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             <CloseIcon className="h-[2.4rem] w-[2.4rem]" />
           </button>
@@ -102,7 +102,7 @@ export function GalerijaClient({ items }: { items: GalleryItem[] }) {
               prev()
             }}
             aria-label="Prethodna slika"
-            className="absolute left-[2rem] top-1/2 z-[110] grid h-[5rem] w-[5rem] -translate-y-1/2 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:left-[3.2rem] md:h-[6rem] md:w-[6rem]"
+            className="absolute top-1/2 left-[2rem] z-[110] grid h-[5rem] w-[5rem] -translate-y-1/2 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:left-[3.2rem] md:h-[6rem] md:w-[6rem]"
           >
             <ChevronLeftIcon className="h-[2.4rem] w-[2.4rem]" />
           </button>
@@ -113,7 +113,7 @@ export function GalerijaClient({ items }: { items: GalleryItem[] }) {
               next()
             }}
             aria-label="Sledeća slika"
-            className="absolute right-[2rem] top-1/2 z-[110] grid h-[5rem] w-[5rem] -translate-y-1/2 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:right-[3.2rem] md:h-[6rem] md:w-[6rem]"
+            className="absolute top-1/2 right-[2rem] z-[110] grid h-[5rem] w-[5rem] -translate-y-1/2 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:right-[3.2rem] md:h-[6rem] md:w-[6rem]"
           >
             <ChevronRightIcon className="h-[2.4rem] w-[2.4rem]" />
           </button>

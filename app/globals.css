@@ -7,10 +7,10 @@
   --color-primary-tint-2: #fae5d3;
   --color-primary-shade: #f78da7;
   --color-background: #ffffff;
-  --color-foreground: #333333;
-  --color-text-default: #555555;
-  --color-text-muted: #6f6f6f;
-  --color-text-dark: #333333;
+  --color-foreground: #2a2a2a;
+  --color-text-default: #3d3d3d;
+  --color-text-muted: #5a5a5a;
+  --color-text-dark: #2a2a2a;
   --color-accent: #f650a0;
   --color-accent-dark: #dd4890;
   --color-accent-text: #d12877;
@@ -19,7 +19,7 @@
   --color-cta-from: #f9afc1;
   --color-cta-to: #f78da7;
   --color-cta-heading: #7c4754;
-  --color-footer-text: #767676;
+  --color-footer-text: #5a5a5a;
   --color-ribbon-bg: #ffd34b;
 
   /* === Topli akcenti (Faza 6) === */

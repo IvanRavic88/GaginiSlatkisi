@@ -128,7 +128,8 @@ const SLATKISI: Slatkis[] = [
 
 export function SlatkisiGrid() {
   return (
-    <Container as="section" id="kolaci" className="py-[9.6rem]">
+    <section id="kolaci" className="bg-[var(--color-cream)] py-[9.6rem]">
+      <Container>
       <div className="mb-[6.4rem] text-center">
         <Subheading>Slatkiši</Subheading>
         <Heading as="h2" variant="secondary" className="mx-auto max-w-[64rem]">
@@ -192,6 +193,7 @@ export function SlatkisiGrid() {
           </FadeIn>
         ))}
       </div>
-    </Container>
+      </Container>
+    </section>
   )
 }

@@ -35,7 +35,8 @@ const FEATURES = [
 
 export function Pricing() {
   return (
-    <Container as="section" id="pricing" className="py-[9.6rem]">
+    <section id="pricing" className="bg-[var(--color-vanilla)] py-[9.6rem]">
+      <Container>
       <div className="mb-[9.6rem] text-center">
         <Subheading>Cene</Subheading>
         <Heading as="h2" variant="secondary" className="mx-auto max-w-[64rem]">
@@ -149,6 +150,7 @@ export function Pricing() {
           </FadeIn>
         ))}
       </div>
-    </Container>
+      </Container>
+    </section>
   )
 }

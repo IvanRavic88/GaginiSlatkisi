@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 
 import { MobileNav } from './mobile-nav'
 
@@ -12,6 +12,17 @@ const NAV_LINKS = [
   { href: '/#galerija', label: 'Galerija' },
   { href: '/#pricing', label: 'Cene' },
 ] as const
+
+function handleAnchorClick(e: MouseEvent<HTMLAnchorElement>, href: string) {
+  if (!href.startsWith('/#')) return
+  if (window.location.pathname !== '/') return
+  const id = href.slice(2)
+  const el = document.getElementById(id)
+  if (!el) return
+  e.preventDefault()
+  el.scrollIntoView({ block: 'start' })
+  history.replaceState(null, '', `/#${id}`)
+}
 
 export function Header() {
   const pathname = usePathname()
@@ -66,7 +77,7 @@ export function Header() {
     >
       <header
         className={[
-          'mx-auto flex max-w-[120rem] items-center justify-between px-[3.2rem] transition-all duration-300',
+          'mx-auto flex max-w-[120rem] items-center justify-between px-[1.6rem] transition-all duration-300 sm:px-[2.4rem] md:px-[3.2rem]',
           scrolled ? 'h-[7.2rem]' : 'h-[9.6rem]',
         ].join(' ')}
       >
@@ -94,6 +105,7 @@ export function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    onClick={(e) => handleAnchorClick(e, link.href)}
                     aria-current={isActive ? 'true' : undefined}
                     className={`group relative inline-block py-[0.4rem] text-[1.8rem] font-medium transition-colors hover:text-[var(--color-accent)] ${
                       isActive ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-dark)]'
@@ -113,6 +125,7 @@ export function Header() {
             <li>
               <Link
                 href="/#cta"
+                onClick={(e) => handleAnchorClick(e, '/#cta')}
                 className="btn-shine inline-block rounded-[9px] bg-[var(--color-accent)] px-[2.4rem] py-[1.2rem] text-[1.8rem] font-medium text-white shadow-[0_4px_12px_rgba(246,80,160,0.25)] transition-all duration-300 hover:-translate-y-[0.2rem] hover:bg-[var(--color-accent-dark)] hover:shadow-[0_8px_20px_rgba(246,80,160,0.4)]"
               >
                 Kontakt

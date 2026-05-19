@@ -29,7 +29,10 @@ export async function Galerija() {
   if (items.length === 0) return null
 
   return (
-    <section id="galerija" className="bg-[var(--color-primary)] px-[3.2rem] py-[9.6rem]">
+    <section
+      id="galerija"
+      className="bg-[var(--color-primary)] px-[1.6rem] py-[6.4rem] sm:px-[2.4rem] md:px-[3.2rem] md:py-[9.6rem]"
+    >
       <GalerijaClient items={items} />
     </section>
   )

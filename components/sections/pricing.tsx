@@ -36,9 +36,9 @@ const FEATURES = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="bg-[var(--color-vanilla)] py-[9.6rem]">
+    <section id="pricing" className="bg-[var(--color-vanilla)] py-[6.4rem] md:py-[9.6rem]">
       <Container>
-        <div className="relative mb-[9.6rem] text-center">
+        <div className="relative mb-[5.6rem] text-center md:mb-[9.6rem]">
           <SprinkleCluster side="left" />
           <SprinkleCluster side="right" />
           <Subheading>Cene</Subheading>
@@ -47,7 +47,7 @@ export function Pricing() {
           </Heading>
         </div>
 
-        <div className="mb-[2.4rem] grid grid-cols-1 gap-[6.4rem] md:grid-cols-2">
+        <div className="mb-[2.4rem] grid grid-cols-1 gap-[4.8rem] md:grid-cols-2 md:gap-[6.4rem]">
           {/* Starter */}
           <div className="group w-full overflow-hidden rounded-[11px] border-2 border-[var(--color-primary)] bg-white transition-all duration-500 hover:-translate-y-[0.8rem] hover:border-[var(--color-primary-shade)] hover:shadow-[0_2.4rem_4.8rem_rgba(246,80,160,0.15)]">
             <Image
@@ -58,14 +58,16 @@ export function Pricing() {
               sizes="(min-width: 768px) 35vw, 100vw"
               className="block w-full pb-[3.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
-            <div className="px-[4.6rem] pb-[4.6rem]">
-              <header className="mb-[4.8rem] text-center">
-                <p className="mb-[3.2rem] text-[2rem] font-semibold tracking-wide text-[var(--color-primary-shade)] uppercase">
+            <div className="px-[2.4rem] pb-[3.2rem] sm:px-[3.6rem] md:px-[4.6rem] md:pb-[4.6rem]">
+              <header className="mb-[3.6rem] text-center md:mb-[4.8rem]">
+                <p className="mb-[2.4rem] text-[1.8rem] font-semibold tracking-wide text-[var(--color-primary-shade)] uppercase md:mb-[3.2rem] md:text-[2rem]">
                   Sitni kolači
                 </p>
-                <p className="mb-[1.6rem] text-[6.2rem] leading-none font-semibold text-[var(--color-text-dark)]">
+                <p className="mb-[1.6rem] text-[4.8rem] leading-none font-semibold text-[var(--color-text-dark)] sm:text-[5.6rem] md:text-[6.2rem]">
                   1700
-                  <span className="ml-[0.8rem] text-[3rem] font-medium">RSD</span>
+                  <span className="ml-[0.8rem] text-[2.4rem] font-medium sm:text-[2.7rem] md:text-[3rem]">
+                    RSD
+                  </span>
                 </p>
                 <p className="text-[1.6rem] leading-[1.6] text-[var(--color-text-muted)]">
                   po kilogramu.
@@ -78,7 +80,10 @@ export function Pricing() {
                   'Mogućnost izbora vrste',
                   'Za sve prilike',
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-[1.6rem] text-[1.8rem]">
+                  <li
+                    key={item}
+                    className="flex items-center gap-[1.2rem] text-[1.6rem] sm:gap-[1.6rem] sm:text-[1.8rem]"
+                  >
                     <CheckIcon className="h-[2.4rem] w-[2.4rem] flex-none text-[var(--color-primary-shade)]" />
                     <span>{item}</span>
                   </li>
@@ -103,14 +108,16 @@ export function Pricing() {
               sizes="(min-width: 768px) 35vw, 100vw"
               className="block w-full pb-[3.2rem] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
-            <div className="px-[4.6rem] pb-[4.6rem]">
-              <header className="mb-[4.8rem] text-center">
-                <p className="mb-[3.2rem] text-[2rem] font-semibold tracking-wide text-[var(--color-primary-shade)] uppercase">
+            <div className="px-[2.4rem] pb-[3.2rem] sm:px-[3.6rem] md:px-[4.6rem] md:pb-[4.6rem]">
+              <header className="mb-[3.6rem] text-center md:mb-[4.8rem]">
+                <p className="mb-[2.4rem] text-[1.8rem] font-semibold tracking-wide text-[var(--color-primary-shade)] uppercase md:mb-[3.2rem] md:text-[2rem]">
                   Lux kolači
                 </p>
-                <p className="mb-[1.6rem] text-[6.2rem] leading-none font-semibold text-[var(--color-text-dark)]">
+                <p className="mb-[1.6rem] text-[4.8rem] leading-none font-semibold text-[var(--color-text-dark)] sm:text-[5.6rem] md:text-[6.2rem]">
                   2300
-                  <span className="ml-[0.8rem] text-[3rem] font-medium">RSD</span>
+                  <span className="ml-[0.8rem] text-[2.4rem] font-medium sm:text-[2.7rem] md:text-[3rem]">
+                    RSD
+                  </span>
                 </p>
                 <p className="text-[1.6rem] leading-[1.6] text-[var(--color-text-muted)]">
                   po kilogramu.
@@ -123,7 +130,10 @@ export function Pricing() {
                   'Mogućnost izbora vrsta',
                   'Za specijalne prilike',
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-[1.6rem] text-[1.8rem]">
+                  <li
+                    key={item}
+                    className="flex items-center gap-[1.2rem] text-[1.6rem] sm:gap-[1.6rem] sm:text-[1.8rem]"
+                  >
                     <CheckIcon className="h-[3rem] w-[3rem] flex-none text-[var(--color-primary-shade)]" />
                     <span className="font-medium">{item}</span>
                   </li>
@@ -133,7 +143,7 @@ export function Pricing() {
           </div>
         </div>
 
-        <aside className="mx-auto mb-[9.6rem] max-w-[72rem] text-center text-[1.3rem] leading-[1.6] text-[var(--color-text-muted)] italic">
+        <aside className="mx-auto mb-[6.4rem] max-w-[72rem] text-center text-[1.3rem] leading-[1.6] text-[var(--color-text-muted)] italic md:mb-[9.6rem]">
           <span
             aria-hidden="true"
             className="mr-[0.4rem] font-bold text-[var(--color-accent)] not-italic"
@@ -144,7 +154,7 @@ export function Pricing() {
           zahteva. Konačna cena biće utvrđena nakon dogovora.
         </aside>
 
-        <div className="grid grid-cols-1 gap-[6.4rem] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-[4.8rem] sm:grid-cols-2 sm:gap-[6.4rem] lg:grid-cols-4">
           {FEATURES.map(({ Icon, title, text }, idx) => (
             <FadeIn key={title} delay={idx * 120}>
               <div className="text-center">

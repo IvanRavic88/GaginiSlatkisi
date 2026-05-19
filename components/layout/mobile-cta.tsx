@@ -39,9 +39,13 @@ export function MobileCta({ phone }: { phone: string }) {
       <a
         href={`viber://chat?number=%2B${viberNumber}`}
         aria-label="Viber"
-        className="grid h-[4.8rem] w-[4.8rem] flex-none place-items-center rounded-[9px] bg-white shadow-[0_2px_6px_rgba(0,0,0,0.08)] transition-shadow hover:shadow-[0_4px_12px_rgba(115,96,242,0.3)]"
+        className="group relative grid h-[4.8rem] w-[4.8rem] flex-none place-items-center overflow-hidden rounded-[9px] bg-white text-[var(--color-accent)] shadow-[0_2px_6px_rgba(0,0,0,0.08)] transition-shadow hover:shadow-[0_4px_12px_rgba(115,96,242,0.3)]"
       >
-        <ViberIcon className="h-[3rem] w-[3rem]" />
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 bg-[#7360f2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        />
+        <ViberIcon className="relative h-[3rem] w-[3rem] transition-colors duration-300 group-hover:text-white" />
       </a>
       <a
         href={`tel:${phone.replace(/\s+/g, '')}`}

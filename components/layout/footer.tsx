@@ -81,7 +81,7 @@ export async function Footer() {
         className="animate-float-gentle pointer-events-none absolute top-[2rem] -right-[5rem] hidden h-[28rem] w-auto -rotate-[12deg] opacity-25 select-none lg:block"
       />
 
-      <div className="relative mx-auto max-w-[120rem] px-[3.2rem] py-[6.4rem]">
+      <div className="relative mx-auto max-w-[120rem] px-[1.6rem] py-[4.8rem] sm:px-[2.4rem] md:px-[3.2rem] md:py-[6.4rem]">
         <div className="grid grid-cols-1 gap-[5.6rem] md:grid-cols-12 md:gap-[3.2rem]">
           {/* BRAND COL */}
           <div className="md:col-span-4">
@@ -133,9 +133,13 @@ export async function Footer() {
                 <a
                   href={`viber://chat?number=%2B${viberNumber}`}
                   aria-label="Viber"
-                  className="grid h-[4.4rem] w-[4.4rem] place-items-center rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_8px_20px_rgba(115,96,242,0.4)]"
+                  className="group relative grid h-[4.4rem] w-[4.4rem] place-items-center overflow-hidden rounded-full bg-white text-[var(--color-accent)] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_8px_20px_rgba(115,96,242,0.4)]"
                 >
-                  <ViberIcon className="h-[2.4rem] w-[2.4rem]" />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-[#7360f2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                  <ViberIcon className="relative h-[2.6rem] w-[2.6rem] transition-colors duration-300 group-hover:text-white" />
                 </a>
               </li>
             </ul>
@@ -199,7 +203,7 @@ export async function Footer() {
       </div>
 
       <div className="relative border-t border-[var(--color-primary-shade)]/20 bg-white/40 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-[120rem] flex-col items-center justify-between gap-[0.8rem] px-[3.2rem] py-[2rem] text-[1.3rem] text-[var(--color-footer-text)] md:flex-row">
+        <div className="mx-auto flex max-w-[120rem] flex-col items-center justify-between gap-[0.8rem] px-[1.6rem] py-[2rem] text-[1.2rem] text-[var(--color-footer-text)] sm:px-[2.4rem] sm:text-[1.3rem] md:flex-row md:px-[3.2rem]">
           <p>© {new Date().getFullYear()} GaginiSlatkiši · Sva prava zadržana</p>
           <p>
             Domaća poslastičarnica iz{' '}

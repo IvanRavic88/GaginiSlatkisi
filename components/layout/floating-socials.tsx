@@ -23,9 +23,13 @@ export async function FloatingSocials() {
       <a
         href={`viber://chat?number=%2B${viberNumber}`}
         aria-label="Viber poruka"
-        className="grid h-[4.6rem] w-[4.6rem] place-items-center rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-x-[0.4rem] hover:shadow-[0_8px_22px_rgba(115,96,242,0.45)]"
+        className="group relative grid h-[4.6rem] w-[4.6rem] place-items-center overflow-hidden rounded-full bg-white text-[var(--color-accent)] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-x-[0.4rem] hover:shadow-[0_8px_22px_rgba(115,96,242,0.45)]"
       >
-        <ViberIcon className="h-[2.6rem] w-[2.6rem]" />
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 bg-[#7360f2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        />
+        <ViberIcon className="relative h-[2.8rem] w-[2.8rem] transition-colors duration-300 group-hover:text-white" />
       </a>
 
       <a

@@ -40,9 +40,9 @@ export async function SlatkisiGrid() {
   if (valid.length === 0) return null
 
   return (
-    <section id="kolaci" className="bg-[var(--color-cream)] py-[9.6rem]">
+    <section id="kolaci" className="bg-[var(--color-cream)] py-[6.4rem] md:py-[9.6rem]">
       <Container>
-        <div className="relative mb-[6.4rem] text-center">
+        <div className="relative mb-[4.8rem] text-center md:mb-[6.4rem]">
           <SprinkleCluster side="left" />
           <SprinkleCluster side="right" />
           <Subheading>Slatkiši</Subheading>
@@ -51,7 +51,7 @@ export async function SlatkisiGrid() {
           </Heading>
         </div>
 
-        <div className="grid grid-cols-1 gap-[6.4rem] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-[4rem] sm:grid-cols-2 sm:gap-[4.8rem] lg:grid-cols-3 lg:gap-[6.4rem]">
           {valid.map((c, idx) => (
             <FadeIn key={c._id} delay={(idx % 3) * 100}>
               <article className="group h-full overflow-hidden rounded-[16px] border border-[var(--color-primary-shade)]/15 bg-white shadow-[0_1.6rem_3.2rem_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-[0.8rem] hover:border-[var(--color-primary-shade)]/40 hover:shadow-[0_2.4rem_5.6rem_rgba(246,80,160,0.18)]">
@@ -77,7 +77,7 @@ export async function SlatkisiGrid() {
                       {c.tag}
                     </span>
                   </div>
-                  <div className="flex flex-1 flex-col px-[3.2rem] pt-[2.8rem] pb-[3.2rem]">
+                  <div className="flex flex-1 flex-col px-[2.4rem] pt-[2.4rem] pb-[2.8rem] sm:px-[3.2rem] sm:pt-[2.8rem] sm:pb-[3.2rem]">
                     <h3 className="mb-[2rem] text-[2.4rem] leading-[1.2] font-semibold tracking-[-0.01em] text-[var(--color-text-dark)]">
                       {c.name}
                     </h3>

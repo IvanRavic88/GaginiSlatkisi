@@ -20,10 +20,10 @@ export function Hero() {
         className="absolute inset-0 -z-10 bg-[linear-gradient(to_right_bottom,rgba(247,141,167,0.25),rgba(249,175,193,0.25))]"
       />
 
-      <div className="px-[3.2rem] py-[4.8rem] md:px-[9.6rem]">
-        <div className="mx-auto grid max-w-[130rem] items-center gap-[6.4rem] px-[3.2rem] lg:grid-cols-2 lg:gap-[12.8rem]">
+      <div className="px-[1.6rem] py-[3.6rem] sm:px-[3.2rem] sm:py-[4.8rem] md:px-[9.6rem]">
+        <div className="mx-auto grid max-w-[130rem] items-center gap-[4.8rem] lg:grid-cols-2 lg:gap-[12.8rem]">
           <div>
-            <Heading as="h1" variant="primary" className="mb-[3.2rem]">
+            <Heading as="h1" variant="primary" className="mb-[2.4rem] sm:mb-[3.2rem]">
               <span
                 data-testid="hero-accent"
                 className="mr-[0.4rem] inline-block origin-bottom-left -rotate-[3deg] font-[family-name:var(--font-caveat)] font-bold text-[var(--color-accent)]"
@@ -32,7 +32,7 @@ export function Hero() {
               </span>{' '}
               poslastice koje bude sva čula
             </Heading>
-            <p className="mb-[4.8rem] text-[2rem] leading-[1.6] text-[var(--color-text-default)]">
+            <p className="mb-[3.2rem] text-[1.7rem] leading-[1.6] text-[var(--color-text-default)] sm:mb-[4.8rem] sm:text-[2rem]">
               Domaći kolači i torte iz Lazarevca, napravljeni od pažljivo odabranih sastojaka po
               proverenim receptima. Idealni za rođendane, svadbe i sve posebne prilike.
             </p>

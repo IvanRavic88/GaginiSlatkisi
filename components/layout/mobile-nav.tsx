@@ -1,13 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 
 import { CloseIcon, MenuIcon } from '@/components/ui/icons'
 
 interface NavLink {
   href: string
   label: string
+}
+
+function handleAnchorClick(e: MouseEvent<HTMLAnchorElement>, href: string) {
+  if (!href.startsWith('/#')) return
+  if (window.location.pathname !== '/') return
+  const id = href.slice(2)
+  const el = document.getElementById(id)
+  if (!el) return
+  e.preventDefault()
+  el.scrollIntoView({ block: 'start' })
+  history.replaceState(null, '', `/#${id}`)
 }
 
 export function MobileNav({ links }: { links: NavLink[] }) {
@@ -56,7 +67,10 @@ export function MobileNav({ links }: { links: NavLink[] }) {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                handleAnchorClick(e, link.href)
+                setOpen(false)
+              }}
               className={`text-[2.6rem] font-medium text-[var(--color-text-dark)] transition-all duration-500 hover:text-[var(--color-accent)] ${
                 open ? 'translate-y-0 opacity-100' : 'translate-y-[1.6rem] opacity-0'
               }`}

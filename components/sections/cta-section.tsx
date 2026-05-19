@@ -50,7 +50,7 @@ export function CtaSection({ phone }: { phone: string }) {
     >
       <div className="mx-auto max-w-[120rem]">
         <div className="grid overflow-hidden rounded-[11px] bg-[linear-gradient(to_right_bottom,var(--color-cta-from),var(--color-cta-to))] shadow-[0_2.4rem_4.8rem_rgba(0,0,0,0.15)] lg:grid-cols-[1.5fr_1fr]">
-          <div className="px-[2rem] py-[3.6rem] text-[var(--color-cta-dark)] sm:px-[3.2rem] sm:py-[4.8rem] md:px-[6.4rem] md:pb-[6.4rem]">
+          <div className="px-[1.6rem] py-[3.6rem] text-[var(--color-cta-dark)] sm:px-[3.2rem] sm:py-[4.8rem] md:px-[6.4rem] md:pb-[6.4rem]">
             <h2 className="mb-[2.4rem] font-sans text-[3rem] leading-[1.2] font-bold tracking-[-0.5px] text-[var(--color-cta-heading)] sm:mb-[3.2rem] sm:text-[3.6rem] md:text-[4.4rem]">
               Odgovaramo na sva vaša pitanja!
             </h2>
@@ -63,7 +63,7 @@ export function CtaSection({ phone }: { phone: string }) {
               ref={formRef}
               action={formAction}
               noValidate
-              className={`grid gap-x-[2rem] gap-y-[2rem] sm:grid-cols-2 sm:gap-x-[3.2rem] sm:gap-y-[3.2rem] ${shake ? 'animate-form-shake' : ''}`}
+              className={`grid w-full grid-cols-1 gap-[2rem] sm:grid-cols-2 sm:gap-x-[3.2rem] sm:gap-y-[3.2rem] ${shake ? 'animate-form-shake' : ''}`}
             >
               <FloatingField
                 id="name"

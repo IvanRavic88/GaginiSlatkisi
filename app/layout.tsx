@@ -1,12 +1,7 @@
 import type { Metadata } from 'next'
 import { Caveat, Poppins } from 'next/font/google'
 
-import { FloatingSocials } from '@/components/layout/floating-socials'
-import { Footer } from '@/components/layout/footer'
-import { Header } from '@/components/layout/header'
-import { MobileCta } from '@/components/layout/mobile-cta'
-import { SkipLink } from '@/components/layout/skip-link'
-import { LocalBusinessJsonLd } from '@/components/seo/local-business-jsonld'
+import { Chrome } from '@/components/layout/chrome'
 import { ToastProvider } from '@/components/ui'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import { SITE_SETTINGS_QUERY } from '@/lib/sanity/queries'
@@ -16,16 +11,17 @@ import './globals.css'
 
 const poppins = Poppins({
   subsets: ['latin-ext'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '700'],
   variable: '--font-poppins',
   display: 'swap',
 })
 
 const caveat = Caveat({
   subsets: ['latin-ext'],
-  weight: ['400', '700'],
+  weight: ['700'],
   variable: '--font-caveat',
   display: 'swap',
+  preload: false,
 })
 
 export const metadata: Metadata = {
@@ -49,15 +45,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="sr" className={`${poppins.variable} ${caveat.variable}`}>
       <body>
         <ToastProvider>
-          <SkipLink />
-          <Header />
-          <FloatingSocials />
-          <main id="main-content" className="pb-[8rem] md:pb-0">
-            {children}
-          </main>
-          <Footer />
-          <MobileCta phone={phone} />
-          <LocalBusinessJsonLd />
+          <Chrome phone={phone}>{children}</Chrome>
         </ToastProvider>
       </body>
     </html>

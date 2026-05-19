@@ -13,7 +13,7 @@ const variantClass: Record<Variant, string> = {
 
 const base =
   'inline-flex items-center justify-center gap-[0.8rem] rounded-[var(--radius-default)] ' +
-  'px-[2.4rem] py-[1.6rem] text-[1.6rem] font-semibold ' +
+  'px-[2.4rem] py-[1.6rem] text-[1.6rem] font-bold ' +
   'transition-all duration-300 ease-out focus-visible:ring-2 focus-visible:ring-offset-2 ' +
   'disabled:cursor-not-allowed disabled:opacity-60'
 

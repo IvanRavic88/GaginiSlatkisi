@@ -78,7 +78,7 @@ export async function SlatkisiGrid() {
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col px-[2.4rem] pt-[2.4rem] pb-[2.8rem] sm:px-[3.2rem] sm:pt-[2.8rem] sm:pb-[3.2rem]">
-                    <h3 className="mb-[2rem] text-[2.4rem] leading-[1.2] font-semibold tracking-[-0.01em] text-[var(--color-text-dark)]">
+                    <h3 className="mb-[2rem] text-[2.4rem] leading-[1.2] font-bold tracking-[-0.01em] text-[var(--color-text-dark)]">
                       {c.name}
                     </h3>
                     <ul className="mb-[2.8rem] flex flex-col gap-[1.4rem]">
@@ -95,7 +95,7 @@ export async function SlatkisiGrid() {
                         <span>{c.attributes[2]}</span>
                       </li>
                     </ul>
-                    <span className="btn-shine mt-auto inline-flex w-fit items-center gap-[0.6rem] rounded-full border-2 border-[var(--color-primary-shade)]/40 px-[2rem] py-[1rem] text-[1.3rem] font-semibold tracking-[0.1em] text-[var(--color-accent-text)] uppercase transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white group-hover:shadow-[0_4px_14px_rgba(246,80,160,0.35)]">
+                    <span className="btn-shine mt-auto inline-flex w-fit items-center gap-[0.6rem] rounded-full border-2 border-[var(--color-primary-shade)]/40 px-[2rem] py-[1rem] text-[1.3rem] font-bold tracking-[0.1em] text-[var(--color-accent-text)] uppercase transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white group-hover:shadow-[0_4px_14px_rgba(246,80,160,0.35)]">
                       <span>Pogledaj</span>
                       <span
                         aria-hidden="true"

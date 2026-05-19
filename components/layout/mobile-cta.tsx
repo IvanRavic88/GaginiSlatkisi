@@ -32,7 +32,7 @@ export function MobileCta({ phone }: { phone: string }) {
     >
       <Link
         href="/#cta"
-        className="btn-shine flex-1 rounded-[9px] bg-[var(--color-accent)] py-[1.4rem] text-center text-[1.5rem] font-semibold text-white transition-colors hover:bg-[var(--color-accent-dark)]"
+        className="btn-shine flex-1 rounded-[9px] bg-[var(--color-accent)] py-[1.4rem] text-center text-[1.5rem] font-bold text-white transition-colors hover:bg-[var(--color-accent-dark)]"
       >
         Pošalji upit
       </Link>

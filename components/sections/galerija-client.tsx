@@ -134,7 +134,7 @@ export function GalerijaClient({ items }: { items: GalleryItem[] }) {
               />
             </div>
             <figcaption className="mt-[1.6rem] text-center text-[1.4rem] text-white/80">
-              {openIdx + 1} / {items.length} · {current.alt}
+              {openIdx + 1} / {items.length}
             </figcaption>
           </figure>
         </div>

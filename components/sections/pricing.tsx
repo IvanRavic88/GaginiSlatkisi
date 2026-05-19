@@ -60,11 +60,11 @@ export function Pricing() {
             />
             <div className="px-[2.4rem] pb-[3.2rem] sm:px-[3.6rem] md:px-[4.6rem] md:pb-[4.6rem]">
               <header className="mb-[3.6rem] text-center md:mb-[4.8rem]">
-                <p className="mb-[2.4rem] text-[1.8rem] font-semibold tracking-wide text-[var(--color-primary-shade)] uppercase md:mb-[3.2rem] md:text-[2rem]">
+                <p className="mb-[2.4rem] text-[1.8rem] font-bold tracking-wide text-[var(--color-primary-shade)] uppercase md:mb-[3.2rem] md:text-[2rem]">
                   Sitni kolači
                 </p>
-                <p className="mb-[1.6rem] text-[4.8rem] leading-none font-semibold text-[var(--color-text-dark)] sm:text-[5.6rem] md:text-[6.2rem]">
-                  1700
+                <p className="mb-[1.6rem] text-[4.8rem] leading-none font-bold text-[var(--color-text-dark)] sm:text-[5.6rem] md:text-[6.2rem]">
+                  1800
                   <span className="ml-[0.8rem] text-[2.4rem] font-medium sm:text-[2.7rem] md:text-[3rem]">
                     RSD
                   </span>
@@ -110,11 +110,11 @@ export function Pricing() {
             />
             <div className="px-[2.4rem] pb-[3.2rem] sm:px-[3.6rem] md:px-[4.6rem] md:pb-[4.6rem]">
               <header className="mb-[3.6rem] text-center md:mb-[4.8rem]">
-                <p className="mb-[2.4rem] text-[1.8rem] font-semibold tracking-wide text-[var(--color-primary-shade)] uppercase md:mb-[3.2rem] md:text-[2rem]">
+                <p className="mb-[2.4rem] text-[1.8rem] font-bold tracking-wide text-[var(--color-primary-shade)] uppercase md:mb-[3.2rem] md:text-[2rem]">
                   Lux kolači
                 </p>
-                <p className="mb-[1.6rem] text-[4.8rem] leading-none font-semibold text-[var(--color-text-dark)] sm:text-[5.6rem] md:text-[6.2rem]">
-                  2300
+                <p className="mb-[1.6rem] text-[4.8rem] leading-none font-bold text-[var(--color-text-dark)] sm:text-[5.6rem] md:text-[6.2rem]">
+                  2800
                   <span className="ml-[0.8rem] text-[2.4rem] font-medium sm:text-[2.7rem] md:text-[3rem]">
                     RSD
                   </span>

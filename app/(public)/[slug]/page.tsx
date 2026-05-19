@@ -135,7 +135,7 @@ export default async function CategoryPage({ params }: PageProps) {
                     />
                   </div>
                   <div className="px-[2.8rem] pt-[2.4rem] pb-[2.8rem]">
-                    <h2 className="mb-[1rem] text-[2rem] leading-[1.25] font-semibold tracking-[-0.01em] text-[var(--color-text-dark)]">
+                    <h2 className="mb-[1rem] text-[2rem] leading-[1.25] font-bold tracking-[-0.01em] text-[var(--color-text-dark)]">
                       {s.name}
                     </h2>
                     <p className="text-[1.4rem] leading-[1.6] text-[var(--color-text-default)]">

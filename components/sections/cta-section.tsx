@@ -128,7 +128,7 @@ export function CtaSection({ phone }: { phone: string }) {
                   ili pišite na
                   <Link
                     href={`viber://chat?number=%2B${viberNumber}`}
-                    className="group relative inline-flex items-center gap-[0.6rem] overflow-hidden rounded-full bg-white/95 px-[1.4rem] py-[0.6rem] font-semibold text-[var(--color-cta-dark)] shadow-[0_2px_6px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.1rem] hover:shadow-[0_4px_14px_rgba(115,96,242,0.4)]"
+                    className="group relative inline-flex items-center gap-[0.6rem] overflow-hidden rounded-full bg-white/95 px-[1.4rem] py-[0.6rem] font-bold text-[var(--color-cta-dark)] shadow-[0_2px_6px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-[0.1rem] hover:shadow-[0_4px_14px_rgba(115,96,242,0.4)]"
                   >
                     <span
                       aria-hidden="true"

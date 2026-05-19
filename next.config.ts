@@ -8,8 +8,6 @@ const FLASK_REDIRECTS = [
   { from: 'Lux', to: 'lux-kolaci' },
   { from: 'Casice', to: 'cokoladne-casice' },
   { from: 'Tart', to: 'tart-kolaci' },
-  { from: 'Medenjaci', to: 'medenjaci' },
-  { from: 'Bombone', to: 'bombone' },
 ] as const
 
 const nextConfig: NextConfig = {

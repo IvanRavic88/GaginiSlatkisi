@@ -51,9 +51,13 @@ export async function SlatkisiGrid() {
           </Heading>
         </div>
 
-        <div className="grid grid-cols-1 gap-[4rem] sm:grid-cols-2 sm:gap-[4.8rem] lg:grid-cols-3 lg:gap-[6.4rem]">
+        <div className="flex flex-wrap justify-center gap-[4rem] sm:gap-[4.8rem] lg:gap-[6.4rem]">
           {valid.map((c, idx) => (
-            <FadeIn key={c._id} delay={(idx % 3) * 100}>
+            <FadeIn
+              key={c._id}
+              delay={(idx % 3) * 100}
+              className="w-full sm:w-[calc(50%-2.4rem)] lg:w-[calc((100%-12.8rem)/3)]"
+            >
               <article className="group h-full overflow-hidden rounded-[16px] border border-[var(--color-primary-shade)]/15 bg-white shadow-[0_1.6rem_3.2rem_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-[0.8rem] hover:border-[var(--color-primary-shade)]/40 hover:shadow-[0_2.4rem_5.6rem_rgba(246,80,160,0.18)]">
                 <Link
                   href={`/${c.slug}`}

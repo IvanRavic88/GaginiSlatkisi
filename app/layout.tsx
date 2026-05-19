@@ -2,6 +2,11 @@ import type { Metadata } from 'next'
 import { Caveat, Poppins } from 'next/font/google'
 
 import { Chrome } from '@/components/layout/chrome'
+import { FloatingSocials } from '@/components/layout/floating-socials'
+import { Footer } from '@/components/layout/footer'
+import { Header } from '@/components/layout/header'
+import { MobileCta } from '@/components/layout/mobile-cta'
+import { LocalBusinessJsonLd } from '@/components/seo/local-business-jsonld'
 import { ToastProvider } from '@/components/ui'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import { SITE_SETTINGS_QUERY } from '@/lib/sanity/queries'
@@ -45,7 +50,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="sr" className={`${poppins.variable} ${caveat.variable}`}>
       <body>
         <ToastProvider>
-          <Chrome phone={phone}>{children}</Chrome>
+          <Chrome
+            header={<Header />}
+            floatingSocials={<FloatingSocials />}
+            footer={<Footer />}
+            mobileCta={<MobileCta phone={phone} />}
+            jsonLd={<LocalBusinessJsonLd />}
+          >
+            {children}
+          </Chrome>
         </ToastProvider>
       </body>
     </html>

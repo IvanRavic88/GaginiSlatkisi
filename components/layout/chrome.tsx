@@ -2,20 +2,25 @@
 
 import { usePathname } from 'next/navigation'
 
-import { LocalBusinessJsonLd } from '@/components/seo/local-business-jsonld'
-
-import { FloatingSocials } from './floating-socials'
-import { Footer } from './footer'
-import { Header } from './header'
-import { MobileCta } from './mobile-cta'
 import { SkipLink } from './skip-link'
 
 interface ChromeProps {
-  phone: string
+  header: React.ReactNode
+  floatingSocials: React.ReactNode
+  footer: React.ReactNode
+  mobileCta: React.ReactNode
+  jsonLd: React.ReactNode
   children: React.ReactNode
 }
 
-export function Chrome({ phone, children }: ChromeProps) {
+export function Chrome({
+  header,
+  floatingSocials,
+  footer,
+  mobileCta,
+  jsonLd,
+  children,
+}: ChromeProps) {
   const pathname = usePathname()
   const isStudio = pathname?.startsWith('/studio') ?? false
 
@@ -26,14 +31,14 @@ export function Chrome({ phone, children }: ChromeProps) {
   return (
     <>
       <SkipLink />
-      <Header />
-      <FloatingSocials />
+      {header}
+      {floatingSocials}
       <main id="main-content" className="pb-[8rem] md:pb-0">
         {children}
       </main>
-      <Footer />
-      <MobileCta phone={phone} />
-      <LocalBusinessJsonLd />
+      {footer}
+      {mobileCta}
+      {jsonLd}
     </>
   )
 }

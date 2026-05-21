@@ -94,7 +94,7 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
         role="button"
         tabIndex={0}
         aria-label="Klikni ili prevuci sliku"
-        className={`group relative flex h-full min-h-[28rem] cursor-pointer flex-col items-center justify-center gap-[1.2rem] overflow-hidden rounded-[1.4rem] border-2 border-dashed bg-white p-[1.6rem] transition-all lg:min-h-[36rem] ${
+        className={`group relative flex h-full min-h-[24rem] cursor-pointer flex-col items-center justify-center gap-[1rem] overflow-hidden rounded-[1.4rem] border-2 border-dashed bg-white p-[1.2rem] transition-all sm:min-h-[28rem] sm:gap-[1.2rem] sm:p-[1.6rem] lg:min-h-[36rem] ${
           isDragging
             ? 'border-[var(--color-accent)] bg-[var(--color-primary)]/40 shadow-[0_0_0_0.4rem_rgba(246,80,160,0.15)]'
             : 'border-[rgba(184,105,58,0.3)] hover:border-[var(--color-accent)] hover:bg-[var(--color-primary)]/20'
@@ -155,14 +155,14 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
               </svg>
             </div>
             <div className="text-center">
-              <p className="font-[family-name:var(--font-caveat)] text-[2.4rem] leading-none text-[var(--color-caramel)]">
+              <p className="font-[family-name:var(--font-caveat)] text-[1.9rem] leading-tight text-[var(--color-caramel)] sm:text-[2.4rem] sm:leading-none">
                 Prevucite sliku ovde
               </p>
-              <p className="mt-[0.6rem] text-[1.3rem] text-[var(--color-caramel)]/70">
+              <p className="mt-[0.6rem] text-[1.25rem] text-[var(--color-caramel)]/70 sm:text-[1.3rem]">
                 ili <span className="text-[var(--color-accent)] underline underline-offset-[0.3rem]">kliknite da izaberete</span>
               </p>
             </div>
-            <p className="text-[1.15rem] text-[var(--color-caramel)]/50">
+            <p className="text-center text-[1.1rem] text-[var(--color-caramel)]/50 sm:text-[1.15rem]">
               JPG, PNG ili WebP • max 5MB
             </p>
           </>

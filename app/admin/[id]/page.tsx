@@ -70,7 +70,7 @@ export default async function EditSweetPage({
           </p>
         </div>
 
-        <div className="relative overflow-hidden rounded-[2rem] border border-[rgba(184,105,58,0.18)] bg-[#fffaf3] p-[2.4rem] shadow-[0_2rem_4rem_rgba(184,105,58,0.1),_0_0.4rem_1.2rem_rgba(0,0,0,0.04)] sm:p-[3.6rem]">
+        <div className="relative overflow-hidden rounded-[2rem] border border-[rgba(184,105,58,0.18)] bg-[#fffaf3] p-[1.6rem] shadow-[0_2rem_4rem_rgba(184,105,58,0.1),_0_0.4rem_1.2rem_rgba(0,0,0,0.04)] sm:p-[2.4rem] md:p-[3.6rem]">
           <div
             aria-hidden="true"
             className="absolute inset-x-0 top-0 h-[0.5rem]"

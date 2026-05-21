@@ -72,7 +72,7 @@ export function DeleteButton({ id, name }: Props) {
             if (e.target === e.currentTarget && !isPending) setIsOpen(false)
           }}
         >
-          <div className="relative w-full max-w-[44rem] overflow-hidden rounded-[2rem] border border-[rgba(184,105,58,0.18)] bg-[#fffaf3] p-[2.8rem] shadow-[0_2.4rem_4.8rem_rgba(0,0,0,0.25)]">
+          <div className="relative w-full max-w-[44rem] overflow-hidden rounded-[2rem] border border-[rgba(184,105,58,0.18)] bg-[#fffaf3] p-[2rem] shadow-[0_2.4rem_4.8rem_rgba(0,0,0,0.25)] sm:p-[2.8rem]">
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-[0.5rem] bg-[#c44d4d]"
@@ -93,7 +93,7 @@ export function DeleteButton({ id, name }: Props) {
 
             <h2
               id="delete-title"
-              className="mb-[0.8rem] text-[2rem] leading-tight font-semibold text-[var(--color-text-dark)]"
+              className="mb-[0.8rem] break-words text-[1.8rem] leading-tight font-semibold text-[var(--color-text-dark)] sm:text-[2rem]"
             >
               Obrisati „{name}&rdquo;?
             </h2>

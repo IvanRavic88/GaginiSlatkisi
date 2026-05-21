@@ -219,7 +219,8 @@ function FloatingField({
           required={required}
           rows={rows}
           maxLength={maxLength}
-          placeholder=" "
+          autoComplete="off"
+          defaultValue=""
           onChange={(e) => setFilled(e.target.value.length > 0)}
           className={`${baseInput} resize-y`}
         />
@@ -231,7 +232,6 @@ function FloatingField({
           required={required}
           autoComplete={autoComplete}
           maxLength={maxLength}
-          placeholder=" "
           onChange={(e) => setFilled(e.target.value.length > 0)}
           className={baseInput}
         />

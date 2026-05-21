@@ -115,7 +115,7 @@ export function DeleteButton({ id, name }: Props) {
                 type="button"
                 onClick={() => setIsOpen(false)}
                 disabled={isPending}
-                className="rounded-full border-2 border-[rgba(184,105,58,0.3)] bg-white px-[2rem] py-[1.2rem] text-[1.4rem] font-semibold text-[var(--color-caramel)] transition hover:border-[var(--color-caramel)] disabled:cursor-not-allowed disabled:opacity-50"
+                className="w-full rounded-full border-2 border-[rgba(184,105,58,0.4)] bg-white px-[2rem] py-[1.4rem] text-[1.5rem] font-semibold text-[var(--color-caramel)] transition hover:border-[var(--color-caramel)] hover:bg-[var(--color-cream)] disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
               >
                 Otkaži
               </button>
@@ -123,8 +123,20 @@ export function DeleteButton({ id, name }: Props) {
                 type="button"
                 onClick={confirm}
                 disabled={isPending}
-                className="rounded-full bg-[#c44d4d] px-[2rem] py-[1.2rem] text-[1.4rem] font-semibold text-white shadow-[0_0.4rem_1.2rem_rgba(196,77,77,0.3)] transition hover:bg-[#a83a3a] hover:shadow-[0_0.6rem_1.6rem_rgba(196,77,77,0.4)] disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex w-full items-center justify-center gap-[0.6rem] rounded-full bg-[#c44d4d] px-[2.4rem] py-[1.4rem] text-[1.5rem] font-bold text-white shadow-[0_0.6rem_1.6rem_rgba(196,77,77,0.35)] transition-all duration-200 hover:-translate-y-[0.1rem] hover:bg-[#a83a3a] hover:shadow-[0_0.8rem_2rem_rgba(196,77,77,0.45)] disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
               >
+                {!isPending && (
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[1.6rem] w-[1.6rem]">
+                    <path
+                      d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m-9 0v14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                )}
                 {isPending ? 'Brišem…' : 'Da, obriši'}
               </button>
             </div>

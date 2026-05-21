@@ -106,7 +106,7 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
             <img
               src={previewUrl}
               alt="Pregled"
-              className="max-h-[28rem] w-auto rounded-[1rem] object-contain shadow-[0_0.4rem_1.2rem_rgba(0,0,0,0.08)]"
+              className="max-h-[28rem] max-w-full w-auto rounded-[1rem] object-contain shadow-[0_0.4rem_1.2rem_rgba(0,0,0,0.08)]"
             />
             <button
               type="button"

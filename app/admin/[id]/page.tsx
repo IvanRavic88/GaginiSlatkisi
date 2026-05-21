@@ -61,7 +61,7 @@ export default async function EditSweetPage({
 
         <div className="mb-[3.2rem]">
           <Subheading className="-rotate-[2deg]">Izmena slatkiša</Subheading>
-          <Heading as="h1" variant="secondary">
+          <Heading as="h1" variant="secondary" className="break-words [text-wrap:balance]">
             {sweet.name}
           </Heading>
           <p className="mt-[1.2rem] max-w-[56rem] text-[1.5rem] leading-[1.55] text-[var(--color-caramel)]/85">

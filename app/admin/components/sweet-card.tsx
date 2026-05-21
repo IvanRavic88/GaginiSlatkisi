@@ -12,9 +12,13 @@ interface Props {
 
 export function SweetCard({ id, name, image, imageAlt }: Props) {
   return (
-    <article className="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md">
-      <div className="aspect-square overflow-hidden bg-cream">
-        {image && (
+    <article className="group relative flex flex-col overflow-hidden rounded-[1.6rem] border border-[rgba(184,105,58,0.15)] bg-white shadow-[0_0.6rem_1.6rem_rgba(184,105,58,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_1.2rem_2.4rem_rgba(184,105,58,0.15)]">
+      <Link
+        href={`/admin/${id}`}
+        className="relative block aspect-square overflow-hidden bg-[var(--color-cream)]"
+        aria-label={`Edit ${name}`}
+      >
+        {image ? (
           <SanityImage
             source={image}
             alt={imageAlt}
@@ -22,19 +26,41 @@ export function SweetCard({ id, name, image, imageAlt }: Props) {
             height={400}
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
           />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center text-[var(--color-caramel)]/40">
+            <svg viewBox="0 0 64 64" aria-hidden="true" className="h-[4rem] w-[4rem]">
+              <rect x="8" y="14" width="48" height="40" rx="4" fill="none" stroke="currentColor" strokeWidth="3" />
+              <circle cx="22" cy="28" r="4" fill="currentColor" />
+              <path d="M10 48 L24 34 L38 46 L46 38 L54 48" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+            </svg>
+          </div>
         )}
-      </div>
-      <div className="flex items-center justify-between gap-2 px-3 py-3">
-        <h3 className="truncate text-sm font-semibold text-caramel">{name}</h3>
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/50 opacity-0 transition group-hover:opacity-100 focus-within:opacity-100">
-        <Link
-          href={`/admin/${id}`}
-          className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-caramel shadow-sm transition hover:bg-white"
-        >
-          Edit
-        </Link>
-        <DeleteButton id={id} name={name} />
+      </Link>
+
+      <div className="flex flex-1 flex-col gap-[1.2rem] p-[1.4rem]">
+        <h3 className="line-clamp-2 min-h-[3.6rem] text-[1.5rem] leading-[1.3] font-semibold text-[var(--color-text-dark)]">
+          {name}
+        </h3>
+
+        <div className="mt-auto flex items-center gap-[0.8rem]">
+          <Link
+            href={`/admin/${id}`}
+            className="inline-flex flex-1 items-center justify-center gap-[0.4rem] rounded-full bg-[var(--color-primary)] px-[1.4rem] py-[1rem] text-[1.35rem] font-semibold text-[var(--color-accent-text)] transition hover:bg-[var(--color-accent)] hover:text-white"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[1.4rem] w-[1.4rem]">
+              <path
+                d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
+            </svg>
+            Izmeni
+          </Link>
+          <DeleteButton id={id} name={name} />
+        </div>
       </div>
     </article>
   )

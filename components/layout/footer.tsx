@@ -204,7 +204,27 @@ export async function Footer() {
 
       <div className="relative border-t border-[var(--color-primary-shade)]/20 bg-white/40 backdrop-blur-sm">
         <div className="mx-auto flex max-w-[120rem] flex-col items-center justify-between gap-[0.8rem] px-[1.6rem] py-[2rem] text-[1.2rem] text-[var(--color-footer-text)] sm:px-[2.4rem] sm:text-[1.3rem] md:flex-row md:px-[3.2rem]">
-          <p>© {new Date().getFullYear()} GaginiSlatkiši · Sva prava zadržana</p>
+          <p className="flex items-center gap-[1rem]">
+            <span>© {new Date().getFullYear()} GaginiSlatkiši · Sva prava zadržana</span>
+            <span aria-hidden="true" className="text-[var(--color-primary-shade)]/50">·</span>
+            <Link
+              href="/admin"
+              aria-label="Admin prijava"
+              className="inline-flex items-center gap-[0.4rem] text-[var(--color-footer-text)]/70 transition hover:text-[var(--color-accent)]"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[1.3rem] w-[1.3rem]">
+                <path
+                  d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM6 13l-3 5 3 1.5L9 17l3 3 3-3 3 2.5 3-1.5-3-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <span>admin</span>
+            </Link>
+          </p>
           <p>
             Domaća poslastičarnica iz{' '}
             <span className="font-medium text-[var(--color-accent-text)]">

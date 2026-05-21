@@ -37,17 +37,18 @@ export function SweetCard({ id, name, image, imageAlt }: Props) {
         )}
       </Link>
 
-      <div className="flex flex-1 flex-col gap-[1.2rem] p-[1.4rem]">
-        <h3 className="line-clamp-2 min-h-[3.6rem] text-[1.5rem] leading-[1.3] font-semibold text-[var(--color-text-dark)]">
+      <div className="flex flex-1 flex-col gap-[1.2rem] p-[1.2rem] sm:p-[1.4rem]">
+        <h3 className="line-clamp-2 min-h-[3.6rem] text-[1.4rem] leading-[1.3] font-semibold text-[var(--color-text-dark)] sm:text-[1.5rem]">
           {name}
         </h3>
 
         <div className="mt-auto flex items-center gap-[0.8rem]">
           <Link
             href={`/admin/${id}`}
-            className="inline-flex flex-1 items-center justify-center gap-[0.4rem] rounded-full bg-[var(--color-primary)] px-[1.4rem] py-[1rem] text-[1.35rem] font-semibold text-[var(--color-accent-text)] transition hover:bg-[var(--color-accent)] hover:text-white"
+            aria-label={`Izmeni ${name}`}
+            className="inline-flex h-[4.4rem] flex-1 items-center justify-center gap-[0.6rem] rounded-full bg-[var(--color-primary)] px-[1.2rem] text-[1.35rem] font-semibold text-[var(--color-accent-text)] transition hover:bg-[var(--color-accent)] hover:text-white"
           >
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[1.4rem] w-[1.4rem]">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[1.6rem] w-[1.6rem] flex-shrink-0">
               <path
                 d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"
                 fill="none"
@@ -57,7 +58,7 @@ export function SweetCard({ id, name, image, imageAlt }: Props) {
                 strokeLinecap="round"
               />
             </svg>
-            Izmeni
+            <span className="hidden sm:inline">Izmeni</span>
           </Link>
           <DeleteButton id={id} name={name} />
         </div>

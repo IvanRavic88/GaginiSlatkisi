@@ -72,10 +72,10 @@ export default async function LoginPage({
       </div>
 
       <section className="relative w-full max-w-[44rem]">
-        {/* Decorative tag */}
+        {/* Decorative tag — on section, inside its bounds, on top of card */}
         <span
           aria-hidden="true"
-          className="absolute -top-[2.8rem] right-[2rem] z-10 inline-block -rotate-[6deg] rounded-full bg-[var(--color-ribbon-bg)] px-[1.4rem] py-[0.6rem] font-[family-name:var(--font-caveat)] text-[1.6rem] leading-none font-bold text-[var(--color-cta-dark)] shadow-[0_0.4rem_1.2rem_rgba(0,0,0,0.12)]"
+          className="absolute top-[0.8rem] right-[1.2rem] z-20 inline-block -rotate-[6deg] rounded-full bg-[var(--color-ribbon-bg)] px-[1.2rem] py-[0.5rem] font-[family-name:var(--font-caveat)] text-[1.5rem] leading-none font-bold text-[var(--color-cta-dark)] shadow-[0_0.4rem_1.2rem_rgba(0,0,0,0.18)] sm:right-[1.6rem] sm:text-[1.7rem]"
         >
           samo za Gagu
         </span>

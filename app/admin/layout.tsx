@@ -17,23 +17,42 @@ export default async function AdminLayout({
   const session = await getSession()
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-[100svh] bg-[var(--color-cream)]">
       {session && (
-        <header className="sticky top-0 z-30 border-b border-caramel/15 bg-white/90 backdrop-blur">
-          <Container as="nav" className="flex items-center justify-between py-3">
-            <Link href="/admin" className="flex items-center gap-3">
+        <header className="sticky top-0 z-30 border-b border-[rgba(184,105,58,0.18)] bg-[#fffaf3]/95 backdrop-blur-md">
+          {/* Brand ribbon */}
+          <div
+            aria-hidden="true"
+            className="h-[0.4rem]"
+            style={{
+              background:
+                'linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary-shade) 45%, var(--color-ribbon-bg) 100%)',
+            }}
+          />
+          <Container as="nav" className="flex items-center justify-between gap-[1.2rem] py-[1.2rem] sm:py-[1.6rem]">
+            <Link
+              href="/admin"
+              className="group flex items-center gap-[1rem] sm:gap-[1.4rem]"
+              aria-label="Admin home"
+            >
               <Image
                 src="/img/GaginiSlatkiši.webp"
                 alt="GaginiSlatkiši"
-                width={140}
-                height={56}
+                width={200}
+                height={80}
                 priority
-                className="h-10 w-auto"
+                className="h-[4rem] w-auto transition-transform duration-300 group-hover:scale-105 sm:h-[5rem]"
               />
-              <span className="font-caveat text-2xl text-accent">Admin</span>
+              <span className="font-[family-name:var(--font-caveat)] text-[2.4rem] leading-none text-[var(--color-accent)] sm:text-[3rem]">
+                Admin
+              </span>
             </Link>
-            <div className="flex items-center gap-4">
-              <span className="hidden text-sm text-caramel/80 sm:inline">
+
+            <div className="flex items-center gap-[1rem] sm:gap-[1.4rem]">
+              <span
+                className="hidden truncate max-w-[20rem] text-[1.35rem] text-[var(--color-caramel)]/80 md:inline"
+                title={session.email}
+              >
                 {session.email}
               </span>
               <LogoutButton />

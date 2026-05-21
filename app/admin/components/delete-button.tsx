@@ -48,7 +48,7 @@ export function DeleteButton({ id, name }: Props) {
         type="button"
         onClick={() => setIsOpen(true)}
         aria-label={`Obriši ${name}`}
-        className="inline-flex h-[3.6rem] w-[3.6rem] flex-shrink-0 items-center justify-center rounded-full bg-[#fdecec] text-[#c44d4d] transition hover:bg-[#c44d4d] hover:text-white"
+        className="inline-flex h-[4.4rem] w-[4.4rem] flex-shrink-0 items-center justify-center rounded-full bg-[#fdecec] text-[#c44d4d] transition hover:bg-[#c44d4d] hover:text-white"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[1.6rem] w-[1.6rem]">
           <path

@@ -33,9 +33,9 @@ export function SweetForm({ categories, initial, action, submitLabel, isEdit }: 
   return (
     <form action={formAction} className="flex flex-col gap-[2.4rem]">
       {/* Two-column layout: text fields left, image right on desktop */}
-      <div className="grid gap-[2.4rem] lg:grid-cols-[1.2fr_1fr] lg:gap-[3.2rem]">
+      <div className="grid gap-[2.4rem] lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-[3.2rem]">
         {/* LEFT — text fields */}
-        <div className="flex flex-col gap-[1.8rem]">
+        <div className="flex min-w-0 flex-col gap-[1.8rem]">
           <Field
             id="name"
             label="Naziv"
@@ -116,7 +116,7 @@ export function SweetForm({ categories, initial, action, submitLabel, isEdit }: 
         </div>
 
         {/* RIGHT — image uploader */}
-        <div className="flex flex-col gap-[0.6rem]">
+        <div className="flex min-w-0 flex-col gap-[0.6rem]">
           <ImageUploader
             name="image"
             existingUrl={initial?.imageUrl ?? null}

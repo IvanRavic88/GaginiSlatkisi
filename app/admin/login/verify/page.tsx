@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function VerifyPage() {
   return (
-    <main className="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-[var(--color-cream)] px-[1.6rem] py-[4.8rem]">
+    <main className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-[var(--color-cream)] px-[1.6rem] py-[4.8rem]">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"

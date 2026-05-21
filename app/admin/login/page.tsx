@@ -26,7 +26,7 @@ export default async function LoginPage({
   const errorMessage = error ? (ERROR_MESSAGES[error] ?? null) : null
 
   return (
-    <main className="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-[var(--color-cream)] px-[1.6rem] py-[4.8rem]">
+    <main className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-[var(--color-cream)] px-[1.6rem] py-[4.8rem]">
       {/* Backdrop blooms */}
       <div
         aria-hidden="true"

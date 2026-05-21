@@ -77,7 +77,7 @@ export default async function LoginPage({
           aria-hidden="true"
           className="absolute -top-[2.8rem] right-[2rem] z-10 inline-block -rotate-[6deg] rounded-full bg-[var(--color-ribbon-bg)] px-[1.4rem] py-[0.6rem] font-[family-name:var(--font-caveat)] text-[1.6rem] leading-none font-bold text-[var(--color-cta-dark)] shadow-[0_0.4rem_1.2rem_rgba(0,0,0,0.12)]"
         >
-          samo za Gagi
+          samo za Gagu
         </span>
 
         <div className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(184,105,58,0.18)] bg-[#fffaf3] px-[2.4rem] pt-[4.8rem] pb-[3.2rem] shadow-[0_2.4rem_4.8rem_rgba(184,105,58,0.12),_0_0.6rem_1.6rem_rgba(0,0,0,0.05)] sm:px-[3.6rem] sm:pt-[5.2rem] sm:pb-[3.6rem]">

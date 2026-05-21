@@ -23,8 +23,9 @@ export function Chrome({
 }: ChromeProps) {
   const pathname = usePathname()
   const isStudio = pathname?.startsWith('/studio') ?? false
+  const isAdmin = pathname?.startsWith('/admin') ?? false
 
-  if (isStudio) {
+  if (isStudio || isAdmin) {
     return <>{children}</>
   }
 

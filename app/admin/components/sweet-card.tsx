@@ -8,11 +8,12 @@ interface Props {
   name: string
   image: (SanityImageType & { alt?: string }) | null
   imageAlt: string
+  onDelete?: () => void
 }
 
-export function SweetCard({ id, name, image, imageAlt }: Props) {
+export function SweetCard({ id, name, image, imageAlt, onDelete }: Props) {
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-[1.6rem] border border-[rgba(184,105,58,0.15)] bg-white shadow-[0_0.6rem_1.6rem_rgba(184,105,58,0.08)] transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_1.2rem_2.4rem_rgba(184,105,58,0.15)]">
+    <article className="group relative flex flex-col overflow-hidden rounded-[1.6rem] border border-[rgba(184,105,58,0.15)] bg-white shadow-[0_0.6rem_1.6rem_rgba(184,105,58,0.08)] transition-shadow duration-300 hover:shadow-[0_1.2rem_2.4rem_rgba(184,105,58,0.15)]">
       <Link
         href={`/admin/${id}`}
         className="relative block aspect-square overflow-hidden bg-[var(--color-cream)]"
@@ -60,7 +61,7 @@ export function SweetCard({ id, name, image, imageAlt }: Props) {
             </svg>
             <span className="hidden sm:inline">Izmeni</span>
           </Link>
-          <DeleteButton id={id} name={name} />
+          <DeleteButton name={name} onConfirm={onDelete} />
         </div>
       </div>
     </article>

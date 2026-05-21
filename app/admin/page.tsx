@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import type { Image as SanityImageType } from 'sanity'
 import { Container, Heading, Subheading } from '@/components/ui'
 import { client } from '@/lib/sanity/client'
 import { requireAdmin } from '@/lib/admin/auth'
-import { SweetCard } from './components/sweet-card'
+import { SweetsList } from './components/sweets-list'
 
 export const dynamic = 'force-dynamic'
 
@@ -23,19 +22,11 @@ export default async function AdminDashboard() {
     }
   `)
 
-  const grouped = new Map<string, Row[]>()
-  for (const s of sweets) {
-    const key = s.categoryName ?? 'Bez kategorije'
-    if (!grouped.has(key)) grouped.set(key, [])
-    grouped.get(key)!.push(s)
-  }
-
   const totalCount = sweets.length
-  const categoryCount = grouped.size
+  const categoryCount = new Set(sweets.map((s) => s.categoryName ?? 'Bez kategorije')).size
 
   return (
     <Container as="section" className="py-[3.2rem] sm:py-[4.8rem]">
-      {/* Header */}
       <header className="mb-[3.2rem] flex flex-col gap-[2rem] sm:flex-row sm:items-end sm:justify-between sm:gap-[3.2rem]">
         <div>
           <Subheading className="-rotate-[2deg]">Dobrodošli nazad</Subheading>
@@ -45,7 +36,7 @@ export default async function AdminDashboard() {
           {totalCount > 0 && (
             <p className="mt-[1.2rem] text-[1.45rem] leading-[1.5] text-[var(--color-caramel)]/85">
               <strong className="text-[var(--color-text-dark)]">{totalCount}</strong>{' '}
-              {totalCount === 1 ? 'slatkiš' : totalCount < 5 ? 'slatkiša' : 'slatkiša'} u{' '}
+              {totalCount === 1 ? 'slatkiš' : 'slatkiša'} u{' '}
               <strong className="text-[var(--color-text-dark)]">{categoryCount}</strong>{' '}
               {categoryCount === 1 ? 'kategoriji' : 'kategorija'}.
             </p>
@@ -69,43 +60,7 @@ export default async function AdminDashboard() {
         </Link>
       </header>
 
-      {sweets.length === 0 ? (
-        <EmptyState />
-      ) : (
-        <div className="flex flex-col gap-[4rem]">
-          {[...grouped.entries()].map(([categoryName, rows]) => (
-            <section key={categoryName}>
-              <div className="mb-[1.6rem] flex items-baseline gap-[1.2rem]">
-                <h2 className="text-[2rem] font-bold text-[var(--color-text-dark)]">
-                  {categoryName}
-                </h2>
-                <span className="inline-flex h-[2.4rem] min-w-[2.4rem] items-center justify-center rounded-full bg-[var(--color-primary)] px-[0.8rem] text-[1.2rem] font-semibold text-[var(--color-accent-text)]">
-                  {rows.length}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="ml-[0.4rem] h-[0.1rem] flex-1 bg-[rgba(184,105,58,0.18)]"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-[1.6rem] sm:grid-cols-3 lg:grid-cols-4 lg:gap-[2rem]">
-                {rows.map((s) => (
-                  <SweetCard
-                    key={s._id}
-                    id={s._id}
-                    name={s.name}
-                    image={
-                      s.image as unknown as
-                        | (SanityImageType & { alt?: string })
-                        | null
-                    }
-                    imageAlt={s.image?.alt ?? s.name}
-                  />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      )}
+      {sweets.length === 0 ? <EmptyState /> : <SweetsList sweets={sweets} />}
     </Container>
   )
 }

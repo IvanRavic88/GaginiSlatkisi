@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { compressImage } from '@/lib/admin/compress-image'
 
 interface Props {
   name: string
@@ -8,12 +9,22 @@ interface Props {
   required?: boolean
 }
 
+const MAX_INPUT_BYTES = 20 * 1024 * 1024 // 20 MB — phone photos can be this large; compression brings it way down
+
+function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
+}
+
 export function ImageUploader({ name, existingUrl, required }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(existingUrl ?? null)
   const [fileName, setFileName] = useState<string | null>(null)
+  const [sizeInfo, setSizeInfo] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isDragging, setIsDragging] = useState(false)
+  const [isProcessing, setIsProcessing] = useState(false)
 
   useEffect(() => {
     return () => {
@@ -21,26 +32,48 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
     }
   }, [previewUrl])
 
-  function acceptFile(file: File | undefined) {
+  async function acceptFile(file: File | undefined) {
     if (!file) return
     setError(null)
+
     if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
       setError('Format mora biti JPG, PNG ili WebP.')
       return
     }
-    if (file.size > 5 * 1024 * 1024) {
-      setError('Slika je veća od 5MB.')
+    if (file.size > MAX_INPUT_BYTES) {
+      setError(`Slika je veća od ${formatBytes(MAX_INPUT_BYTES)}.`)
       return
     }
-    if (previewUrl && previewUrl.startsWith('blob:')) URL.revokeObjectURL(previewUrl)
-    setPreviewUrl(URL.createObjectURL(file))
-    setFileName(file.name)
+
+    setIsProcessing(true)
+    try {
+      const { file: outFile, ratio } = await compressImage(file)
+
+      // Sync the actual file input so the form sends the optimized file
+      const dt = new DataTransfer()
+      dt.items.add(outFile)
+      if (inputRef.current) inputRef.current.files = dt.files
+
+      if (previewUrl && previewUrl.startsWith('blob:')) URL.revokeObjectURL(previewUrl)
+      setPreviewUrl(URL.createObjectURL(outFile))
+      setFileName(outFile.name)
+
+      if (ratio < 0.95) {
+        const saved = Math.round((1 - ratio) * 100)
+        setSizeInfo(`${formatBytes(outFile.size)} • optimizovana za ${saved}% manji upload`)
+      } else {
+        setSizeInfo(formatBytes(outFile.size))
+      }
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Slika nije mogla da se obradi.')
+    } finally {
+      setIsProcessing(false)
+    }
   }
 
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0]
-    acceptFile(file)
-    if (!file) return
+    void acceptFile(file)
   }
 
   function onDrop(event: React.DragEvent<HTMLDivElement>) {
@@ -48,11 +81,7 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
     setIsDragging(false)
     const file = event.dataTransfer.files?.[0]
     if (!file) return
-    // Sync the file input with dropped file so form submit includes it
-    const dt = new DataTransfer()
-    dt.items.add(file)
-    if (inputRef.current) inputRef.current.files = dt.files
-    acceptFile(file)
+    void acceptFile(file)
   }
 
   function clearPreview(event: React.MouseEvent) {
@@ -60,6 +89,7 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
     if (previewUrl && previewUrl.startsWith('blob:')) URL.revokeObjectURL(previewUrl)
     setPreviewUrl(null)
     setFileName(null)
+    setSizeInfo(null)
     setError(null)
     if (inputRef.current) inputRef.current.value = ''
   }
@@ -78,8 +108,9 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
       </span>
 
       <div
-        onClick={() => inputRef.current?.click()}
+        onClick={() => !isProcessing && inputRef.current?.click()}
         onKeyDown={(e) => {
+          if (isProcessing) return
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault()
             inputRef.current?.click()
@@ -87,20 +118,50 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
         }}
         onDragOver={(e) => {
           e.preventDefault()
-          setIsDragging(true)
+          if (!isProcessing) setIsDragging(true)
         }}
         onDragLeave={() => setIsDragging(false)}
         onDrop={onDrop}
         role="button"
-        tabIndex={0}
+        tabIndex={isProcessing ? -1 : 0}
         aria-label="Klikni ili prevuci sliku"
+        aria-busy={isProcessing}
         className={`group relative flex h-full min-h-[24rem] cursor-pointer flex-col items-center justify-center gap-[1rem] overflow-hidden rounded-[1.4rem] border-2 border-dashed bg-white p-[1.2rem] transition-all sm:min-h-[28rem] sm:gap-[1.2rem] sm:p-[1.6rem] lg:min-h-[36rem] ${
-          isDragging
-            ? 'border-[var(--color-accent)] bg-[var(--color-primary)]/40 shadow-[0_0_0_0.4rem_rgba(246,80,160,0.15)]'
-            : 'border-[rgba(184,105,58,0.3)] hover:border-[var(--color-accent)] hover:bg-[var(--color-primary)]/20'
+          isProcessing
+            ? 'cursor-wait border-[var(--color-primary-shade)] bg-[var(--color-primary)]/30'
+            : isDragging
+              ? 'border-[var(--color-accent)] bg-[var(--color-primary)]/40 shadow-[0_0_0_0.4rem_rgba(246,80,160,0.15)]'
+              : 'border-[rgba(184,105,58,0.3)] hover:border-[var(--color-accent)] hover:bg-[var(--color-primary)]/20'
         }`}
       >
-        {previewUrl ? (
+        {isProcessing ? (
+          <>
+            <div className="flex h-[6.4rem] w-[6.4rem] items-center justify-center rounded-full bg-[var(--color-primary)]/60">
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-[3rem] w-[3rem] animate-spin text-[var(--color-accent)]"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeDasharray="40 60"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <p className="font-[family-name:var(--font-caveat)] text-[2rem] leading-none text-[var(--color-caramel)] sm:text-[2.4rem]">
+              Optimizujem sliku…
+            </p>
+            <p className="text-center text-[1.2rem] text-[var(--color-caramel)]/70">
+              Skupljam je da brže pošaljem na sajt.
+            </p>
+          </>
+        ) : previewUrl ? (
           <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -117,8 +178,13 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
               ✕
             </button>
             {fileName && (
-              <span className="rounded-full bg-[var(--color-cream)] px-[1.2rem] py-[0.4rem] text-[1.2rem] text-[var(--color-caramel)]">
+              <span className="max-w-full truncate rounded-full bg-[var(--color-cream)] px-[1.2rem] py-[0.4rem] text-[1.2rem] text-[var(--color-caramel)]">
                 {fileName}
+              </span>
+            )}
+            {sizeInfo && (
+              <span className="text-center text-[1.15rem] text-[var(--color-caramel)]/60">
+                {sizeInfo}
               </span>
             )}
             <span className="text-[1.25rem] text-[var(--color-caramel)]/60">
@@ -159,11 +225,14 @@ export function ImageUploader({ name, existingUrl, required }: Props) {
                 Prevucite sliku ovde
               </p>
               <p className="mt-[0.6rem] text-[1.25rem] text-[var(--color-caramel)]/70 sm:text-[1.3rem]">
-                ili <span className="text-[var(--color-accent)] underline underline-offset-[0.3rem]">kliknite da izaberete</span>
+                ili{' '}
+                <span className="text-[var(--color-accent)] underline underline-offset-[0.3rem]">
+                  kliknite da izaberete
+                </span>
               </p>
             </div>
             <p className="text-center text-[1.1rem] text-[var(--color-caramel)]/50 sm:text-[1.15rem]">
-              JPG, PNG ili WebP • max 5MB
+              JPG, PNG ili WebP • automatska optimizacija
             </p>
           </>
         )}

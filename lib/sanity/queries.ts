@@ -82,3 +82,35 @@ export const HOMEPAGE_CATEGORIES_QUERY = defineQuery(`
     attributes
   }
 `)
+
+export const ALL_SWEETS_ADMIN_QUERY = defineQuery(`
+  *[_type == "sweet"] | order(category->name asc, name asc) {
+    _id,
+    name,
+    "slug": slug.current,
+    description,
+    image,
+    "categoryName": category->name,
+    "categoryId": category->_id
+  }
+`)
+
+export const SWEET_BY_ID_ADMIN_QUERY = defineQuery(`
+  *[_type == "sweet" && _id == $id][0] {
+    _id,
+    name,
+    "slug": slug.current,
+    description,
+    image,
+    "categoryId": category->_id,
+    order,
+    featured
+  }
+`)
+
+export const ADMIN_CATEGORIES_QUERY = defineQuery(`
+  *[_type == "category"] | order(name asc) {
+    _id,
+    name
+  }
+`)

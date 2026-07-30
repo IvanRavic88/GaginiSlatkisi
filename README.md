@@ -1,87 +1,81 @@
-# GaginiSlatkiši
+# GaginiSlatkisi
 
-Sajt poslastičarnice GaginiSlatkiši, Lazarevac. Next.js 16 + Sanity CMS + Tailwind CSS 4.
+Modern website for **GaginiSlatkisi**, a cake shop in Lazarevac, built with **Next.js 16**, **Sanity CMS**, and **Tailwind CSS 4**.
 
-> Migracija sa Flask + SQLite + EC2 verzije u toku. Stari Flask kod ostaje na `main` granci do konačnog cutover-a.
+> Migrated from the previous Flask + SQLite application.
 
-## Tehnologije
+## Tech Stack
 
-- **Framework:** Next.js 16 (App Router, RSC)
-- **Jezik:** TypeScript 5 (strict)
-- **Styling:** Tailwind CSS 4 (CSS-first config)
-- **CMS:** Sanity Studio v5 (embedovan na `/studio`)
-- **Email:** Resend (verifikovan domen + Server Action + React Email template)
-- **Bot zaštita:** Cloudflare Turnstile (managed widget + server-side siteverify)
-- **Validacija:** Zod (deljena shema klijent + server)
-- **Testovi:** Vitest (unit), Playwright (E2E)
-- **Hosting:** Vercel (dodaje se u Planu D)
+* **Framework:** Next.js 16 (App Router, React Server Components)
+* **Language:** TypeScript 5 (strict mode)
+* **Styling:** Tailwind CSS 4
+* **CMS:** Sanity Studio v5 (`/studio`)
+* **Email:** Resend + React Email
+* **Bot Protection:** Cloudflare Turnstile
+* **Validation:** Zod
+* **Testing:** Vitest + Playwright
+* **Deployment:** Vercel
 
-## Lokalni razvoj
+## Getting Started
 
-### Pre-rekviziti
+### Prerequisites
 
-- Node.js 22+ (zbog `node:sqlite` built-in modula koji koristi migracija)
-- Nalog na Sanity.io sa kreiranim projektom
+* Node.js 22+
+* A Sanity.io project
 
-### Setup
+### Installation
 
 ```bash
-# Kloniraj repo
 git clone https://github.com/IvanRavic88/GaginiSlatkisi.git
 cd GaginiSlatkisi
 git checkout nextjs-migration
 
-# Instaliraj deps
 npm install
 
-# Kopiraj env šablon i popuni vrednosti
 cp .env.local.example .env.local
-# Edituj .env.local sa Sanity Project ID, dataset, write token, itd.
+# Configure your environment variables
 
-# Migriraj postojeće slatkiše iz SQLite-a (jednom)
+# Run once if migrating from the legacy SQLite database
 npm run migrate
 
-# Pokreni dev server
 npm run dev
 ```
 
-Otvori:
+Open:
 
-- Sajt: http://localhost:3000
-- Sanity Studio: http://localhost:3000/studio
+* **Website:** http://localhost:3000
+* **Sanity Studio:** http://localhost:3000/studio
 
-### Skripte
+## Available Scripts
 
-- `npm run dev` — dev server
-- `npm run build` — produkcijski build
-- `npm run start` — produkcijski server (posle build-a)
-- `npm test` — Vitest unit testovi
-- `npm run test:e2e` — Playwright E2E testovi
-- `npm run lint` — ESLint
-- `npm run format` — Prettier auto-fix
-- `npm run typecheck` — TypeScript provera
-- `npm run sanity:typegen` — generiši TS tipove iz Sanity šema
-- `npm run migrate` — jednokratna migracija iz SQLite u Sanity
+| Command                  | Description                                   |
+| ------------------------ | --------------------------------------------- |
+| `npm run dev`            | Start the development server                  |
+| `npm run build`          | Build for production                          |
+| `npm run start`          | Start the production server                   |
+| `npm run lint`           | Run ESLint                                    |
+| `npm run format`         | Format the project with Prettier              |
+| `npm run typecheck`      | Run TypeScript type checking                  |
+| `npm run sanity:typegen` | Generate TypeScript types from Sanity schemas |
+| `npm test`               | Run Vitest unit tests                         |
+| `npm run test:e2e`       | Run Playwright end-to-end tests               |
+| `npm run migrate`        | Migrate data from SQLite to Sanity            |
 
-## Struktura
+## Project Structure
 
+```text
+app/            # Next.js App Router
+lib/sanity/     # Sanity client and GROQ queries
+sanity/         # Studio configuration and schemas
+scripts/        # Migration scripts
+tests/e2e/      # Playwright tests
 ```
-app/              # Next.js App Router
-sanity/           # Sanity šeme + Studio config
-lib/sanity/       # Sanity klijenti + GROQ upiti
-scripts/          # Migracioni skripti
-tests/e2e/        # Playwright testovi
-```
 
-## Lighthouse rezultati (lokalni produkcijski build, 2026-05-18)
+## Lighthouse
 
-| Stranica         | Performance | Accessibility | Best Practices | SEO |
-| ---------------- | ----------- | ------------- | -------------- | --- |
-| Home `/` Desktop | 95          | 96            | 100            | 100 |
-| Home `/` Mobile  | 79          | 96            | 100            | 100 |
+| Page           | Performance | Accessibility | Best Practices | SEO |
+| -------------- | ----------: | ------------: | -------------: | --: |
+| Home (Desktop) |          95 |            96 |            100 | 100 |
+| Home (Mobile)  |          79 |            96 |            100 | 100 |
 
-Mereno preko `npx lighthouse` (headless Chrome) nakon Faza 6 redizajna. Skorovi reflektuju home stranicu sa svim sekcijama (Hero sa Caveat akcent rečju, 9 SlatkisiGrid kartica iz Sanity-ja, 27 galerija slika iz Sanity-ja, Pricing sa 2 kartice + 4 feature, CTA forma sa floating labels + WhatsApp link, Footer).
-
-## Live
-
-Stara Flask verzija: https://www.gaginislatkisi.com/
+Measured locally using `npx lighthouse` on a production build.
